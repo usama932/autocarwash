@@ -14,7 +14,8 @@
                             <h3>Washing & Detailing</h3>
                             <h1>Keep your Car Newer</h1>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac
+                                2 steps wash including clay bar, Chamois Dry, Complete Interior and Boot Vacuum, 
+                                Make windows glare free and wheels cleaned.
                             </p>
                             <a class="btn btn-custom" href="">Explore More</a>
                         </div>
@@ -27,7 +28,8 @@
                             <h3>Washing & Detailing</h3>
                             <h1>Quality service for you</h1>
                             <p>
-                                Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis orci sodales
+                               Includes, clay bar wash, complete interior and exterior wax polish, 
+                               complete interior conditioning including leather and fabric seats.
                             </p>
                             <a class="btn btn-custom" href="">Explore More</a>
                         </div>
@@ -40,7 +42,7 @@
                             <h3>Washing & Detailing</h3>
                             <h1>Exterior & Interior Washing</h1>
                             <p>
-                                Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam
+                               This is extreme level or exterior detail with buff and polish with attention to detail, this service will remove minor scratches 
                             </p>
                             <a class="btn btn-custom" href="">Explore More</a>
                         </div>
@@ -67,7 +69,11 @@
                         </div>
                         <div class="about-content">
                             <p>
-                                Lorem ipsum dolor sit amet elit. In vitae turpis. Donec in hendre dui, vel blandit massa. Ut vestibu suscipi cursus. Cras quis porta nulla, ut placerat risus. Aliquam nec magna eget velit luctus dictum
+                              Fabric seats and floor steam clean with quality tools and chemicals, make your car mold, germs and marks free.
+                                <br>
+                                - Customer will get 5% off on 'car wash service' if they book through online app or website.
+                                <br>
+                                - Customer will get 10% off on 'car detail service' if they book through online app or website.
                             </p>
                             <ul>
                                 <li><i class="far fa-check-circle"></i>Seats washing</li>
@@ -96,14 +102,15 @@
                         <div class="service-item">
                             <i class="flaticon-car-wash-1"></i>
                             <h3>Exterior Washing</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Never use dish soap to wash your car. According to Consumer Reports, dish soap isn't formulated for use on a car's paint.
+                    .</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="service-item">
                             <i class="flaticon-car-wash"></i>
                             <h3>Interior Washing</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p> It can be used for cleaning different areas in the interior of a car such as hard surfaces, leather or vinyl seats, and fabric .</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -117,35 +124,39 @@
                         <div class="service-item">
                             <i class="flaticon-seat"></i>
                             <h3>Seats Washing</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>To clean the car seat cover and padding, either hand wash or machine wash on a gentle cycle,
+                             and then hang or lay flat to air dry to prevent shrinking or damage to the cover and safety labels.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="service-item">
                             <i class="flaticon-car-service"></i>
                             <h3>Window Wiping</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Wipe the windshield with a microfiber cloth in up-and-down and side-to-side motions to avoid streaks.
+                             Dry buff the window with a fresh microfiber cloth</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="service-item">
                             <i class="flaticon-car-service-2"></i>
                             <h3>Wet Cleaning</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>Soap and water usually work well. If you need a special cleaning product for vehicles,
+                             read the label carefully and be sure to use a non-toxic, biodegradable detergent.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="service-item">
                             <i class="flaticon-car-wash"></i>
                             <h3>Oil Changing</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>, vehicles are estimated to need an oil change every 3,000 miles or every six months. 
+                            This can vary based on your driving habits, your driving frequency, the age of your vehicle.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="service-item">
                             <i class="flaticon-brush-1"></i>
                             <h3>Brake Reparing</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <p>It will include flushing out the old brake fluid and replacing it with new fluid.</p>
                         </div>
                     </div>
                 </div>
@@ -154,50 +165,7 @@
         <!-- Service End -->
         
         
-        <!-- Facts Start -->
-        <div class="facts" data-parallax="scroll" data-image-src="{{asset('assets/img/facts.jpg')}}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="facts-item">
-                            <i class="fa fa-map-marker-alt"></i>
-                            <div class="facts-text">
-                                <h3 data-toggle="counter-up">25</h3>
-                                <p>Service Points</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="facts-item">
-                            <i class="fa fa-user"></i>
-                            <div class="facts-text">
-                                <h3 data-toggle="counter-up">350</h3>
-                                <p>Engineers & Workers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="facts-item">
-                            <i class="fa fa-users"></i>
-                            <div class="facts-text">
-                                <h3 data-toggle="counter-up">1500</h3>
-                                <p>Happy Clients</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="facts-item">
-                            <i class="fa fa-check"></i>
-                            <div class="facts-text">
-                                <h3 data-toggle="counter-up">5000</h3>
-                                <p>Projects Completed</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Facts End -->
+        
         
         
         <!-- Price Start -->
@@ -209,27 +177,29 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="price-item">
-                            <div class="price-header">
-                                <h3>Basic Cleaning</h3>
-                                <h2><span>$</span><strong>25</strong><span>.99</span></h2>
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                                    <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                                    <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                                    <li><i class="far fa-times-circle"></i>Interior Wet Cleaning</li>
-                                    <li><i class="far fa-times-circle"></i>Window Wiping</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-                                <a class="btn btn-custom" href="">Book Now</a>
+                       <div class="card m-2">
+                            <div class="price-item">
+                                <div class="price-header">
+                                    <h3>Basic Cleaning</h3>
+                                    <h2><span>$</span><strong>25</strong><span>.99</span></h2>
+                                </div>
+                                <div class="price-body">
+                                    <ul>
+                                        <li><i class="far fa-check-circle"></i>Seats Washing</li>
+                                        <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
+                                        <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
+                                        <li><i class="far fa-times-circle"></i>Interior Wet Cleaning</li>
+                                        <li><i class="far fa-times-circle"></i>Window Wiping</li>
+                                    </ul>
+                                </div>
+                                <div class="price-footer">
+                                    <a class="btn btn-custom" href="">Book Now</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card">
+                       <div class="card m-2">
                             <div class="price-item ">
                                 <div class="price-header">
                                     <h3>Premium Cleaning</h3>
@@ -251,42 +221,46 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="price-item">
-                            <div class="price-header">
-                                <h3>Complex Cleaning</h3>
-                                <h2><span>$</span><strong>49</strong><span>.99</span></h2>
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                                    <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                                    <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                                    <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
-                                    <li><i class="far fa-check-circle"></i>Window Wiping</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-                                <a class="btn btn-custom" href="">Book Now</a>
+                        <div class="card m-2">
+                            <div class="price-item">
+                                <div class="price-header">
+                                    <h3>Complex Cleaning</h3>
+                                    <h2><span>$</span><strong>49</strong><span>.99</span></h2>
+                                </div>
+                                <div class="price-body">
+                                    <ul>
+                                        <li><i class="far fa-check-circle"></i>Seats Washing</li>
+                                        <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
+                                        <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
+                                        <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
+                                        <li><i class="far fa-check-circle"></i>Window Wiping</li>
+                                    </ul>
+                                </div>
+                                <div class="price-footer">
+                                    <a class="btn btn-custom" href="">Book Now</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                      <div class="col-md-4">
-                        <div class="price-item">
-                            <div class="price-header">
-                                <h3>Complex Cleaning</h3>
-                                <h2><span>$</span><strong>49</strong><span>.99</span></h2>
-                            </div>
-                            <div class="price-body">
-                                <ul>
-                                    <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                                    <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                                    <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                                    <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
-                                    <li><i class="far fa-check-circle"></i>Window Wiping</li>
-                                </ul>
-                            </div>
-                            <div class="price-footer">
-                                <a class="btn btn-custom" href="">Book Now</a>
+                        <div class="card m-2">
+                            <div class="price-item">
+                                <div class="price-header">
+                                    <h3>Complex Cleaning</h3>
+                                    <h2><span>$</span><strong>49</strong><span>.99</span></h2>
+                                </div>
+                                <div class="price-body">
+                                    <ul>
+                                        <li><i class="far fa-check-circle"></i>Seats Washing</li>
+                                        <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
+                                        <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
+                                        <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
+                                        <li><i class="far fa-check-circle"></i>Window Wiping</li>
+                                    </ul>
+                                </div>
+                                <div class="price-footer">
+                                    <a class="btn btn-custom" href="">Book Now</a>
+                                </div>
                             </div>
                         </div>
                     </div>
