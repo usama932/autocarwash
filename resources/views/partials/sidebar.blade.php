@@ -37,26 +37,26 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('vehicles.index')}}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Vehicle</span>
                 </a>
             </li>
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{route('customers.index')}}"">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Customers</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Bookings</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{route('teams.index')}}"">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Team</span>
                 </a>

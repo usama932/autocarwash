@@ -4,12 +4,9 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Team;
-use App\Models\Service;
-use Auth;
- 
-class TeamController extends Controller
+use App\Models\Vehicle;
+
+class VehicleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +15,8 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::all();
-        return view('admin.team.index',compact('teams'));
+        $vehicles = Vehicle::all();
+        return view('admin.vehicle.index',compact('vehicles'));
     }
 
     /**
@@ -40,19 +37,12 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        $team = Team::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'sex' => $request->sex,
-            'dob' => $request->dob,
-            'mobile' => $request->mobile,
-            'phone' => $request->phone, 
-            'address' => $request->address, 
-            'join_date' => $request->join_date, 
-            'status' => $request->status, 
-            'post' => $request->post,
+        $vehicles = Vehicle::create([
+            'name' => $request->anme,
+            'type' => $request->type,
+            'model' => $request->model,
         ]);
-        return redirect()->route('teams.index')->with('success',"Team Created Successfully");  
+        return redirect()->route('vehicles.index')->with('success',"Vehicles Created Successfully");     
     }
 
     /**
@@ -86,19 +76,12 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $team = Team::where('id',$id)->update([
+        $vehicles = Vehicle::where('id',$id)->update([
             'name' => $request->name,
-            'email' => $request->email,
-            'sex' => $request->sex,
-            'dob' => $request->dob,
-            'mobile' => $request->mobile,
-            'phone' => $request->phone, 
-            'address' => $request->address, 
-            'join_date' => $request->join_date, 
-            'status' => $request->status, 
-            'post' => $request->post,
+            'type' => $request->type,
+            'model' => $request->model,
         ]);
-        return redirect()->route('teams.index')->with('success',"Team Updated Successfully");  
+        return redirect()->route('vehicles.index')->with('success',"Vehicles Updated Successfully");     
     }
 
     /**
@@ -109,15 +92,16 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        $team = Team::find($id);
-        if(!empty($team)){
-            $team->delete();
-            return redirect()->route('teams.index')->with('danger',"Team Deleted Successfully");  
+          $vehicles = Vehicle::find($id);
+          
+        if(!empty($vehicles)){
+            $vehicles->delete();
+            return redirect()->route('vehicles.index')->with('danger',"Vehicles deleted Successfully");    
         }
         else
         {
-            return redirect()->route('teams.index')->with('danger',"Something went wrong"); 
-        }
-       
+            return redirect()->route('vehicles.index')->with('danger',"Something went wrong");    
+            
+        } 
     }
 }

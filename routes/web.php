@@ -5,6 +5,8 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ServiceController;
 use App\Http\Controllers\frontend\TeamController;
 use App\Http\Controllers\frontend\BookingController;
+use App\Http\Controllers\frontend\VehicleController;
+use App\Http\Controllers\frontend\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,9 @@ Route::post('/web-login' ,[HomeController::class, 'web_login'] )->name('web.logi
 Auth::routes();
 Route::group(['middleware' => ['admin']], function () {
     Route::resource('services', ServiceController::class);
+    Route::resource('teams', TeamController::class);
+    Route::resource('vehicles', VehicleController::class);
+    Route::resource('customers', CustomerController::class);
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
