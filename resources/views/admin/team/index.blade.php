@@ -83,7 +83,7 @@
     <div class="modal-content">
       <div class="card">
         <div class="card-header">
-            <h6 class=" mb-0 text-gray-800">Add Vehicle</h6>
+            <h6 class=" mb-0 text-gray-800">Add Team</h6>
         </div>
         <div class="card-body">
             <form action="{{route('teams.store')}}" method="post"  enctype="multipart/form-data">
@@ -155,7 +155,7 @@
         <div class="modal-content">
         <div class="card">
             <div class="card-header">
-                <h6 class=" mb-0 text-gray-800">Edit Vehicle</h6>
+                <h6 class=" mb-0 text-gray-800">Edit Team</h6>
             </div>
             <div class="card-body">
                 <form action="{{route('teams.update',$team->id )}}" method="post"  enctype="multipart/form-data">
