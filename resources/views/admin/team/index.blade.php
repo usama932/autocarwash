@@ -159,7 +159,7 @@
             </div>
             <div class="card-body">
                 <form action="{{route('teams.update',$team->id )}}" method="post"  enctype="multipart/form-data">
-                    @method('put')
+                        @method('put')
                     @csrf
                     <div class="row flex">
                         <div class="col-md-6 mb-3">
