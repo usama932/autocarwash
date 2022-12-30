@@ -80,6 +80,7 @@ class ServiceController extends Controller
             'name' =>$request->name ,
             'description' =>$request->description ,
             'vehicle' =>$request->vehicle ,
+            'price' =>$request->price ,
             'washing_plan_1'=> $request->washing_plan_1,  
             'washing_plan_2'=> $request->washing_plan_2,
             'washing_plan_3' =>$request->washing_plan_3,

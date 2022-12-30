@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('vehicle')->nullable();
+            $table->string('price')->nullable();
             $table->string('washing_plan_1')->nullable();
             $table->string('washing_plan_2')->nullable();
             $table->string('washing_plan_3')->nullable();

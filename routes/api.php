@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\HomeController;
+use App\Http\Controllers\api\ServiceController;
 
 
 /*
@@ -16,10 +17,13 @@ use App\Http\Controllers\api\HomeController;
 |
 */
 Route::post('login', [HomeController::class, 'login']);
-Route::post('/signup', [AuthController::class, 'sign_up']);
+Route::post('/signup', [HomeController::class, 'sign_up']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
-   
+    Route::get('services',[ServiceController::class, 'index']);
+    Route::post('store_services',[ServiceController::class, 'store']);
+    Route::post('update_services/{id}',[ServiceController::class, 'update']);
+    Route::post('delete_services/{id}',[ServiceController::class, 'delete']);
     
 });

@@ -25,11 +25,16 @@ Route::get('/contact' ,[HomeController::class, 'contact'] )->name('contact');
 Route::post('/web-login' ,[HomeController::class, 'web_login'] )->name('web.login');
 
 Auth::routes();
+// Admin
 Route::group(['middleware' => ['admin']], function () {
     Route::resource('services', ServiceController::class);
     Route::resource('teams', TeamController::class);
     Route::resource('vehicles', VehicleController::class);
     Route::resource('customers', CustomerController::class);
+});
+// User
+Route::group(['middleware' => ['user']], function () {
+
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

@@ -45,6 +45,7 @@ class HomeController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'mobile' => $request->mobile,   
             'roled' => 'user'
         ]);
 
