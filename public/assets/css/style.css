@@ -46,7 +46,7 @@ a:focus {
 }
 
 .btn.btn-custom:hover {
-    color: #00417b ;
+    color: #ffffff ;
     background: #4169E1;
     box-shadow: inset 200px 0 0 0 #4169E1;
 }
@@ -519,7 +519,7 @@ a:focus {
     margin-bottom: 45px;
     padding: 90px 0;
     text-align: center;
-    background: #4169E1;
+    background: #000;
     border-top: 1px dotted #ffffff;
 }
 
@@ -642,7 +642,9 @@ a:focus {
     margin: 0;
     font-size: 45px;
     font-weight: 700;
+    font-family: Bedrock;
     text-transform: capitalize;
+    color:#000
 }
 
 @media (max-width: 991.98px) {
@@ -723,7 +725,7 @@ a:focus {
 }
 
 .service .service-item i {
-    color: #4169E1;
+    color: #000;
     font-size: 75px;
     line-height: 75px;
     margin-bottom: 20px;
@@ -733,7 +735,7 @@ a:focus {
     margin: 0;
     font-size: 60px;
     line-height: 60px;
-    background-image: linear-gradient(#00417b , #4169E1);
+    background-image: linear-gradient(#000 , #000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: .5s;
@@ -742,6 +744,8 @@ a:focus {
 .service .service-item h3 {
     margin-bottom: 10px;
     font-size: 20px;
+    color:#000;
+    font-family: BackBed;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -1154,6 +1158,8 @@ a:focus {
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 5px;
+    font-family: Bedrock;
+    color:#000;
 }
 
 .testimonial .testimonial-text h4 {
