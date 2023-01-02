@@ -1351,7 +1351,7 @@ a:focus {
     margin-bottom: 45px;
     padding: 35px 30px 10px 30px;
     border-radius: 5px;
-    background: #4169E1;
+    background: #000;
     
 }
 
@@ -1359,6 +1359,7 @@ a:focus {
     color: #ffffff;
     font-size: 25px;
     font-weight: 700;
+    font-family: Bedrock;
     margin-bottom: 30px;
 }
 
@@ -1381,7 +1382,7 @@ a:focus {
 
 .contact .contact-info-icon i {
     margin: 0;
-    color: #4169E1;
+    color: #000;
     font-size: 16px;
 }
 
@@ -1394,6 +1395,7 @@ a:focus {
     color: #ffffff;
     font-size: 18px;
     font-weight: 700;
+    font-family: Bedrock;
     letter-spacing: 1px;
 }
 
@@ -1402,6 +1404,7 @@ a:focus {
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
+    font-family: Bedrock;
 }
 
 .contact .contact-form {
