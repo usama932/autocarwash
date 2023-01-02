@@ -18,7 +18,9 @@
                                     </div>
                                     <div class="top-bar-text">
                                         <h3>Opening Hour</h3>
-                                        <p>Mon - Fri, 8:00 - 9:00</p>
+                                        <p>Mon-Sun (8:30 - 7:00) 
+                                       </p>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -29,7 +31,7 @@
                                     </div>
                                     <div class="top-bar-text">
                                         <h3>Call Us</h3>
-                                        <p>+012 345 6789</p>
+                                        <p>0410096313</p>
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +42,7 @@
                                     </div>
                                     <div class="top-bar-text">
                                         <h3>Email Us</h3>
-                                        <p>info@example.com</p>
+                                        <p>info@auto1carwash.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -62,10 +64,10 @@
 
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
-                            <a href="{{route('about')}}" class="nav-item nav-link">About</a>
-                            <a href="{{route('service')}}" class="nav-item nav-link">Service</a>                     
-                            <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
+                            <a href="{{route('home')}}" class="nav-item nav-link {{ Route::is('home') ? 'active' : '' }}">Home</a>
+                            <a href="{{route('about')}}" class="nav-item nav-link  {{ Route::is('about') ? 'active' : '' }}">About</a>
+                            <a href="{{route('service')}}" class="nav-item nav-link  {{ Route::is('service') ? 'active' : '' }}">Service</a>                     
+                            <a href="{{route('contact')}}" class="nav-item nav-link  {{ Route::is('contact') ? 'active' : '' }}">Contact</a>
                         </div>
                         <div class="ml-auto">
                             <a class="btn btn-custom" href="#">Get Appointment</a>

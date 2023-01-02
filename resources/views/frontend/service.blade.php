@@ -6,11 +6,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Service</h2>
+                        <h1>Services</h1>
                     </div>
                     <div class="col-12">
-                        <a href="">Home</a>
-                        <a href="">Service</a>
+                      <h2>We offer complete car care in great price and through our loyalty system you can keep track of your washes.
+                        So don’t think too much and visit us.
+                        </h2>
                     </div>
                 </div>
             </div>
