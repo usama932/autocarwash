@@ -38,7 +38,7 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         $vehicles = Vehicle::create([
-            'name' => $request->anme,
+            'name' => $request->name,
             'type' => $request->type,
             'model' => $request->model,
         ]);
