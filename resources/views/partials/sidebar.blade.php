@@ -19,16 +19,9 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
         
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            {{-- <div class="sidebar-heading">
-                Addons
-            </div> --}}
-
+          
            
-
+            @if(auth()->user()->roled == 'admin')
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="{{route('services.index')}}">
@@ -67,6 +60,21 @@
                     <span>Booking Reports</span>
                 </a>
             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{{route('bookings.index')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Booking Reports</span>
+                </a>
+            </li>
+            @endif
+            @if(auth()->user()->roled == 'user')
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('user_booking.index')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Bookings</span>
+                </a>
+            </li>
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -75,7 +83,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            <!-- Sidebar Message -->
+           
            
 
         </ul>

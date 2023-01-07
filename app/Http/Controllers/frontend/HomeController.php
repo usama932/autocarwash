@@ -32,9 +32,9 @@ class HomeController extends Controller
                 
                 return view('admin.dashboard');
             }
-            elseif($user->roled == 'customer')
+            elseif($user->roled == 'user')
             {
-                return "dfsd";
+                return view('admin.dashboard');
             }
             
             else{

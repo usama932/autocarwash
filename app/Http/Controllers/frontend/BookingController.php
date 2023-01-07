@@ -4,9 +4,12 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\Team;
 use App\Models\Service;
+use App\Models\Vehicle;
+use App\Models\Bookings;
 use Auth;
 
 
@@ -19,14 +22,12 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::pluck('id','name');
+        $vehicles = Vehicle::pluck('id','name');
+        $bookings = Bookings::where('user_id',auth()->user()->id)->get();
+        return view('users.bookings.index',compact('bookings','vehicles','services'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
@@ -40,7 +41,25 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'service_id'=>'required',
+            'vehicle_type'      => 'required',
+            'vehicle_no'        => 'required', 
+            'appointment_date'  => 'required',  
+
+         ]);
+       $booking = Bookings::create([
+        'user_id'           => auth()->user()->id,
+        'vehicle_type'      => $request->vehicle_type,
+        'vehicle_no'        => $request->vehicle_no,
+        'appointment_date'  => $request->appointment_date,
+        'time_frame'        => $request->time_frame,
+        'approx_hour'       => $request->approx_hour,
+        'booked_by'         => auth()->user()->name,
+        'status'            => 'pending',
+        'service_id'        =>  $request->service_id,
+       ]);
+       return redirect()->route('user_bookings.index')->with('success',"Service Created Successfully");
     }
 
     /**
@@ -74,7 +93,25 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'service_id'=>'required',
+            'vehicle_type'      => 'required',
+            'vehicle_no'        => 'required', 
+            'appointment_date'  => 'required',  
+
+         ]);
+        $service = Service::where('id',$id)->update([
+            'user_id'           => auth()->user()->id,
+            'vehicle_type'      => $request->vehicle_type,
+            'vehicle_no'        => $request->vehicle_no,
+            'appointment_date'  => $request->appointment_date,
+            'time_frame'        => $request->time_frame,
+            'approx_hour'       => $request->approx_hour,
+            'booked_by'         => auth()->user()->name,
+            'status'            => $request->status,
+            'service_id'        => $request->service_id,
+           ]);
+        return redirect()->route('user_bookings.index')->with('success',"Service Updated Successfully");
     }
 
     /**
@@ -85,6 +122,16 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $booking = Bookings::find($id);
+      
+        if(!empty($booking)){
+            $booking->delete();
+            return redirect()->route('user_booking.index')->with('danger','Deleted Succesfully');
+        }
+        else
+        {
+            return redirect()->route('user_booking.index')->with('danger','Something went wrong');
+            
+        }
     }
 }

@@ -5,8 +5,11 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ServiceController;
 use App\Http\Controllers\frontend\TeamController;
 use App\Http\Controllers\frontend\BookingController;
+use App\Http\Controllers\frontend\BookingsReportController;
 use App\Http\Controllers\frontend\VehicleController;
 use App\Http\Controllers\frontend\CustomerController;
+use App\Http\Controllers\frontend\ProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,10 +34,16 @@ Route::group(['middleware' => ['admin']], function () {
     Route::resource('teams', TeamController::class);
     Route::resource('vehicles', VehicleController::class);
     Route::resource('customers', CustomerController::class);
+    Route::resource('bookings', BookingsReportController::class);
+    Route::get('/admin-profile', [ProfileController::class, 'index'])->name('admin_profile');
+    Route::post('/update-admin-profile', [ProfileController::class, 'update_profile'])->name('admin_profile.update');
 });
 // User
 Route::group(['middleware' => ['user']], function () {
+    Route::resource('user_booking', BookingController::class);
 
+    Route::get('/user-profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/update-user-profile', [ProfileController::class, 'update_profile'])->name('profile.update');
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
