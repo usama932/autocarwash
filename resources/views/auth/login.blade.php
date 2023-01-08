@@ -58,7 +58,7 @@
                                 </button>
 
                                 
-                                    <a class="btn btn-link" href="{{ route('registert') }}">
+                                    <a class="btn btn-link" href="{{ route('register') }}">
                                        Make New Account
                                     </a>
                                 
