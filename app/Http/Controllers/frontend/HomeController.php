@@ -48,5 +48,28 @@ class HomeController extends Controller
         
        
     }
+    public function front_login(Request $request){
+        
+        $credentials = $request->only('email', 'password');
+       
+        if(Auth::attempt($credentials))
+        {
+            $user = User::where('email',$request->email)->first();
+            if($user->roled == 'user')
+            {
+                return back();
+            }
+            
+            else{
+                return "404";
+            }
+        }
+        else{
+            return redirect()->back()->with('success','Unauthroized user'); 
+        }
+        
+        
+       
+    }
 
 }

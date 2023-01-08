@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="container copyright">
-                <p>&copy; <a href="#"><i>Auto-1 Carwash</i></a>, All Right Reserved <a href="#">E-Galaxy</a></p>
+                <p>@All rights reserved by <a href="#"><i>Auto-1 Carwash</i></a>, Developed by : <a href="#">E-Galaxy Technologies Solutions</a></p>
             </div>
         </div>
         <!-- Footer End -->
@@ -91,7 +91,137 @@
         <div id="loader" class="show">
             <div class="loader"></div>
         </div>
+         <div class="modal fade bd-login-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class=" mb-0 text-gray-800">Login</h6>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('front.login') }}">
+                        @csrf
 
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class=" mb-0 text-gray-800">Add Booking</h6>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{route('user_booking.store')}}" method="post">
+                            @csrf
+                            <div class="row flex">
+                                <div class="col-md-6 mb-3">
+                                    <label for="">Vehicle Type</label>
+                                    <input type="text" class="form-control" name="vehicle_type" placeholder="Vehicle" >
+                                    {{-- <select class="form-control" name="vehicle">
+                                        @foreach ($vehicles as $vehicle)
+                                            <option class-"form-control" value="{{$vehicle->name}}">{{$vehicle->name}}</option>
+                                        @endforeach
+                                    </select> --}}
+
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="">Services</label>
+                                    <select class="form-control" name="service_id">
+                                        @foreach ($services as $key => $service)
+                                            <option class-"form-control" value="{{$service}}">{{$key}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="">Time Frame</label>
+                                    <select class="form-control" name="time_frame" >
+                                        <option class-"form-control" value="Morning">Morning</option>
+                                        <option class-"form-control" value="Afternoon">Afternoon</option>
+                                        <option class-"form-control" value="Evening">Evening</option>
+                                    </select>
+                                </div>
+                        
+                                <div class="col-md-6 mb-3">
+                                    <label for="">Vehicle No</label>
+                                    <input type="text" class="form-control" name="vehicle_no" placeholder="Vehicle No" >
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="">Appointment Date</label>
+                                    <input type="date" class="form-control"  name="appointment_date" placeholder="Appointment Date">
+                                </div>
+                                    <div class="col-md-6 mb-3">
+                                    <label for="">Appox Time</label>
+                                    <input type="text" class="form-control"  name="appox_hour" placeholder="eg : 1hour" >
+                                </div>
+                            
+                            </div>
+                            <div class="text-right mb-2">
+                                <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -106,5 +236,7 @@
 
         <!-- Template Javascript -->
         <script src="{{asset('assets/js/main.js')}}"></script>
+
+
     </body>
 </html>

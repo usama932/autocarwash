@@ -3,7 +3,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4 col-md-12">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="{{route('home')}}">
                                 <h1><img src="{{asset('assets/img/logo.png')}}" alt='auto1carwash'></h1>
                                 <!-- <img src="img/logo.jpg" alt="Logo"> -->
                             </a>
@@ -69,10 +69,21 @@
                             <a href="{{route('service')}}" class="nav-item nav-link  {{ Route::is('service') ? 'active' : '' }}">Service</a>                     
                             <a href="{{route('contact')}}" class="nav-item nav-link  {{ Route::is('contact') ? 'active' : '' }}">Contact</a>
                         </div>
-                        <div class="ml-auto">
-                            <a class="btn btn-custom" href="#">Get Appointment</a>
-                        </div>
+                        @if(Auth::check()) 
+                            @if(auth()->user()->roled == 'user')
+                                <div class="ml-auto">
+                                <a class="btn btn-custom"  data-toggle="modal" data-target=".bd-example-modal-lg" >Get Appointment</a>
+                                </div>
+                            @endif
+                        @else
+                            <div class="ml-auto">
+                                <a class="btn btn-custom"  data-toggle="modal" data-target=".bd-login-modal-lg" >Get Appointment</a>
+                            </div>
+                        @endif
+
+                       
                     </div>
                 </nav>
             </div>
         </div>
+        
