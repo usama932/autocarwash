@@ -24,7 +24,7 @@ class BookingsReportController extends Controller
         $users = User::where('roled','!=','admin')->get(); 
         $services = Service::pluck('id','name');
         $vehicles = Vehicle::pluck('id','name');
-        $bookings = Bookings::all();
+        $bookings = Bookings::with('service','user','vehicle');
         return view('admin.bookings.index',compact('bookings','vehicles','services','users'));
     }
 
