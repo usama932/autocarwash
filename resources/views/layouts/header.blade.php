@@ -13,15 +13,15 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="top-bar-item">
-                                    <div class="top-bar-icon">
+                                    {{-- <div class="top-bar-icon">
                                         <i class="far fa-clock"></i>
-                                    </div>
-                                    <div class="top-bar-text">
+                                    </div> --}}
+                                    {{-- <div class="top-bar-text">
                                         <h3>Opening Hour</h3>
                                         <p>Mon-Sun (8:30 - 7:00) 
                                        </p>
                                        
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="col-4">
@@ -81,6 +81,11 @@
                             </div>
                         @endif
 
+                            @if(Auth::check())
+                                 <a href="{{route('dashboard')}}" class="text-right mx-5 p-2  rounded-pill btn btn-warning ">Dashboard</a>
+                            @else
+                                 <a href="{{route('login')}}" class="text-white ml-5 font-weight-bold">Login</a>
+                            @endif
                        
                     </div>
                 </nav>

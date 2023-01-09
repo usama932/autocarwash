@@ -14,4 +14,12 @@ class Vehicle extends Model
         'model',
         
     ];
+    public function service()
+    {
+        return $this->hasMany(Service::class,'vehicle_id', 'id');
+    }
+    public function booking()
+    {
+        return $this->hasMany(Bookings::class,'vehicle_id', 'id');
+    }
 }

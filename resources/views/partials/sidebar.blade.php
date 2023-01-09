@@ -54,12 +54,7 @@
                     <span>Team</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Booking Reports</span>
-                </a>
-            </li>
+            
              <li class="nav-item">
                 <a class="nav-link" href="{{route('bookings.index')}}">
                     <i class="fas fa-fw fa-table"></i>

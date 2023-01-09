@@ -25,7 +25,7 @@ class BookingController extends Controller
         $services = Service::pluck('id','name');
         $vehicles = Vehicle::pluck('id','name');
         $bookings = Bookings::where('user_id',auth()->user()->id)->get();
-        return view('users.bookings.index',compact('bookings','vehicles','services'));
+        return view('admin.bookings.index',compact('bookings','vehicles','services'));
     }
 
     public function create()

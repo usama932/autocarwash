@@ -33,17 +33,12 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-contact">
-                            <h2>Get In Touch</h2>
-                            <p><i class="fa fa-map-marker-alt"></i>Red Car Parking, near to main food court, Campbell Street, Westfield Liverpool, Sydney 2170</p>
-                            <p><i class="fa fa-phone-alt"></i>0410096313</p>
-                            <p><i class="fa fa-envelope"></i>info@auto1Carwash.com</p>
-                            <div class="footer-social">
-                                <a class="btn" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn" href=""><i class="fab fa-youtube"></i></a>
-                                <a class="btn" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                            <div class="logo">
+                            <a href="{{route('home')}}">
+                                <h1><img src="{{asset('assets/img/logo.png')}}" alt='auto1carwash' style="margin:auto; ;height:90px !important;"></h1>
+                                <!-- <img src="img/logo.jpg" alt="Logo"> -->
+                            </a>
+                        </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -58,24 +53,32 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <h2>Useful Links</h2>
-                            <a href="">Terms of use</a>
-                            <a href="">Privacy policy</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <h2>Opening Hours</h2>
+                            <a href="">Monday (08:30am  05:30pm)</a>
+                            <a href="">Tuesday (08:30am  05:30pm)</a>
+                            <a href="">Wedesday (08:30am  05:30pm)</a>
+                            <a href="">Thursday (8:30 - 7:00)</a>
+                            <a href="">Friday (08:30am  07:00pm)</a>
+                            <a href="">Saturday (08:30am  05:30pm)</a>
+                            <a href="">Sunday (09:00am  05:00pm)</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="footer-newsletter">
-                            <h2>Newsletter</h2>
-                            <form>
-                                <input class="form-control" placeholder="Full Name">
-                                <input class="form-control" placeholder="Email">
-                                <button class="btn btn-custom">Submit</button>
-                            </form>
+                        <div class="footer-contact">
+                            <h2>Get In Touch</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>Red Car Parking, near to main food court, Campbell Street, Westfield Liverpool, Sydney 2170</p>
+                            <p><i class="fa fa-phone-alt"></i>0410096313</p>
+                            <p><i class="fa fa-envelope"></i>info@auto1Carwash.com</p>
+                            <div class="footer-social">
+                                <a class="btn" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn" href=""><i class="fab fa-youtube"></i></a>
+                                <a class="btn" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
+                   
                 </div>
             </div>
             <div class="container copyright">

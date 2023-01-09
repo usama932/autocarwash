@@ -30,8 +30,9 @@ Route::post('/front-login' ,[HomeController::class, 'front_login'] )->name('fron
 
 Auth::routes();
 // Admin
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+   
     Route::resource('services', ServiceController::class);
     Route::resource('teams', TeamController::class);
     Route::resource('vehicles', VehicleController::class);
@@ -42,7 +43,7 @@ Route::group(['middleware' => ['admin']], function () {
 });
 // User
 Route::group(['middleware' => ['user']], function () {
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+   
     Route::resource('user_booking', BookingController::class);
 
     Route::get('/user-profile', [ProfileController::class, 'index'])->name('profile');

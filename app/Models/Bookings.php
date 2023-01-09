@@ -12,4 +12,16 @@ class Bookings extends Model
         'user_id', 'vehicle_type', 'vehicle_no', 'appointment_date', 'time_frame', 'approx_hour', 'booked_by', 'status', 'remarks',
         'service_id'
     ];
+    public function service()
+    {
+        return $this->belongsTo(Service::class,'service_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+    public function vehicle()
+    {
+        return $this->belongsTo(Vehicle::class,'vehicle_id');
+    }
 }
