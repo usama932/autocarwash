@@ -42,7 +42,7 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'service_id'=>'required',
+            'service'=>'required',
             'vehicle_type'      => 'required',
             'vehicle_no'        => 'required', 
             'appointment_date'  => 'required',  
@@ -50,6 +50,7 @@ class BookingController extends Controller
          ]);
        $booking = Bookings::create([
         'user_id'           => auth()->user()->id,
+        'user'              => auth()->user()->name,
         'vehicle_type'      => $request->vehicle_type,
         'vehicle_no'        => $request->vehicle_no,
         'appointment_date'  => $request->appointment_date,
@@ -57,7 +58,7 @@ class BookingController extends Controller
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
         'status'            => 'pending',
-        'service_id'        =>  $request->service_id,
+        'service'           =>  $request->service,
        ]);
        return redirect()->route('user_bookings.index')->with('success',"Service Created Successfully");
     }
@@ -94,7 +95,7 @@ class BookingController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'service_id'=>'required',
+            'service'=>'required',
             'vehicle_type'      => 'required',
             'vehicle_no'        => 'required', 
             'appointment_date'  => 'required',  

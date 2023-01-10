@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('user');
+            $table->string('user_id')->nullable();
+            $table->string('user')->nullable();
             $table->string('vehicle_type')->nullable();
             $table->string('vehicle_no')->nullable();
             $table->string('appointment_date')->nullable();
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('booked_by')->nullable();
             $table->string('status')->nullable();
             $table->string('remarks')->nullable();
-            $table->string('service_id');
+            $table->string('service_id')->nullable();
             $table->timestamps();
         });
     }

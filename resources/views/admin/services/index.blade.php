@@ -37,8 +37,7 @@
                                         </tr>
                                     </thead>
                                     <tfoot>
-                                        <th>Name</th>
-                                             
+                                        <th>Name</th>  
                                             <th>Price</th>
                                             <th>Vehicle</th>
                                             <th>Action</th>
@@ -47,7 +46,6 @@
                                        @foreach($services as $service)
                                             <tr>
                                                 <td>{{$service->name}}</td>
-                                                
                                                 <td>{{$service->price}}</td>
                                                 <td>{{$service->vehicle}}</td>
                                                 <td><div class="flex">
@@ -86,7 +84,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle</label>
-                        <select class="form-control" name="vehicle_id">
+                        <select class="form-control" name="vehicle">
                           @foreach ($vehicles as $key => $vehicle)
                                 <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
@@ -135,7 +133,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Vehicle</label>
-                            <select class="form-control" name="vehicle_id">
+                            <select class="form-control" name="vehicle">
                             @foreach ($vehicles as $key => $vehicle)
                                 <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach

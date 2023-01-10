@@ -99,9 +99,9 @@
                 <div class="row flex">
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle Type</label>
-                        <select class="form-control" name="user_id">
+                        <select class="form-control" name="user">
                             @foreach ($users as $user)
-                                <option class-"form-control" value="{{$user->id}}">{{$user->name}}</option>
+                                <option class-"form-control" value="{{$user->name}}">{{$user->name}}</option>
                             @endforeach
                         </select>
 
@@ -109,18 +109,18 @@
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle Type</label>
                         
-                        <select class="form-control" name="vehicle_id">
-                            @foreach ($vehicles as $vehicle)
-                                <option class-"form-control" value="{{$vehicle}}">{{$key}}</option>
+                        <select class="form-control" name="vehicle">
+                            @foreach ($vehicles as $key => $vehicle)
+                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
                         </select>
 
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Services</label>
-                        <select class="form-control" name="service_id">
+                        <select class="form-control" name="service">
                             @foreach ($services as $key => $service)
-                                <option class-"form-control" value="{{$service}}">{{$key}}</option>
+                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -182,18 +182,19 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle Type</label>
-                        <select class="form-control" name="vehicle_id">
+                        <select class="form-control" name="vehicle_type">
+                        <option class-"form-control" value="please ">--Select--</option>
                             @foreach ($vehicles as $key => $vehicle)
-                                <option class-"form-control" value="{{$vehicle}}">{{$key}}</option>
+                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
                         </select>
 
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Services</label>
-                        <select class="form-control" name="service_id" >
+                        <select class="form-control" name="service" >
                             @foreach ($services as $key => $service)
-                                <option class-"form-control" value="{{$service}}">{{$key}}</option>
+                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
                         </select>
                     </div>

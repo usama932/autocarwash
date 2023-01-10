@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('vehicle')->nullable();
             $table->string('price')->nullable();
-            $table->string('vehicle_id');
+            $table->string('vehicle_id')->nullable();
             $table->timestamps();
         });
     }

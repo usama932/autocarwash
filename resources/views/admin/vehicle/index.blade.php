@@ -46,7 +46,7 @@
                                             <tr>
                                                 <td>{{$vehicle->name}}</td>
                                                 <td>{{$vehicle->type}}</td>
-                                                <td>{{$vehicle->washing_plan_2}}</td>
+                                               
                                                 <td>{{$vehicle->model}}</td>
                                             
                                                 <td><div class="flex">

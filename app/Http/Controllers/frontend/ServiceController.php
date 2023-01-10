@@ -20,8 +20,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::with('vehicle')->get();
-       dd($services);
+        $services = Service::all();
+      
         $vehicles = Vehicle::pluck('id','name');
         return view('admin.services.index',compact('services','vehicles'));
     }
@@ -44,6 +44,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+       
         $service= Service::create($request->all());
         return redirect()->route('services.index')->with('success',"Service Created Successfully");     
     }
@@ -84,10 +85,6 @@ class ServiceController extends Controller
             'description' =>$request->description ,
             'vehicle' =>$request->vehicle ,
             'price' =>$request->price ,
-            'washing_plan_1'=> $request->washing_plan_1,  
-            'washing_plan_2'=> $request->washing_plan_2,
-            'washing_plan_3' =>$request->washing_plan_3,
-            'washing_plan_4' => $request->washing_plan_4,
         ]);
         return redirect()->route('services.index')->with('success',"Service Updated Successfully");    
     }
