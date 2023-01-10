@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Bookings</h1>
+        <h1 class="h3 mb-0 text-gray-800"></h1>
     </div>
        <!-- Page Heading -->
                     @if ($message = Session::get('success'))
@@ -43,8 +43,10 @@
                                             <th>Vehicle No#</th>
                                             <th>Service</th>
                                             <th>Appointment Date</th>
+                                             <th>Appox Hour</th>
+                                            <th>Time Frame</th>
                                             <th>Status</th> 
-                                            <th>Action</th>
+                                            {{-- <th>Action</th> --}}
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -53,9 +55,11 @@
                                         <th>Vehicle No#</th>
                                         <th>Service</th>
                                         <th>Appointment Date</th>
+                                        <th>Appox Hour</th>
+                                        <th>Time Frame</th>
                                         <th>Status</th>
                                       
-                                        <th>Action</th>
+                                        {{-- <th>Action</th> --}}
                                     </tfoot>
                                     <tbody>
                                        @foreach($bookings as $booking)
@@ -65,17 +69,19 @@
                                                 <td>{{$booking->vehicle_no}}</td>
                                                 <td>{{$booking->service}}</td>
                                                 <td>{{$booking->appointment_date}}</td>
-                                                <td>{{$booking->washing_plan_4}}</td>
+                                                <td>{{$booking->approx_hour}}</td>
+                                                 <td>{{$booking->time_frame}}</td>
                                                 <td>{{$booking->status}}</td>
-                                                <td><div class="flex">
+                                                {{-- <td>
+                                                <div class="flex">
                                                     <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$booking->id}}"><i class="fas fa-edit"></i></button>
                                                     <form action="{{ route('bookings.destroy', $booking->id) }}" method="POST">
                                                         @method('DELETE')
                                                         @csrf
                                                          <button type="submit" class="btn btn-sm" data-toggle="modal" data-target=".deletemodal{{$booking->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                                     </form>
-                                                   </div>
-                                                </td>
+                                                </div>
+                                                </td> --}}
                                             </tr>
                                         @endforeach
                                       
@@ -99,19 +105,19 @@
                 <div class="row flex">
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle Type</label>
-                        <input type="text" class="form-control" name="vehicle_type" placeholder="Vehicle" >
-                        {{-- <select class="form-control" name="vehicle">
-                            @foreach ($vehicles as $vehicle)
-                                <option class-"form-control" value="{{$vehicle->name}}">{{$vehicle->name}}</option>
+                        
+                        <select class="form-control" name="vehicle_type">
+                            @foreach ($vehicles as $key => $vehicle)
+                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
-                        </select> --}}
-
+                        </select>
+ 
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Services</label>
-                        <select class="form-control" name="service_id">
+                        <select class="form-control" name="service">
                             @foreach ($services as $key => $service)
-                                <option class-"form-control" value="{{$service}}">{{$key}}</option>
+                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -134,7 +140,7 @@
                     </div>
                         <div class="col-md-6 mb-3">
                         <label for="">Appox Time</label>
-                        <input type="text" class="form-control"  name="appox_hour" placeholder="eg : 1hour" >
+                        <input type="text" class="form-control"  name="approx_hour" placeholder="eg : 1hour" >
                     </div>
                    
                 </div>
@@ -149,7 +155,7 @@
 </div>
 {{-- EndModal    --}}
 {{-- Edit Modal --}}
-@foreach($bookings as $booking)
+{{-- @foreach($ as $booking)
     <div class="modal fade editmodal{{$booking->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -162,44 +168,56 @@
                 @method('put')
                 @csrf
                 <div class="row flex">
+                     
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle Type</label>
-                        <input type="text" class="form-control" name="vehicle_type" placeholder="Vehicle"  >
-                        {{-- <select class="form-control" name="vehicle">
-                            @foreach ($vehicles as $vehicle)
-                                <option class-"form-control" value="{{$vehicle->name}}">{{$vehicle->name}}</option>
+                        <select class="form-control" name="vehicle_type">
+                        <option class-"form-control" value="please ">--Select Option--</option>
+                            @foreach ($vehicles as $key => $vehicle)
+                                <option class-"form-control" value="{{$key}}"  {{ $key ==$booking->vehicle_type ? 'selected' : '' }}>{{$key}}</option>
                             @endforeach
-                        </select> --}}
+                        </select>
 
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Services</label>
-                        <select class="form-control" name="service_id" >
+                        <select class="form-control" name="service" >
+                        <option class-"form-control" value="please ">--Select Option--</option>
                             @foreach ($services as $key => $service)
-                                <option class-"form-control" value="{{$service}}">{{$key}}</option>
+                                <option class-"form-control" value="{{$key}}"  {{ $key == $booking->vehicle_type ? 'selected' : '' }}>{{$key}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Time Frame</label>
                         <select class="form-control" name="time_frame"  >
-                            <option class-"form-control" value="Morning">Morning</option>
-                            <option class-"form-control" value="Afternoon">Afternoon</option>
-                            <option class-"form-control" value="Evening">Evening</option>
+                        <option class-"form-control" value="please ">--Select Option--</option>
+                            <option class-"form-control" value="Morning" {{ 'Morning' == $booking->time_frame ? 'selected' : '' }}>Morning</option>
+                            <option class-"form-control" value="Afternoon" {{ 'Afternoon' == $booking->time_frame ? 'selected' : '' }}>Afternoon</option>
+                            <option class-"form-control" value="Evening" {{ 'Evening' == $booking->time_frame ? 'selected' : '' }}>Evening</option>
+                        </select>
+                    </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="">Status</label>
+                        <select class="form-control" name="status"  >
+                        <option class-"form-control" value="please ">--Select Option--</option>
+                            <option class-"form-control" value="Pending" {{ 'Pending' == $booking->time_frame ? 'selected' : '' }}>Pending</option>
+                            <option class-"form-control" value="Cancel" {{ 'Cancel' == $booking->time_frame ? 'selected' : '' }}>Cancel</option>
+                            <option class-"form-control" value="Complete" {{ 'Complete' == $booking->time_frame ? 'selected' : '' }}>Complete</option>
                         </select>
                     </div>
                
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle No</label>
-                        <input type="text" class="form-control" name="vehicle_no" placeholder="Vehicle No"  >
+                        <input type="text" class="form-control" name="vehicle_no" placeholder="Vehicle No" value="{{$booking->vehicle_no}}" >
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Appointment Date</label>
-                        <input type="date" class="form-control"  name="appointment_date" placeholder="Appointment Date">
+                        <input type="date" class="form-control"  name="appointment_date" placeholder="Appointment Date" value="{{$booking->appointment_date}}">
                     </div>
                         <div class="col-md-6 mb-3">
                         <label for="">Appox Time</label>
-                        <input type="text" class="form-control"  name="appox_hour" placeholder="eg : 1hour"  >
+                        <input type="text" class="form-control"  name="approx_hour" placeholder="eg : 1hour" value="{{$booking->approx_hour}}" >
                     </div>
                    
                 </div>
@@ -212,7 +230,7 @@
         </div>
     </div>
     </div>
-@endforeach
+@endforeach --}}
 {{-- EndModal    --}}
 {{-- Edit Modal --}}
 

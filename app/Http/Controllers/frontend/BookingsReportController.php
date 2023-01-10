@@ -24,7 +24,7 @@ class BookingsReportController extends Controller
         $users = User::where('roled','!=','admin')->get(); 
         $services = Service::pluck('id','name');
         $vehicles = Vehicle::pluck('id','name');
-        $bookings = Bookings::with('service','user','vehicle');
+        $bookings = Bookings::all();
         return view('admin.bookings.index',compact('bookings','vehicles','services','users'));
     }
 
@@ -66,7 +66,7 @@ class BookingsReportController extends Controller
         'status'            => 'pending',
         'service'           =>  $request->service,
        ]);
-       return redirect()->route('user_bookings.index')->with('success',"Service Created Successfully");
+       return redirect()->route('bookings.index')->with('success',"Service Created Successfully");
     }
 
     /**
@@ -100,7 +100,26 @@ class BookingsReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+           $this->validate($request,[
+            'service'=>'required',
+            'user'=>'required',
+            'vehicle_type'      => 'required',
+            'vehicle_no'        => 'required', 
+            'appointment_date'  => 'required',  
+
+         ]);
+       $booking = Bookings::where('id',$id)->update([
+        'user'              => $request->user,
+        'vehicle_type'      => $request->vehicle_type,
+        'vehicle_no'        => $request->vehicle_no,
+        'appointment_date'  => $request->appointment_date,
+        'time_frame'        => $request->time_frame,
+        'approx_hour'       => $request->approx_hour,
+        'booked_by'         => auth()->user()->name,
+        'status'            => $request->status,
+        'service'           =>  $request->service,
+       ]);
+       return redirect()->route('bookings.index')->with('success',"Service Updated   Successfully");
     }
 
     /**
@@ -111,6 +130,17 @@ class BookingsReportController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $booking = Bookings::find($id);
+      
+        if(!empty($booking)){
+            $booking->delete();
+            return redirect()->route('bookings.index')->with('danger','Deleted Succesfully');
+        }
+        else
+        {
+            return redirect()->route('bookings.index')->with('danger','Something went wrong');
+            
+        }
     }
 }

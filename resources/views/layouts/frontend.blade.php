@@ -175,19 +175,19 @@
                             <div class="row flex">
                                 <div class="col-md-6 mb-3">
                                     <label for="">Vehicle Type</label>
-                                    <input type="text" class="form-control" name="vehicle_type" placeholder="Vehicle" >
-                                    {{-- <select class="form-control" name="vehicle">
+                                    
+                                    <select class="form-control" name="vehicle_type">
                                         @foreach ($vehicles as $vehicle)
                                             <option class-"form-control" value="{{$vehicle->name}}">{{$vehicle->name}}</option>
                                         @endforeach
-                                    </select> --}}
-
+                                    </select>
+            
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="">Services</label>
-                                    <select class="form-control" name="service_id">
+                                    <select class="form-control" name="service">
                                         @foreach ($services as $key => $service)
-                                            <option class-"form-control" value="{{$service}}">{{$key}}</option>
+                                            <option class-"form-control" value="{{$service->name}}">{{$service->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -210,7 +210,7 @@
                                 </div>
                                     <div class="col-md-6 mb-3">
                                     <label for="">Appox Time</label>
-                                    <input type="text" class="form-control"  name="appox_hour" placeholder="eg : 1hour" >
+                                    <input type="text" class="form-control"  name="approx_hour" placeholder="eg : 1hour" >
                                 </div>
                             
                             </div>

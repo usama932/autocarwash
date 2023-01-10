@@ -25,7 +25,7 @@ class BookingController extends Controller
         $services = Service::pluck('id','name');
         $vehicles = Vehicle::pluck('id','name');
         $bookings = Bookings::where('user_id',auth()->user()->id)->get();
-        return view('admin.bookings.index',compact('bookings','vehicles','services'));
+        return view('users.bookings.index',compact('bookings','vehicles','services'));
     }
 
     public function create()
@@ -41,6 +41,7 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
+      
         $this->validate($request,[
             'service'=>'required',
             'vehicle_type'      => 'required',
@@ -60,7 +61,7 @@ class BookingController extends Controller
         'status'            => 'pending',
         'service'           =>  $request->service,
        ]);
-       return redirect()->route('user_bookings.index')->with('success',"Service Created Successfully");
+       return redirect()->route('user_booking.index')->with('success',"Service Created Successfully");
     }
 
     /**
@@ -110,7 +111,7 @@ class BookingController extends Controller
             'approx_hour'       => $request->approx_hour,
             'booked_by'         => auth()->user()->name,
             'status'            => $request->status,
-            'service_id'        => $request->service_id,
+            'service'        => $request->service,
            ]);
         return redirect()->route('user_bookings.index')->with('success',"Service Updated Successfully");
     }

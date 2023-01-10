@@ -149,7 +149,7 @@
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="">Description</label>
-                            <textarea class="form-control" id="editor" name="description" >{{$service->description}}"</textarea>
+                            <textarea class="form-control" id="editor1" name="description" >{{$service->description}}"</textarea>
                         
                         </div>
                     
