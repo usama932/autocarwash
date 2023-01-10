@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('booked_by')->nullable();
             $table->string('status')->nullable();
             $table->string('remarks')->nullable();
-            $table->string('service_id')->nullable();
+            $table->string('service')->nullable();
             $table->timestamps();
         });
     }

@@ -45,7 +45,8 @@ class BookingsReportController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+       
         $this->validate($request,[
             'service'=>'required',
             'user'=>'required',

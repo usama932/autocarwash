@@ -109,12 +109,12 @@
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle Type</label>
                         
-                        <select class="form-control" name="vehicle">
+                        <select class="form-control" name="vehicle_type">
                             @foreach ($vehicles as $key => $vehicle)
                                 <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
                         </select>
-
+ 
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Services</label>
@@ -172,7 +172,7 @@
                 @csrf
                 <div class="row flex">
                       <div class="col-md-6 mb-3">
-                        <label for="">Vehicle Type</label>
+                        <label for="">Customers</label>
                         <select class="form-control" name="user_id">
                             @foreach ($users as $user)
                                 <option class-"form-control" value="{{$user->id}}">{{$user->name}}</option>
