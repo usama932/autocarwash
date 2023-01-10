@@ -19,8 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('vehicle')->nullable();
             $table->string('price')->nullable();
-            $table->unsignedBigInteger('vehicle_id');
-            $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
+            $table->string('vehicle_id');
             $table->timestamps();
         });
     }

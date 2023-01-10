@@ -30,20 +30,16 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Include Washing Plan 1</th>
-                                            <th>Include Washing Plan 2</th>
-                                            <th>Include Washing Plan 3</th>
-                                            <th>Include Washing Plan 4</th>
+                                           
+                                            <th>Price</th>
                                             <th>Vehicle</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <th>Name</th>
-                                            <th>Include Washing Plan 1</th>
-                                            <th>Include Washing Plan 2</th>
-                                            <th>Include Washing Plan 3</th>
-                                            <th>Include Washing Plan 4</th>
+                                             
+                                            <th>Price</th>
                                             <th>Vehicle</th>
                                             <th>Action</th>
                                     </tfoot>
@@ -51,11 +47,9 @@
                                        @foreach($services as $service)
                                             <tr>
                                                 <td>{{$service->name}}</td>
-                                                <td>{{$service->washing_plan_1}}</td>
-                                                <td>{{$service->washing_plan_2}}</td>
-                                                <td>{{$service->washing_plan_3}}</td>
-                                                <td>{{$service->washing_plan_4}}</td>
-                                                <td>{{$service->vehicle}}</td>
+                                                
+                                                <td>{{$service->price}}</td>
+                                                <td>{{$service->vehicle->id}}</td>
                                                 <td><div class="flex">
                                                     <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$service->id}}"><i class="fas fa-edit"></i></button>
                                                     <form action="{{ route('services.destroy', $service->id) }}" method="POST">
@@ -92,35 +86,21 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle</label>
-                        <select class="form-control" name="vehicle">
-                            <option class-"form-control">Car</option>
-                            <option class-"form-control">Truck</option>
-                            <option class-"form-control">Wagon</option>
+                        <select class="form-control" name="vehicle_id">
+                          @foreach ($vehicles as $key => $vehicle)
+                                <option class-"form-control" value="{{$vehicle}}">{{$key}}</option>
+                            @endforeach
+                                
                         </select>
                     </div>
                 
-               
                     <div class="col-md-6 mb-3">
-                        <label for="">Include Washing #1</label>
-                        <input type="text" class="form-control" name="washing_plan_1" placeholder="Include Washing #1">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="">Include Washing #2</label>
-                        <input type="text" class="form-control"  name="washing_plan_2" placeholder="Include Washing #2">
-                    </div>
-               
-                
-                    <div class="col-md-6 mb-3">
-                        <label for="">Include Washing #3</label>
-                        <input type="text" class="form-control" name="washing_plan_3" placeholder="Include Washing #3">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="">Include Washing #4</label>
-                        <input type="text" class="form-control"  name="washing_plan_4" placeholder="Include Washing #4">
+                        <label for="">Price</label>
+                        <input type="text" class="form-control"  name="price" placeholder="Price">
                     </div>
                      <div class="col-md-12 mb-3">
                         <label for="">Description</label>
-                        <textarea class="form-control" name="description" >Something about Your service</textarea>
+                        <textarea class="form-control" id="editor" name="description" >Something about Your service</textarea>
                        
                     </div>
                    
@@ -155,35 +135,23 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Vehicle</label>
-                            <select class="form-control" name="vehicle">
-                                <option class-"form-control">Car</option>
-                                <option class-"form-control">Truck</option>
-                                <option class-"form-control">Wagon</option>
+                            <select class="form-control" name="vehicle_id">
+                            @foreach ($vehicles as $key => $vehicle)
+                                <option class-"form-control" value="{{$vehicle}}">{{$key}}</option>
+                            @endforeach
+                                
+                               
                             </select>
                         </div>
                     
                 
                         <div class="col-md-6 mb-3">
-                            <label for="">Include Washing #1</label>
-                            <input type="text" class="form-control" name="washing_plan_1" value="{{$service->washing_plan_1}}" placeholder="Include Washing #1">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="">Include Washing #2</label>
-                            <input type="text" class="form-control"  name="washing_plan_2" value="{{$service->washing_plan_2}}" placeholder="Include Washing #2">
-                        </div>
-                
-                    
-                        <div class="col-md-6 mb-3">
-                            <label for="">Include Washing #3</label>
-                            <input type="text" class="form-control" name="washing_plan_3" value="{{$service->washing_plan_3}}"  placeholder="Include Washing #3">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="">Include Washing #4</label>
-                            <input type="text" class="form-control"  name="washing_plan_4" value="{{$service->washing_plan_4}}" placeholder="Include Washing #4">
+                            <label for="">Price</label>
+                            <input type="text" class="form-control"  name="price" value="{{$service->price}}" placeholder="Price">
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="">Description</label>
-                            <textarea class="form-control" name="description" >{{$service->description}}"</textarea>
+                            <textarea class="form-control" id="editor" name="description" >{{$service->description}}"</textarea>
                         
                         </div>
                     
@@ -204,4 +172,5 @@
 
 @endsection
 @push('scripts')
+
 @endpush('scripts')

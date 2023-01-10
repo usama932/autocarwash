@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Team;
 use App\Models\Service;
+use App\Models\Vehicle;
 use Auth;
 
 
@@ -19,8 +20,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
-        return view('admin.services.index',compact('services'));
+        $services = Service::with('vehicle')->get();
+       dd($services);
+        $vehicles = Vehicle::pluck('id','name');
+        return view('admin.services.index',compact('services','vehicles'));
     }
 
     /**

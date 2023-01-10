@@ -21,7 +21,7 @@
     <link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
        <!-- Custom styles for this page -->
     <link href="{{asset('admin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
 </head>
 
 <body id="page-top">
@@ -135,7 +135,13 @@
     </div>
 
     @include('partials.scripts')
-
+     <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 </body>
 
 </html>

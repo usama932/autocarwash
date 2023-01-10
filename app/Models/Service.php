@@ -4,19 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Service extends Model
 {
     use HasFactory;
+    // use SoftDeletes;
     protected $fillable = [
-        'name', 'description','vehicle_id','price', 'washing_plan_1', 'washing_plan_2', 'washing_plan_3','washing_plan_4'
+        'name', 'description','vehicle_id','price','vehicle',
     ];
-    public function booking()
-    {
-        return $this->hasMany(Bookings::class,'service_id', 'id');
-    }
-    public function vehicle()
-    {
-        return $this->belongsTo(Vehicle::class,'service_id');
-    }
+    // public function booking()
+    // {
+    //     return $this->hasMany(Bookings::class,'service_id', 'id');
+    // }
+    // public function vehicle()
+    // {
+    //     return $this->belongsTo(related: Vehicle::class);
+    // }
 }
