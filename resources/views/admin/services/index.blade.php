@@ -49,7 +49,7 @@
                                                 <td>{{$service->name}}</td>
                                                 
                                                 <td>{{$service->price}}</td>
-                                                <td>{{$service->vehicle->id}}</td>
+                                                <td>{{$service->vehicle}}</td>
                                                 <td><div class="flex">
                                                     <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$service->id}}"><i class="fas fa-edit"></i></button>
                                                     <form action="{{ route('services.destroy', $service->id) }}" method="POST">
@@ -88,7 +88,7 @@
                         <label for="">Vehicle</label>
                         <select class="form-control" name="vehicle_id">
                           @foreach ($vehicles as $key => $vehicle)
-                                <option class-"form-control" value="{{$vehicle}}">{{$key}}</option>
+                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
                                 
                         </select>
@@ -137,7 +137,7 @@
                             <label for="">Vehicle</label>
                             <select class="form-control" name="vehicle_id">
                             @foreach ($vehicles as $key => $vehicle)
-                                <option class-"form-control" value="{{$vehicle}}">{{$key}}</option>
+                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
                                 
                                
