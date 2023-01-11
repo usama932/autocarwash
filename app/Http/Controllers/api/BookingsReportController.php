@@ -27,14 +27,6 @@ class BookingsReportController extends Controller
     public function store(Request $request)
     {   
        
-        $this->validate($request,[
-            'service'=>'required',
-            'user'=>'required',
-            'vehicle_type'      => 'required',
-            'vehicle_no'        => 'required', 
-            'appointment_date'  => 'required',  
-
-         ]);
        $booking = Bookings::create([
         'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
@@ -55,14 +47,7 @@ class BookingsReportController extends Controller
     }
     public function update(Request $request, $id)
     {
-           $this->validate($request,[
-            'service'=>'required',
-            'user'=>'required',
-            'vehicle_type'      => 'required',
-            'vehicle_no'        => 'required', 
-            'appointment_date'  => 'required',  
-
-         ]);
+         
        $booking = Bookings::where('id',$id)->update([
         'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
@@ -82,7 +67,7 @@ class BookingsReportController extends Controller
         
         return response()->json($res, 200);
     }
-    public function destroy($id)
+    public function delete($id)
     {
         
         $booking = Bookings::find($id);

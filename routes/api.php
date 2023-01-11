@@ -8,7 +8,7 @@ use App\Http\Controllers\api\TeamController;
 use App\Http\Controllers\api\CustomerController;
 use App\Http\Controllers\api\VehicleController;
 use App\Http\Controllers\api\BookingsReportController;
-
+use App\Http\Controllers\api\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -39,8 +39,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('store_customers',[CustomerController::class, 'store']);
     Route::post('update_customers/{id}',[CustomerController::class, 'update']);
     Route::post('delete_customers/{id}',[CustomerController::class, 'delete']);
+
     // Vehicle
-    
     Route::get('vehicles',[VehicleController::class, 'index']);
     Route::post('store_vehicles',[VehicleController::class, 'store']);
     Route::post('update_vehicles/{id}',[VehicleController::class, 'update']);
@@ -51,5 +51,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('store_bookings',[BookingsReportController::class, 'store']);
     Route::post('update_bookings/{id}',[BookingsReportController::class, 'update']);
     Route::post('delete_bookings/{id}',[BookingsReportController::class, 'delete']);
+
+    // Profile
+    Route::get('/profile', [ProfileController::class, 'index']);
+    Route::post('/update-profile', [ProfileController::class, 'update_profile']);
     
 });
