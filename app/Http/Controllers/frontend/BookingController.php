@@ -95,25 +95,7 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'service'=>'required',
-            'vehicle_type'      => 'required',
-            'vehicle_no'        => 'required', 
-            'appointment_date'  => 'required',  
-
-         ]);
-        $service = Service::where('id',$id)->update([
-            'user_id'           => auth()->user()->id,
-            'vehicle_type'      => $request->vehicle_type,
-            'vehicle_no'        => $request->vehicle_no,
-            'appointment_date'  => $request->appointment_date,
-            'time_frame'        => $request->time_frame,
-            'approx_hour'       => $request->approx_hour,
-            'booked_by'         => auth()->user()->name,
-            'status'            => $request->status,
-            'service'        => $request->service,
-           ]);
-        return redirect()->route('user_bookings.index')->with('success',"Service Updated Successfully");
+       
     }
 
     /**

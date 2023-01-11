@@ -7,7 +7,7 @@ use App\Http\Controllers\api\ServiceController;
 use App\Http\Controllers\api\TeamController;
 use App\Http\Controllers\api\CustomerController;
 use App\Http\Controllers\api\VehicleController;
-
+use App\Http\Controllers\api\BookingsReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +45,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('store_vehicles',[VehicleController::class, 'store']);
     Route::post('update_vehicles/{id}',[VehicleController::class, 'update']);
     Route::post('delete_vehicles/{id}',[VehicleController::class, 'delete']);
+
+    // Bookings
+    Route::get('bookings',[BookingsReportController::class, 'index']);
+    Route::post('store_bookings',[BookingsReportController::class, 'store']);
+    Route::post('update_bookings/{id}',[BookingsReportController::class, 'update']);
+    Route::post('delete_bookings/{id}',[BookingsReportController::class, 'delete']);
     
 });

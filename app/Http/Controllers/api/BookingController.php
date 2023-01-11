@@ -4,6 +4,14 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use App\Models\Team;
+use App\Models\Service;
+use App\Models\Vehicle;
+use App\Models\Bookings;
+use Auth;
+
 
 class BookingController extends Controller
 {
@@ -14,7 +22,12 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $bookings = Bookings::where('user_id',auth()->user()->id)->get();
+        $res = [
+            'bookings' => $bookings,
+           
+        ];
+        return response()->json($res, 200);
     }
 
     /**
@@ -35,7 +48,31 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'service'=>'required',
+            'vehicle_type'      => 'required',
+            'vehicle_no'        => 'required', 
+            'appointment_date'  => 'required',  
+
+         ]);
+       $booking = Bookings::create([
+        'user_id'           => auth()->user()->id,
+        'user'              => auth()->user()->name,
+        'vehicle_type'      => $request->vehicle_type,
+        'vehicle_no'        => $request->vehicle_no,
+        'appointment_date'  => $request->appointment_date,
+        'time_frame'        => $request->time_frame,
+        'approx_hour'       => $request->approx_hour,
+        'booked_by'         => auth()->user()->name,
+        'status'            => 'pending',
+        'service'           =>  $request->service,
+       ]);
+       $res = [
+        'booking' => $booking,
+        'message' => 'booking created succesfully',
+       
+    ];
+    return response()->json($res, 200);
     }
 
     /**
