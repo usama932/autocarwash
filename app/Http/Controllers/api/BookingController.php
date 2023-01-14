@@ -48,13 +48,7 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'service'=>'required',
-            'vehicle_type'      => 'required',
-            'vehicle_no'        => 'required', 
-            'appointment_date'  => 'required',  
-
-         ]);
+       
        $booking = Bookings::create([
         'user_id'           => auth()->user()->id,
         'user'              => auth()->user()->name,

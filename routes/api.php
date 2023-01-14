@@ -8,7 +8,9 @@ use App\Http\Controllers\api\TeamController;
 use App\Http\Controllers\api\CustomerController;
 use App\Http\Controllers\api\VehicleController;
 use App\Http\Controllers\api\BookingsReportController;
+use App\Http\Controllers\api\BookingController;
 use App\Http\Controllers\api\ProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,6 +25,7 @@ Route::post('login', [HomeController::class, 'login']);
 Route::post('/signup', [HomeController::class, 'sign_up']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::group(['middleware' => ['admin']], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     // Services
     Route::get('services',[ServiceController::class, 'index']);
@@ -51,9 +54,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('store_bookings',[BookingsReportController::class, 'store']);
     Route::post('update_bookings/{id}',[BookingsReportController::class, 'update']);
     Route::post('delete_bookings/{id}',[BookingsReportController::class, 'delete']);
-
+});
     // Profile
     Route::get('/profile', [ProfileController::class, 'index']);
     Route::post('/update-profile', [ProfileController::class, 'update_profile']);
-    
+    Route::group(['middleware' => ['user']], function () {
+        Route::get('user_bookings',[BookingController::class, 'index']);
+        Route::post('user_store_bookings',[BookingController::class, 'store']);
+    }); 
 });
