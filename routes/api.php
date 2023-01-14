@@ -61,7 +61,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::group(['middleware' => ['user']], function () {
         Route::get('user_bookings',[BookingController::class, 'index']);
         Route::post('user_store_bookings',[BookingController::class, 'store']);
-        Route::get('services',[ServiceController::class, 'index']);
         Route::get('vehicles',[VehicleController::class, 'index']);
+        Route::get('services',[ServiceController::class, 'index']);
+       
     }); 
 });
