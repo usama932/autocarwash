@@ -1,5 +1,42 @@
 @extends('layouts.admin')
 @section('content')
+<style>
+    .rating {
+    float:left;
+    border:none;
+    }
+    .rating:not(:checked) > input {
+        position:absolute;
+        top:-9999px;
+        clip:rect(0, 0, 0, 0);
+    }
+    .rating:not(:checked) > label {
+        float:right;
+        width:1em;
+        padding:0 .1em;
+        overflow:hidden;
+        white-space:nowrap;
+        cursor:pointer;
+        font-size:200%;
+        line-height:1.2;
+        color:#ddd;
+    }
+    .rating:not(:checked) > label:before {
+        content:'★ ';
+    }
+    .rating > input:checked ~ label {
+        color: #f70;
+    }
+    .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
+        color: gold;
+    }
+    .rating > input:checked + label:hover, .rating > input:checked + label:hover ~ label, .rating > input:checked ~ label:hover, .rating > input:checked ~ label:hover ~ label, .rating > label:hover ~ input:checked ~ label {
+        color: #ea0;
+    }
+    .rating > label:active {
+        position:relative;
+    }
+</style>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"></h1>
     </div>
@@ -74,7 +111,7 @@
                                                 <td>{{$booking->approx_hour}}</td>
                                                 <td>{{$booking->discount}}</td>
                                                  <td>{{$booking->time_frame}}</td>
-                                                <td>{{$booking->status}}</td>
+                                                <td> @if($booking->status == 'Complete') <button class="badge badge-success" data-toggle="modal" data-target=".bd-review-modal-lg{{$booking->id}}">Rating</button> @endif <br> {{$booking->status}}</td>
                                                 {{-- <td>
                                                 <div class="flex">
                                                     <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$booking->id}}"><i class="fas fa-edit"></i></button>
@@ -101,6 +138,9 @@
       <div class="card">
         <div class="card-header">
             <h6 class=" mb-0 text-gray-800">Add Booking</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="card-body">
             <form action="{{route('user_booking.store')}}" method="post">
@@ -239,7 +279,53 @@
 @endforeach --}}
 {{-- EndModal    --}}
 {{-- Edit Modal --}}
+@foreach($bookings as $booking)
+<div class="modal fade bd-review-modal-lg{{$booking->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="card">
+        <div class="card-header">
+            <h6 class=" mb-0 text-gray-800">Give Review</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="card-body">
+            <form method="post" action="#">
+                @csrf
+                <input type="hidden" name="service" value="">
+               
+                <div class="col-md-12 mb-3">
+                    <label>Give Rating</label>
+                    <br>
+                    <fieldset class="rating">
+                        <input type="radio" id="star5" name="rating" value="5" />
+                        <label for="star5">5 stars</label>
+                        <input type="radio" id="star4" name="rating" value="4" />
+                        <label for="star4">4 stars</label>
+                        <input type="radio" id="star3" name="rating" value="3" />
+                        <label for="star3">3 stars</label>
+                        <input type="radio" id="star2" name="rating" value="2" />
+                        <label for="star2">2 stars</label>
+                        <input type="radio" id="star1" name="rating" value="1" />
+                        <label for="star1">1 star</label>
+                    </fieldset>
+                </div>
+                <br>
+                <label class='text-start'>Remarks</label>
+                <div class="col-md-12 mb-3">
+                    
+                    <textarea class="form-control" id="editor" name="remarks" >Remarks</textarea>
+                </div>
 
+            </form
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+@endforeach
 @endsection
 @push('scripts')
 @endpush('scripts')
