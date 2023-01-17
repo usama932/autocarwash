@@ -49,7 +49,7 @@
                                                 <td>{{$service->name}}</td>
                                                 <td>{{$service->price}}</td>
                                                 <td>{{$service->vehicle}}</td>
-                                                <td>{!! $service->vehicle !!}</td>
+                                                <td>{!! $service->description !!}</td>
                                                 <td><div class="flex">
                                                     <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$service->id}}"><i class="fas fa-edit"></i></button>
                                                     <form action="{{ route('services.destroy', $service->id) }}" method="POST">

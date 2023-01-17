@@ -72,7 +72,7 @@
                                                 <td>{{$booking->service}}</td>
                                                 <td>{{$booking->appointment_date}}</td>
                                                 <td>{{$booking->approx_hour}}</td>
-                                                <td>{{$booking->discount}}</td>
+                                                <td>{{$booking->discount}}%</td>
                                                  <td>{{$booking->time_frame}}</td>
                                                 <td>{{$booking->status}}</td>
                                                 <td><div class="flex">
@@ -151,7 +151,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Appox Time</label>
-                        <input type="text" class="form-control"  name="appox_hour" placeholder="eg : 1hour" >
+                        <input type="text" class="form-control"  name="approx_hour" placeholder="eg : 1hour" >
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Discount %</label>

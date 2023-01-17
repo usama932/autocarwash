@@ -58,7 +58,7 @@ class BookingController extends Controller
         'time_frame'        => $request->time_frame,
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
-        'discount'          => '10%',
+        'discount'          => '10',
         'status'            => 'pending',
         'service'           =>  $request->service,
        ]);
