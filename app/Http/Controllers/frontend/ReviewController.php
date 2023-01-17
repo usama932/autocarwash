@@ -16,7 +16,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $reviews = Review::all();
+        return view('admin.review.index',compact('reviews'));
     }
 
     /**

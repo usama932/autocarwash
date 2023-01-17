@@ -10,6 +10,10 @@ use App\Http\Controllers\frontend\VehicleController;
 use App\Http\Controllers\frontend\CustomerController;
 use App\Http\Controllers\frontend\ProfileController;
 use App\Http\Controllers\frontend\ReviewController;
+
+use App\Http\Controllers\frontend\CheckController;
+use App\Http\Controllers\frontend\EmployeeController;
+use App\Http\Controllers\frontend\AttendanceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,9 +42,16 @@ Route::group(['middleware' => ['admin']], function () {
     Route::resource('vehicles', VehicleController::class);
     Route::resource('customers', CustomerController::class);
     Route::resource('bookings', BookingsReportController::class);
-    Route::resource('reviews', ReviewController::class);
+    Route::resource('review', ReviewController::class);
     Route::get('/admin-profile', [ProfileController::class, 'index'])->name('admin_profile');
     Route::post('/update-admin-profile', [ProfileController::class, 'update_profile'])->name('admin_profile.update');
+    Route::resource('/employees', EmployeeController::class);
+    Route::get('/attendance',[AttendanceController::class, 'index'])->name('attendance');
+
+    Route::get('/check',[CheckController::class, 'index'])->name('check');
+    Route::get('/sheet-report', [CheckController::class, 'sheetReport'])->name('sheet-report');
+    Route::post('check-store',[CheckController::class, 'CheckStore'])->name('check_store');
+    
 });
 // User
 Route::group(['middleware' => ['user']], function () {

@@ -43,9 +43,21 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('employees.index')}}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Bookings</span>
+                    <span>Employees</span>
+                </a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{{route('check')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Attendance Sheet</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('sheet-report')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Attendance Sheet Report</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -55,10 +67,16 @@
                 </a>
             </li>
             
-             <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('bookings.index')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Booking Reports</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('review.index')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Reviews</span>
                 </a>
             </li>
             @endif
