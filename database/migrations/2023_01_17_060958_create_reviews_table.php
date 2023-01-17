@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('value3')->default(0)->nullable();   
             $table->boolean('value4')->default(0)->nullable();   
             $table->boolean('value5')->default(0)->nullable();   
+            $table->boolean('is_feature')->default(0)->nullable();   
             $table->string('remarks')->nullable();
             $table->string('service')->nullable();
             $table->timestamps();
