@@ -1,41 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <style>
-    .rating {
-    float:left;
-    border:none;
-    }
-    .rating:not(:checked) > input {
-        position:absolute;
-        top:-9999px;
-        clip:rect(0, 0, 0, 0);
-    }
-    .rating:not(:checked) > label {
-        float:right;
-        width:1em;
-        padding:0 .1em;
-        overflow:hidden;
-        white-space:nowrap;
-        cursor:pointer;
-        font-size:200%;
-        line-height:1.2;
-        color:#ddd;
-    }
-    .rating:not(:checked) > label:before {
-        content:'★ ';
-    }
-    .rating > input:checked ~ label {
-        color: #f70;
-    }
-    .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
-        color: gold;
-    }
-    .rating > input:checked + label:hover, .rating > input:checked + label:hover ~ label, .rating > input:checked ~ label:hover, .rating > input:checked ~ label:hover ~ label, .rating > label:hover ~ input:checked ~ label {
-        color: #ea0;
-    }
-    .rating > label:active {
-        position:relative;
-    }
+
 </style>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"></h1>
@@ -291,10 +257,10 @@
             </button>
         </div>
         <div class="card-body">
-            <form method="post" action="#">
+            <form method="post" action="{{route('reviews.store')}}">
                 @csrf
-                <input type="hidden" name="service" value="">
-               
+                <input type="hidden" name="service" value="{{$booking->service}}">
+                
                 <div class="col-md-12 mb-3">
                     <label>Give Rating</label>
                     <br>
@@ -317,7 +283,10 @@
                     
                     <textarea class="form-control" id="editor" name="remarks" >Remarks</textarea>
                 </div>
-
+                <div class="text-right mb-2">
+                    <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                </div>
+            
             </form
         </div>
       </div>

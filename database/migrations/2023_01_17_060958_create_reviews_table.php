@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id')->nullable();
             $table->string('user')->nullable();
+            $table->string('rating')->nullable();
             $table->boolean('value1')->default(0)->nullable();   
             $table->boolean('value2')->default(0)->nullable();   
             $table->boolean('value3')->default(0)->nullable();   
