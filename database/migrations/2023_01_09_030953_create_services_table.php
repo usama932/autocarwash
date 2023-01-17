@@ -19,6 +19,9 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('vehicle')->nullable();
             $table->string('price')->nullable();
+            $table->string('discount')->nullable();
+            $table->boolean('is_popular')->default(0)->nullable();   
+            $table->boolean('is_push')->default(0)->nullable();      
             $table->string('vehicle_id')->nullable();
             $table->timestamps();
         });

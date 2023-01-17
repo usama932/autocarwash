@@ -63,6 +63,7 @@ class BookingsReportController extends Controller
         'time_frame'        => $request->time_frame,
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
+        'discount'          => $request->discount,
         'status'            => 'pending',
         'service'           =>  $request->service,
        ]);
@@ -117,6 +118,7 @@ class BookingsReportController extends Controller
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
         'status'            => $request->status,
+        'discount'          => $request->discount,
         'service'           =>  $request->service,
        ]);
        return redirect()->route('bookings.index')->with('success',"Service Updated   Successfully");

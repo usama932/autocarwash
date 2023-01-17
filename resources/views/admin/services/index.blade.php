@@ -30,9 +30,9 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                           
                                             <th>Price</th>
                                             <th>Vehicle</th>
+                                            <th>Description</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -40,6 +40,7 @@
                                         <th>Name</th>  
                                             <th>Price</th>
                                             <th>Vehicle</th>
+                                           <th>Description</th>
                                             <th>Action</th>
                                     </tfoot>
                                     <tbody>
@@ -48,6 +49,7 @@
                                                 <td>{{$service->name}}</td>
                                                 <td>{{$service->price}}</td>
                                                 <td>{{$service->vehicle}}</td>
+                                                <td>{!! $service->vehicle !!}</td>
                                                 <td><div class="flex">
                                                     <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$service->id}}"><i class="fas fa-edit"></i></button>
                                                     <form action="{{ route('services.destroy', $service->id) }}" method="POST">

@@ -43,7 +43,8 @@
                                             <th>Vehicle No#</th>
                                             <th>Service</th>
                                             <th>Appointment Date</th>
-                                             <th>Appox Hour</th>
+                                            <th>Appox Hour</th>
+                                            <th>Discount</th>
                                             <th>Time Frame</th>
                                             <th>Status</th> 
                                             {{-- <th>Action</th> --}}
@@ -56,6 +57,7 @@
                                         <th>Service</th>
                                         <th>Appointment Date</th>
                                         <th>Appox Hour</th>
+                                        <th>Discount</th>
                                         <th>Time Frame</th>
                                         <th>Status</th>
                                       
@@ -70,6 +72,7 @@
                                                 <td>{{$booking->service}}</td>
                                                 <td>{{$booking->appointment_date}}</td>
                                                 <td>{{$booking->approx_hour}}</td>
+                                                <td>{{$booking->discount}}</td>
                                                  <td>{{$booking->time_frame}}</td>
                                                 <td>{{$booking->status}}</td>
                                                 {{-- <td>
@@ -142,7 +145,10 @@
                         <label for="">Appox Time</label>
                         <input type="text" class="form-control"  name="approx_hour" placeholder="eg : 1hour" >
                     </div>
-                   
+                    <div class="col-md-6 mb-3">
+                        <label for="">Discount %</label>
+                        <input type="number" class="form-control"  name="discount" placeholder="10%" >
+                    </div>
                 </div>
                 <div class="text-right mb-2">
                     <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
