@@ -81,7 +81,7 @@
                 <div class="row flex">
                     <div class="col-md-6 mb-3">
                         <label for="">Name</label>
-                        <input type="text" class="form-control" placeholder="Service Name" name="name">
+                        <input type="text" class="form-control" placeholder="Vehicle Name" name="name">
                     </div>          
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle Type</label>
@@ -119,7 +119,7 @@
                     <div class="row flex">
                         <div class="col-md-6 mb-3">
                             <label for="">Name</label>
-                            <input type="text" class="form-control" placeholder="Service Name" name="name" value="{{$vehicle->name}}">
+                            <input type="text" class="form-control" placeholder="Vehicle Name" name="name" value="{{$vehicle->name}}">
                         </div>          
                         <div class="col-md-6 mb-3">
                             <label for="">Vehicle Type</label>

@@ -17,13 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('user_id')->nullable();
             $table->string('user')->nullable();
-            $table->string('rating')->nullable();
-            $table->boolean('value1')->default(0)->nullable();   
-            $table->boolean('value2')->default(0)->nullable();   
-            $table->boolean('value3')->default(0)->nullable();   
-            $table->boolean('value4')->default(0)->nullable();   
-            $table->boolean('value5')->default(0)->nullable();   
-            $table->boolean('is_feature')->default(0)->nullable();   
+            $table->string('rating')->nullable(); 
+            $table->string('is_feature')->default('No')->nullable();   
             $table->string('remarks')->nullable();
             $table->string('service')->nullable();
             $table->timestamps();

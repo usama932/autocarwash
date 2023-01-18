@@ -46,10 +46,10 @@
                                             <th>Action</th>
                                     </tfoot>
                                     <tbody>
-                                       @foreach($reviews as $reviews)
+                                       @foreach($reviews as $review)
                                             <tr>
                                                 <td>{{$review->user}}</td>
-                                                <td>{{$review->Rating}}</td>
+                                                <td>{{$review->rating}} Star</td>
                                                 <td>{{$review->service}}</td>
                                                 <td>{!! $review->remarks !!}</td>
                                                  <td>{!! $review->is_feature !!}</td>
@@ -82,7 +82,44 @@
                 <h6 class=" mb-0 text-gray-800">Edit Review</h6>
             </div>
             <div class="card-body">
-             
+                <form method="post" action="{{route('review.update',$review->id)}}">
+                    @csrf
+                    @method('put')
+                    <div class="col-md-12 mb-3">
+                        <label for="">Feature</label>
+                        <select class="form-control" name="is_feature"  >
+                            <option class-"form-control" value="NO" {{ 'Pending' == $review->is_feature ? 'selected' : '' }}>NO</option>
+                            <option class-"form-control" value="Yes" {{ 'Cancel' == $review->is_feature ? 'selected' : '' }}>Yes</option>
+                            
+                        </select>
+                    </div>
+                    {{-- <div class="col-md-12 mb-3">
+                        <label>Give Rating</label>
+                        <br>
+                        <fieldset class="rating">
+                            <input type="radio" id="star5" name="rating" value="5" />
+                            <label for="star5">5 stars</label>
+                            <input type="radio" id="star4" name="rating" value="4" />
+                            <label for="star4">4 stars</label>
+                            <input type="radio" id="star3" name="rating" value="3" />
+                            <label for="star3">3 stars</label>
+                            <input type="radio" id="star2" name="rating" value="2" />
+                            <label for="star2">2 stars</label>
+                            <input type="radio" id="star1" name="rating" value="1" />
+                            <label for="star1">1 star</label>
+                        </fieldset>
+                    </div> --}}
+                    <br>
+                    <label class='text-start'>Remarks</label>
+                    <div class="col-md-12 mb-3">
+                        
+                        <textarea class="form-control" id="editor" name="remarks" >{{$review->remarks}}</textarea>
+                    </div>
+                    <div class="text-right mb-2">
+                        <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                    </div>
+                
+                </form>
             </div>
         </div>
         </div>

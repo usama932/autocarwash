@@ -77,7 +77,7 @@
                                                 <td>{{$booking->approx_hour}}</td>
                                                 <td>{{$booking->discount}}</td>
                                                  <td>{{$booking->time_frame}}</td>
-                                                <td> @if($booking->status == 'Complete') <button class="badge badge-success" data-toggle="modal" data-target=".bd-review-modal-lg{{$booking->id}}">Rating</button> @endif <br> {{$booking->status}}</td>
+                                                <td> @if($booking->status == 'Complete' && $booking->is_review == 0) <button class="badge badge-success" data-toggle="modal" data-target=".bd-review-modal-lg{{$booking->id}}">Rating</button> @endif <br> {{$booking->status}}</td>
                                                 {{-- <td>
                                                 <div class="flex">
                                                     <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$booking->id}}"><i class="fas fa-edit"></i></button>
@@ -116,6 +116,7 @@
                         <label for="">Vehicle Type</label>
                         
                         <select class="form-control" name="vehicle_type">
+                             <option class-"form-control" value="Not Selected">Select Vehicle</option>
                             @foreach ($vehicles as $key => $vehicle)
                                 <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
@@ -125,6 +126,7 @@
                     <div class="col-md-6 mb-3">
                         <label for="">Services</label>
                         <select class="form-control" name="service">
+                             <option class-"form-control" value="Not Selected">Select Services</option>
                             @foreach ($services as $key => $service)
                                 <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
@@ -133,6 +135,7 @@
                     <div class="col-md-6 mb-3">
                         <label for="">Time Frame</label>
                         <select class="form-control" name="time_frame" >
+                            <option class-"form-control" value="Not Selected">Select Time_frame</option>
                             <option class-"form-control" value="Morning">Morning</option>
                             <option class-"form-control" value="Afternoon">Afternoon</option>
                             <option class-"form-control" value="Evening">Evening</option>
@@ -260,6 +263,7 @@
             <form method="post" action="{{route('reviews.store')}}">
                 @csrf
                 <input type="hidden" name="service" value="{{$booking->service}}">
+                <input type="hidden" name="booking_id" value="{{$booking->id}}">
                 
                 <div class="col-md-12 mb-3">
                     <label>Give Rating</label>
@@ -287,7 +291,7 @@
                     <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
                 </div>
             
-            </form
+            </form>
         </div>
       </div>
     </div>

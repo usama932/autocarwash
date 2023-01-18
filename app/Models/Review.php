@@ -13,6 +13,6 @@ class Review extends Model
         'user',
         'value1',
         'value2',
-        'value3', 'value4', 'value5', 'remarks', 'service','rating'
+        'value3', 'value4', 'value5', 'remarks', 'service','rating','is_feature'
     ];
 }

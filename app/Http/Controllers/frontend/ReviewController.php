@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Review;
+use App\Models\Bookings;
 use Auth;
 
 class ReviewController extends Controller
@@ -46,6 +47,9 @@ class ReviewController extends Controller
             'user'      =>auth()->user()->name,
             'user_id'   =>auth()->user()->id,
         ]);
+        $booking = Bookings::where('id',$request->booking_id)->update([
+            'is_review' => '1'
+        ]);
         return redirect()->back()->with('success',"Reviewed Successfully");    
     }
 
@@ -80,7 +84,11 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $review= Review::where('id',$id)->update([
+            'is_feature'   =>$request->is_feature,
+            'remarks'   =>$request->remarks ,
+        ]);
+        return redirect()->back()->with('success',"Updated Successfully");    
     }
 
     /**
