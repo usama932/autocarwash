@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('remarks')->nullable();
             $table->string('service')->nullable();
+            $table->string('is_review')->nullable();
             $table->timestamps();
         });
     }

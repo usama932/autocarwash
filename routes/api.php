@@ -10,6 +10,7 @@ use App\Http\Controllers\api\VehicleController;
 use App\Http\Controllers\api\BookingsReportController;
 use App\Http\Controllers\api\BookingController;
 use App\Http\Controllers\api\ProfileController;
+use App\Http\Controllers\api\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,11 +59,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Profile
     Route::get('/profile', [ProfileController::class, 'index']);
     Route::post('/update-profile', [ProfileController::class, 'update_profile']);
+    Route::get('reviews',[ReviewController::class, 'index']);
     Route::group(['middleware' => ['user']], function () {
         Route::get('user_bookings',[BookingController::class, 'index']);
         Route::post('user_store_bookings',[BookingController::class, 'store']);
         Route::get('vehicles',[VehicleController::class, 'index']);
         Route::get('services',[ServiceController::class, 'index']);
-       
+        Route::post('store_reviews',[ReviewController::class, 'store']);
     }); 
 });
