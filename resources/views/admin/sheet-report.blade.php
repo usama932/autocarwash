@@ -20,8 +20,7 @@
                                 
                                 for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
                                     $dates[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y-m-d');
-                                }
-                                
+                                }  
                             @endphp
                             @foreach ($dates as $date)
                             <th style="">
