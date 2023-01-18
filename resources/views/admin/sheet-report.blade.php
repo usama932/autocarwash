@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-sm" id="printTable">
+                <table class="table table-sm" z>
                     <thead>
                         <tr >
 
@@ -20,7 +20,8 @@
                                 
                                 for ($i = 1; $i < $today->daysInMonth + 1; ++$i) {
                                     $dates[] = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y-m-d');
-                                }  
+                                }
+                                
                             @endphp
                             @foreach ($dates as $date)
                             <th style="">
