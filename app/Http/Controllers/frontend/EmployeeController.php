@@ -8,8 +8,6 @@ use App\Models\User;
 use App\Models\Employee;
 use App\Models\Role;
 
-use App\Http\Requests\EmployeeRec;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class EmployeeController extends Controller
 {

@@ -19,6 +19,7 @@ class ReviewController extends Controller
             
            
         ];
+        return response()->json($res, 200);
     }
     public function store(Request $request)
     {
@@ -30,12 +31,46 @@ class ReviewController extends Controller
             'user'      =>auth()->user()->name,
             'user_id'   =>auth()->user()->id,
         ]);
-        $res = [
+        $res = [    
             'review' => $review,
             'message' => 'review created succesfully',
            
         ];
        
     }
-
+    public function update(Request $request, $id)
+    {
+        $review= Review::where('id',$id)->update([
+            'is_feature'   =>$request->is_feature,
+            'remarks'   =>$request->remarks ,
+        ]);
+        $res = [
+            'review' => $review,
+            'message' => 'review created succesfully',
+           
+        ];   
+    }
+    public function destroy($id)
+    {
+        $review = Review::find($id);
+      
+        if(!empty($review)){
+            $review->delete();
+            $res = [
+                'review' => $review,
+                'message' => 'review deleted succesfully',
+               
+                ];
+                
+                return response()->json($res, 200);
+        }
+        else
+        {
+            $res = [
+                'message' => 'Something went wrong',
+               
+                ];
+                
+                return response()->json($res, 200);
+        }
 }

@@ -75,11 +75,23 @@ class BookingsReportController extends Controller
       
         if(!empty($booking)){
             $booking->delete();
-            return redirect()->route('bookings.index')->with('danger','Deleted Succesfully');
+            $res = [
+                'booking' => $booking,
+                'message' => 'booking deleted succesfully',
+               
+                ];
+                
+                return response()->json($res, 200);
         }
         else
         {
-            return redirect()->route('bookings.index')->with('danger','Something went wrong');
+            $res = [
+                
+                'message' => ' Something went wrong',
+               
+                ];
+                
+                return response()->json($res, 200);
             
         }
     }

@@ -99,6 +99,16 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $review = Review::find($id);
+      
+        if(!empty($review)){
+            $review->delete();
+            return redirect()->back()->with('danger','Deleted Succesfully');
+        }
+        else
+        {
+            return redirect()->back()->with('danger','Something went wrong');
+            
+        }
     }
 }

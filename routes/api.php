@@ -11,6 +11,8 @@ use App\Http\Controllers\api\BookingsReportController;
 use App\Http\Controllers\api\BookingController;
 use App\Http\Controllers\api\ProfileController;
 use App\Http\Controllers\api\ReviewController;
+use App\Http\Controllers\api\EmployeeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,11 +57,19 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('store_bookings',[BookingsReportController::class, 'store']);
     Route::post('update_bookings/{id}',[BookingsReportController::class, 'update']);
     Route::post('delete_bookings/{id}',[BookingsReportController::class, 'delete']);
+    //Employee
+    Route::get('employees',[EmployeeController::class, 'index']);
+    Route::post('store_employees',[EmployeeController::class, 'store']);
+    Route::post('update_employees/{id}',[EmployeeController::class, 'update']);
+    Route::post('delete_employees/{id}',[EmployeeController::class, 'destroy']);
+    //Review
+    Route::get('reviews',[ReviewController::class, 'index']);
+    Route::post('update_reviews/{id}',[ReviewController::class, 'index']);
+    Route::post('delete_reviews/{id}',[ReviewController::class, 'destroy']);
 });
     // Profile
     Route::get('/profile', [ProfileController::class, 'index']);
     Route::post('/update-profile', [ProfileController::class, 'update_profile']);
-    Route::get('reviews',[ReviewController::class, 'index']);
     Route::group(['middleware' => ['user']], function () {
         Route::get('user_bookings',[BookingController::class, 'index']);
         Route::post('user_store_bookings',[BookingController::class, 'store']);
