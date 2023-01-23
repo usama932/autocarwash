@@ -23,7 +23,9 @@ return new class extends Migration
             $table->string('time_frame')->nullable();
             $table->string('approx_hour')->nullable();
             $table->string('booked_by')->nullable();
-            $table->string('discount')->nullable();       
+            $table->string('discount')->nullable();     
+            $table->string('total_price')->nullable();
+            $table->string('dis_price')->nullable();  
             $table->string('status')->nullable();
             $table->string('remarks')->nullable();
             $table->string('service')->nullable();

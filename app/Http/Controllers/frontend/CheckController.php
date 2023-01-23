@@ -17,10 +17,12 @@ class CheckController extends Controller
 
     public function CheckStore(Request $request)
     {
-       
+        
         if (isset($request->attd)) {
             foreach ($request->attd as $keys => $values) {
+                
                 foreach ($values as $key => $value) {
+                  
                     if ($employee = Employee::whereId(request('emp_id'))->first()) {
                         if (
                             !Attendance::whereAttendance_date($keys)
@@ -34,7 +36,9 @@ class CheckController extends Controller
                             $emp_req = Employee::whereId($data->emp_id)->first();
                             $data->attendance_time = Carbon::now();
                             $data->attendance_date = $keys;
-                            
+                            $data->attendance_date = $keys;
+                            $data->status = $value['status'];
+                            $data->remarks = $value['remarks'];
                             // $emps = date('H:i:s', strtotime($employee->schedules->first()->time_in));
                             // if (!($emps >= $data->attendance_time)) {
                             //     $data->status = 0;

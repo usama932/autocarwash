@@ -3,6 +3,23 @@
     <!-- Table css -->
     <link href="{{ URL::asset('plugins/RWD-Table-Patterns/dist/css/rwd-table.min.css') }}" rel="stylesheet"
         type="text/css" media="screen">
+    <style>
+        th, td {
+            white-space: nowrap;
+        }
+
+        .first-col {
+            position: absolute;
+            width: 5em;
+            margin-left: -10em;
+        }
+
+        .table-wrapper {
+            overflow-x: scroll;
+            width:100%;
+            margin: 0 13%;
+        }
+    </style>
 @endsection
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -36,13 +53,13 @@
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Attendance Sheet</h6>
     </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-responsive table-bordered table-sm">
+    <div class="card-body " >
+        <div class="table-wrapper">
+            <table class="table table-bordered table-striped table-hover w-100">
                 <thead>
                     <tr>
 
-                        <th>Employee Name</th>
+                        <th class="first-col w-100">Employee Name</th>
                         <th>Employee Position</th>
                         <th>Employee ID</th>
                         @php
@@ -76,20 +93,11 @@
                             <input type="hidden" name="emp_id" value="{{ $employee->id }}">
 
                             <tr>
-                                <td>{{ $employee->name }}</td>
+                                <td class="first-col">{{ $employee->name }}</td>
                                 <td>{{ $employee->position }}</td>
                                 <td>{{ $employee->id }}</td>
-
-
-
-
-
-
                                 @for ($i = 1; $i < $today->daysInMonth + 1; ++$i)
-
-
                                     @php
-                                        
                                         $date_picker = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y-m-d');
                                         
                                         $check_attd = \App\Models\Attendance::query()
@@ -107,17 +115,12 @@
 
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" id="check_box"
-                                                name="attd[{{ $date_picker }}][{{ $employee->id }}]" type="checkbox"
+                                                name="attd[{{ $date_picker }}][{{ $employee->id }}][status]" type="checkbox"
                                                 @if (isset($check_attd))  checked @endif id="inlineCheckbox1" value="1">
 
                                         </div>
-                                        {{-- <div class="form-check form-check-inline">
-                                            <input class="form-check-input" id="check_box"
-                                                name="leave[{{ $date_picker }}][{{ $employee->id }}]]" type="checkbox"
-                                                @if (isset($check_leave))  checked @endif id="inlineCheckbox2" value="1">
-
-                                        </div> --}}
-
+                                        <textarea name="attd[{{ $date_picker }}][{{ $employee->id }}][remarks]" rows="1" cols="20">{{ $check_attd->remarks ?? '' }}</textarea>
+                                        </div>
                                     </td>
 
                                 @endfor
