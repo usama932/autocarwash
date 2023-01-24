@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('status')->nullable();
             $table->string('roled')->nullable();
+            $table->text('device_token')->nullable(); 
             $table->rememberToken();
             $table->timestamps();
         });

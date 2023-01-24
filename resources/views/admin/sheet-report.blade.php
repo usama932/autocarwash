@@ -86,7 +86,11 @@
                                             @else
                                             <i class="fas fa-times text-danger"></i>
                                             @endif
+                                            <div class="mx-2">
+                                                <textarea name="attd[{{ $date_picker }}][{{ $employee->id }}][remarks]" rows="1" cols="20">{{ $check_attd->remarks ?? '' }}</textarea>
+                                            </div>
                                         </div>
+
                                         {{-- <div class="form-check form-check-inline">
                                           
                                             @if (isset($check_leave))

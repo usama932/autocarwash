@@ -24,6 +24,8 @@ use App\Http\Controllers\frontend\AttendanceController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/store-token', [NotificationSendController::class, 'updateDeviceToken'])->name('store.token');
+Route::post('/send-web-notification', [NotificationSendController::class, 'sendNotification'])->name('send.web-notification');
 
 Route::get('/' ,[HomeController::class, 'index'] )->name('home');
 Route::get('/about' ,[HomeController::class, 'about'] )->name('about');

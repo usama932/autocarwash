@@ -1,3 +1,9 @@
+
+        <div class="col-md-8">
+            <button onclick="startFCM()"
+                class="btn btn-danger btn-flat">Allow notification
+            </button>
+        </div>
         <div class="top-bar">
             <div class="container">
                 <div class="row align-items-center">
