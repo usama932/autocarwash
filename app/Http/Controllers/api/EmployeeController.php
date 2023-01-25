@@ -46,6 +46,7 @@ class EmployeeController extends Controller
         $employee->name = $request->name;
         $employee->position = $request->position;
         $employee->email = $request->email;
+        $employee->mobile = $request->mobile;
         $employee->pin_code = bcrypt('123456');
         $employee->save();
 

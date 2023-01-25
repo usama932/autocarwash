@@ -51,6 +51,7 @@
                <th >Name</th>
                <th>position</th>
                <th >Email</th>
+               <th>Mobile</th>
                <th>Member Since</th>
                <th>Actions</th>
             </tfoot>
@@ -61,6 +62,7 @@
                   <td>{{$employee->name}}</td>
                   <td>{{$employee->position}}</td>
                   <td>{{$employee->email}}</td>
+                  <td>{{$employee->mobile}}</td>
                   <td>{{$employee->created_at}}</td>
                   <td>
                         <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$employee->id}}"><i class="fas fa-edit"></i></button>
@@ -96,6 +98,11 @@
                   <div class="form-group">
                      <label for="position">Position</label>
                      <input type="text" class="form-control" placeholder="Enter Employee Name" id="position" name="position"
+                        required />
+                  </div>
+                  <div class="form-group">
+                     <label for="position">Mobile</label>
+                     <input type="text" class="form-control" placeholder="Enter Phone Number" id="" name="mobile"
                         required />
                   </div>
                   <div class="form-group">
@@ -141,6 +148,11 @@
                      <label for="name" class="col-sm-3 control-label">Position</label>
                      <input type="text" class="form-control" id="position" name="position" value="{{ $employee->position }}"
                         required>
+                  </div>
+                  <div class="form-group">
+                     <label for="position">Mobile</label>
+                     <input type="text" class="form-control" placeholder="Enter Phone Number" id="" name="mobile"  value="{{ $employee->mobile }}"
+                        required />
                   </div>
                   <div class="form-group">
                      <label for="email" class="col-sm-3 control-label">Email</label>
