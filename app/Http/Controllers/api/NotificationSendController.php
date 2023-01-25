@@ -12,10 +12,11 @@ class NotificationSendController extends Controller
     public function updateDeviceToken(Request $request)
     {
       
-      User::where('id',auth()->user()->id)->update([
-        'device_token' => $request->token,
-      ]);
-     
+        if(empty(auth()->user()->device_token)){
+            User::where('id',auth()->user()->id)->update([
+                'device_token' => $request->token,
+              ]);
+          }
 
         return response()->json(['Token successfully stored.']);
     }
