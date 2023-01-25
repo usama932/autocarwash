@@ -65,7 +65,7 @@ class BookingController extends Controller
         'status'            => 'pending',
         'service'           =>  $services->name,
         'total_price'       => $services->price,
-        'dis_prce'          =>  $discounted_price
+        'dis_price'          =>  $discounted_price
        ]);
        return redirect()->route('user_booking.index')->with('success',"Booking Created Successfully");
     }

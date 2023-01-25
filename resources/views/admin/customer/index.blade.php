@@ -86,28 +86,28 @@
                 <div class="row flex">
                     <div class="col-md-6 mb-3">
                         <label for="">Full Name</label>
-                        <input type="text" class="form-control" placeholder="Service Name" name="name">
+                        <input type="text" class="form-control" placeholder="Customer Name" name="name" required>
                     </div>
 
                 
                     <div class="col-md-6 mb-3">
                         <label for="">Address</label>
-                        <textarea class="form-control"  name="address" >Address</textarea>
+                        <textarea class="form-control"  name="address" required>Address</textarea>
                         
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Email</label>
-                        <input type="email" class="form-control"  name="email" placeholder="abc@abc.com">
+                        <input type="email" class="form-control"  name="email" placeholder="abc@abc.com" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Password</label>
-                        <input type="password" class="form-control"  name="password" placeholder="******">
+                        <input type="password" class="form-control"  name="password" placeholder="******" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Status</label>
-                        <select class="form-control" name="status" >
+                        <select class="form-control" name="status" required>
                             <option class="form-control" value="active">Active</option>
-                            <option class="form-control"  value="active">InActive</option>
+                            <option class="form-control"  value="inactive">InActive</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -116,19 +116,20 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Mobile</label>
-                        <input type="number" class="form-control"  name="mobile" placeholder="+334123443">
+                        <input type="number" class="form-control"  name="mobile" placeholder="+334123443" required>
                     </div>
                 
                      <div class="col-md-6 mb-3">
                         <label for="">Gender</label>
-                        <select class="form-control" name="sex" >
+                        <select class="form-control" name="sex" required>
                             <option class="form-control" value="male">Male</option>
                             <option class="form-control"  value="female">Female</option>
                         </select>
                     </div>
                 </div>
                 <div class="text-right mb-2">
-                    <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                     <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class= "btn btn-sm btn-success" >Submit</button>
                 </div>
             </form>
         </div>
@@ -153,21 +154,21 @@
                             <div class="row flex">
                                 <div class="col-md-6 mb-3">
                                     <label for="">Full Name</label>
-                                    <input type="text" class="form-control" placeholder="Service Name" name="name" value="{{$customer->name}}" required>
+                                    <input type="text" class="form-control" placeholder="Customer Name" name="name" value="{{$customer->name}}" required>
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="">Address</label>
-                                    <textarea class="form-control"  name="address" >{{$customer->address}}</textarea>
+                                    <textarea class="form-control"  name="address" required>{{$customer->address}}</textarea>
                                     
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="">Email</label>
-                                    <input type="email" class="form-control"  name="email" value="{{$customer->email}}" placeholder="abc@abc.com" required>
+                                    <input type="email" class="form-control"  name="email" value="{{$customer->email}}" placeholder="abc@abc.com" readonly>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="">Password</label>
-                                    <input type="password" class="form-control" value="{{$customer->password}}"  name="password" placeholder="******" required>
+                                    <input type="password" class="form-control" value="{{$customer->password}}"  name="password" placeholder="******" readonly>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="">Status</label>
@@ -193,7 +194,8 @@
                                 </div>
                             </div>
                             <div class="text-right mb-2">
-                                <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                                 <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class= "btn btn-sm btn-success" >Submit</button>
                             </div>
                         </form>
                     </div>

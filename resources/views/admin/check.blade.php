@@ -94,7 +94,7 @@
 
                             <tr>
                                 <td class="first-col">{{ $employee->name }}</td>
-                                <td>{{ $employee->position }}</td>
+                                <td w-100>{{ $employee->position }}</td>
                                 <td>{{ $employee->id }}</td>
                                 @for ($i = 1; $i < $today->daysInMonth + 1; ++$i)
                                     @php
@@ -119,7 +119,7 @@
                                                 @if (isset($check_attd))  checked @endif id="inlineCheckbox1" value="1">
 
                                         </div>
-                                        {{-- <textarea name="attd[{{ $date_picker }}][{{ $employee->id }}][remarks]" rows="1" cols="20">{{ $check_attd->remarks ?? '' }}</textarea> --}}
+                                        <textarea name="remark[{{ $date_picker }}][{{ $employee->id }}]" rows="1" cols="20">{{ $check_attd->remarks ?? '' }}</textarea>
                                         </div>
                                     </td>
 

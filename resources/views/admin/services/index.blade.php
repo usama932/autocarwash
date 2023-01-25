@@ -82,11 +82,11 @@
                 <div class="row flex">
                     <div class="col-md-6 mb-3">
                         <label for="">Name</label>
-                        <input type="text" class="form-control" placeholder="Service Name" name="name">
+                        <input type="text" class="form-control" placeholder="Service Name" name="name" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle</label>
-                        <select class="form-control" name="vehicle">
+                        <select class="form-control" name="vehicle" required>
                             <option class-"form-control" value="No Select ">--Select--</option>
                             @foreach ($vehicles as $key => $vehicle)
                                 <option class-"form-control" value="{{$key}}">{{$key}}</option>
@@ -96,21 +96,21 @@
                 
                     <div class="col-md-6 mb-3">
                         <label for="">Price</label>
-                        <input type="text" class="form-control"  name="price" placeholder="Price">
+                        <input type="number" class="form-control"  name="price" placeholder="Price" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Popular Service</label>
-                        <select class="form-control" name="is_popular">   
-                            <option class-"form-control" value="No Select ">--Select--</option>            
-                            <option class-"form-control" value="Yes">YES</option>
-                            <option class-"form-control" value="Yes">YES</option>
+                        <select class="form-control" name="is_popular" required>   
+                            <option class-"form-control" value="No Select " >--Select--</option>            
+                            <option class-"form-control" value="Yes">Yes</option>
+                            <option class-"form-control" value="No">No</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Notify</label>
-                        <select class="form-control" name="is_push"> 
+                        <select class="form-control" name="is_push" required> 
                             <option class-"form-control" value="No Select ">--Select--</option>              
-                            <option class-"form-control" value="Yes">YES</option>
+                            <option class-"form-control" value="Yes">Yes</option>
                             <option class-"form-control" value="No">No</option>
                         </select>
                     </div>
@@ -121,7 +121,8 @@
                    
                 </div>
                 <div class="text-right mb-2">
-                    <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                     <button type="button" class="btn  btn-sm  btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class= "btn btn-sm btn-success"  >Submit</button>
                 </div>
             </form>
         </div>
@@ -163,14 +164,14 @@
                 
                         <div class="col-md-6 mb-3">
                             <label for="">Price</label>
-                            <input type="text" class="form-control"  name="price" value="{{$service->price}}" placeholder="Price">
+                            <input type="number" class="form-control"  name="price" value="{{$service->price}}" placeholder="Price">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Popular Service</label>
                             <select class="form-control" name="is_popular">               
                                 <option class-"form-control" value="No Select ">--Select--</option>
-                                <option class-"form-control" value="Yes" {{ "Yes" == $service->is_popular ? 'selected' : '' }}>YES</option>
-                                <option class-"form-control" value="No" {{ "No" == $service->is_popular ? 'selected' : '' }}YES</option>
+                                <option class-"form-control" value="Yes" {{ "Yes" == $service->is_popular ? 'selected' : '' }}>Yes</option>
+                                <option class-"form-control" value="No" {{ "No" == $service->is_popular ? 'selected' : '' }}>No</option>
                             </select>
                         </div>
                         <div class="col-md-12 mb-3">
@@ -180,6 +181,7 @@
                     
                     </div>
                     <div class="text-right mb-2">
+                        <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
                         
                     </div>

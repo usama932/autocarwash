@@ -47,6 +47,8 @@
                                             <th>Service</th>
                                             <th>Appointment Date</th>
                                             <th>Appox Hour</th>
+                                            <th>Discount Price</th>
+                                            <th>Total Price</th>
                                             <th>Discount</th>
                                             <th>Time Frame</th>
                                             <th>Status</th> 
@@ -60,6 +62,8 @@
                                         <th>Service</th>
                                         <th>Appointment Date</th>
                                         <th>Appox Hour</th>
+                                        <th>Discount Price</th>
+                                        <th>Total Price</th>
                                         <th>Discount</th>
                                         <th>Time Frame</th>
                                         <th>Status</th>
@@ -75,7 +79,10 @@
                                                 <td>{{$booking->service}}</td>
                                                 <td>{{$booking->appointment_date}}</td>
                                                 <td>{{$booking->approx_hour}}</td>
+                                               
                                                 <td>{{$booking->discount}}</td>
+                                                 <td>{{$booking->dis_price}}</td>
+                                                <td>{{$booking->total_price}}</td>
                                                  <td>{{$booking->time_frame}}</td>
                                                 <td> @if($booking->status == 'Complete' && $booking->is_review == 0) <button class="badge badge-success" data-toggle="modal" data-target=".bd-review-modal-lg{{$booking->id}}">Rating</button> @endif <br> {{$booking->status}}</td>
                                                 {{-- <td>
@@ -144,15 +151,15 @@
                
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle No</label>
-                        <input type="text" class="form-control" name="vehicle_no" placeholder="Vehicle No" >
+                        <input type="text" class="form-control" name="vehicle_no" placeholder="Vehicle No" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Appointment Date</label>
-                        <input type="date" class="form-control"  name="appointment_date" placeholder="Appointment Date">
+                        <input type="date" class="form-control"  name="appointment_date" placeholder="Appointment Date" required>
                     </div>
                         <div class="col-md-6 mb-3">
                         <label for="">Appox Time</label>
-                        <input type="text" class="form-control"  name="approx_hour" placeholder="eg : 1hour" >
+                        <input type="text" class="form-control"  name="approx_hour" placeholder="eg : 1hour" required>
                     </div>
                     {{-- <div class="col-md-6 mb-3">
                         <label for="">Discount %</label>
@@ -160,7 +167,8 @@
                     </div> --}}
                 </div>
                 <div class="text-right mb-2">
-                    <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                    <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class= "btn btn-sm btn-success">Submit</button>
                 </div>
             </form>
         </div>
@@ -288,7 +296,8 @@
                     <textarea class="form-control" id="editor" name="remarks" >Remarks</textarea>
                 </div>
                 <div class="text-right mb-2">
-                    <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                    <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class= "btn btn-sm btn-success"  >Submit</button>
                 </div>
             
             </form>

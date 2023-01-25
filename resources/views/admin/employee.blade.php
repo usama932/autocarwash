@@ -63,7 +63,7 @@
                   <td>{{$employee->name}}</td>
                   <td>{{$employee->position}}</td>
                   <td>{{$employee->email}}</td>
-                  <td>{{$employee->mobile}}</td>
+                  <td>{{$employee->phone}}</td>
                   <td>{{$employee->created_at}}</td>
                   <td>
                         <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$employee->id}}"><i class="fas fa-edit"></i></button>
@@ -103,21 +103,17 @@
                   </div>
                   <div class="form-group">
                      <label for="position">Mobile</label>
-                     <input type="text" class="form-control" placeholder="Enter Phone Number" id="" name="mobile"
+                     <input type="text" class="form-control" placeholder="Enter Phone Number" id="" name="phone"
                         required />
                   </div>
                   <div class="form-group">
                      <label for="email" class="col-sm-3 control-label">Email</label>
-                     <input type="email" class="form-control" id="email" name="email">
+                     <input type="email" class="form-control" id="email" name="email" required>
                   </div>
                   <div class="form-group">
-                     <div>
-                        <button type="submit" class="btn btn-primary waves-effect waves-light">
-                        Submit
-                        </button>
-                        <button type="reset" class="btn btn-secondary waves-effect m-l-5" data-dismiss="modal">
-                        Cancel
-                        </button>
+                     <div class="text-right mb-2">
+                        <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class= "btn btn-sm btn-success" >Submit</button>
                      </div>
                   </div>
                </form>
@@ -152,7 +148,7 @@
                   </div>
                   <div class="form-group">
                      <label for="position">Mobile</label>
-                     <input type="text" class="form-control" placeholder="Enter Phone Number" id="" name="mobile"  value="{{ $employee->mobile }}"
+                     <input type="text" class="form-control" placeholder="Enter Phone Number" id="" name="phone"  value="{{ $employee->phone }}"
                         required />
                   </div>
                   <div class="form-group">
@@ -161,11 +157,12 @@
                         value="{{ $employee->email }}" >
                   </div>
             </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i
-               class="fa fa-close"></i> Close</button>
-            <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i>
-            Update</button>
+            <div class="text-right mb-2">
+               <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
+               <button type="submit" class= "btn btn-sm btn-success" >Submit</button>
+            </div>
+            </div>
+            </div>
             </form>
             </div>
          </div>

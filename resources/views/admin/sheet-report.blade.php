@@ -1,4 +1,26 @@
 @extends('layouts.admin')
+@section('css')
+    <!-- Table css -->
+    <link href="{{ URL::asset('plugins/RWD-Table-Patterns/dist/css/rwd-table.min.css') }}" rel="stylesheet"
+        type="text/css" media="screen">
+    <style>
+        th, td {
+            white-space: nowrap;
+        }
+
+        .first-col {
+            position: absolute;
+            width: 5em;
+            margin-left: -10em;
+        }
+
+        .table-wrapper {
+            overflow-x: scroll;
+            width:100%;
+            margin: 0 13%;
+        }
+    </style>
+@endsection
 @section('content')
 
     <div class="card">
@@ -6,12 +28,12 @@
             TimeTable
         </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-sm" z>
+            <div class="table-wrapper">
+                <table  class="table table-bordered table-striped table-hover w-100">
                     <thead>
                         <tr >
 
-                            <th>Employee Name</th>
+                            <th class="first-col w-100">Employee Name</th>
                             <th>Employee Position</th>
                             <th>Employee ID</th>
                             @php
@@ -45,7 +67,7 @@
                             <input type="hidden" name="emp_id" value="{{ $employee->id }}">
 
                             <tr>
-                                <td>{{ $employee->name }}</td>
+                                <td class="first-col w-100">{{ $employee->name }}</td>
                                 <td>{{ $employee->position }}</td>
                                 <td>{{ $employee->id }}</td>
 
@@ -66,9 +88,11 @@
                                             ->where('attendance_date', $date_picker)
                                             ->first();
                                         
-                                        $check_leave = \App\Models\Leave::query()
+                                        $check_leave = \App\Models\Remarks::query()
                                             ->where('emp_id', $employee->id)
-                                            ->where('leave_date', $date_picker)
+                                            ->where('attendance_date', $date_picker)
+                                        
+
                                             ->first();
                                         
                                     @endphp
@@ -86,26 +110,16 @@
                                             @else
                                             <i class="fas fa-times text-danger"></i>
                                             @endif
-                                            {{-- <div class="mx-2">
-                                                <textarea name="attd[{{ $date_picker }}][{{ $employee->id }}][remarks]" rows="1" cols="20">{{ $check_attd->remarks ?? '' }}</textarea>
-                                            </div> --}}
+                                            <br>
+                                            
                                         </div>
 
-                                        {{-- <div class="form-check form-check-inline">
+                                        <div class="form-check form-check-inline">
                                           
-                                            @if (isset($check_leave))
-                                                @if ($check_leave->status==1)
-                                                <i class="fa fa-check text-success"></i>
-                                                @else
-                                                <i class="fa fa-check text-danger"></i>
-                                                @endif
-                                          
-                                            @else
-                                                <i class="fas fa-times text-danger"></i>
-                                            @endif
+                                          <p>{{ $check_leave->remarks ?? ''}}</p>
                                         
 
-                                        </div> --}}
+                                        </div> 
 
                                     </td>
 

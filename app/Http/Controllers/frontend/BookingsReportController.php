@@ -56,10 +56,10 @@ class BookingsReportController extends Controller
 
          ]);
          $services = Service::where('id',$request->service)->first();
-         $discounted_price = 1;
-         if(discount > 0){
-            $discounted_price = $services->price - ($services->price * discount / 100);
-         }
+        //  $discounted_price = 0;
+        //  if($$requestdiscount > 0){
+        //     $discounted_price = $services->price - ($services->price * discount / 100);
+        //  }
          
        $booking = Bookings::create([
         'user'              => $request->user,
@@ -69,13 +69,13 @@ class BookingsReportController extends Controller
         'time_frame'        => $request->time_frame,
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
-        'discount'          => $request->discount,
+        // 'discount'          => $request->discount,
         'status'            => 'pending',
         'service'           =>  $services->name,
         'total_price'       => $services->price,
-        'dis_prce'          =>  $discounted_price
+        // 'dis_prce'          =>  $discounted_price
        ]);
-       return redirect()->route('bookings.index')->with('success',"Service Created Successfully");
+       return redirect()->route('bookings.index')->with('success',"Booking Created Successfully");
     }
 
     /**
@@ -110,7 +110,6 @@ class BookingsReportController extends Controller
     public function update(Request $request, $id)
     {
            $this->validate($request,[
-            'service'=>'required',
             'user'=>'required',
             'vehicle_type'      => 'required',
             'vehicle_no'        => 'required', 
@@ -127,9 +126,9 @@ class BookingsReportController extends Controller
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
         'status'            => $request->status,
-        'service'           =>  $request->service,
+        // 'service'           =>  $request->service,
        ]);
-       return redirect()->route('bookings.index')->with('success',"Service Updated   Successfully");
+       return redirect()->route('bookings.index')->with('success',"Booking Updated   Successfully");
     }
 
     /**

@@ -45,6 +45,8 @@
                                             <th>Appointment Date</th>
                                             <th>Appox Hour</th>
                                             <th>Discount</th>
+                                            <th>Total Price</th>
+                                            <th>Discount</th>
                                             <th>Time Frame</th>
                                             <th>Status</th> 
                                             <th>Action</th>
@@ -57,6 +59,8 @@
                                         <th>Service</th>
                                         <th>Appointment Date</th>
                                         <th>Appox Hour</th>
+                                        <th>Discount</th>
+                                        <th>Total Price</th>
                                         <th>Discount</th>
                                         <th>Time Frame</th>
                                         <th>Status</th>
@@ -72,6 +76,8 @@
                                                 <td>{{$booking->service}}</td>
                                                 <td>{{$booking->appointment_date}}</td>
                                                 <td>{{$booking->approx_hour}}</td>
+                                                 <td>{{$booking->dis_price}}</td>
+                                                <td>{{$booking->total_price}}</td>
                                                 <td>{{$booking->discount}}%</td>
                                                  <td>{{$booking->time_frame}}</td>
                                                 <td>{{$booking->status}}</td>
@@ -153,14 +159,15 @@
                         <label for="">Appox Time</label>
                         <input type="text" class="form-control"  name="approx_hour" placeholder="eg : 1hour" >
                     </div>
-                    <div class="col-md-6 mb-3">
+                    {{-- <div class="col-md-6 mb-3">
                         <label for="">Discount %</label>
                         <input type="number" class="form-control"  name="discount" placeholder="10%" >
-                    </div>
+                    </div> --}}
                    
                 </div>
                 <div class="text-right mb-2">
-                    <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                     <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class= "btn btn-sm btn-success" >Submit</button>
                 </div>
             </form>
         </div>
@@ -178,6 +185,9 @@
             <div class="card-header">
                 <h6 class=" mb-0 text-gray-800">Edit booking</h6>
             </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             <div class="card-body">
                 <form action="{{route('bookings.update',$booking->id)}}" method="post">
                 @method('put')
@@ -245,6 +255,7 @@
                     </div> --}}
                 </div>
                 <div class="text-right mb-2">
+                    <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
                 </div>
             </form>

@@ -81,20 +81,21 @@
                 <div class="row flex">
                     <div class="col-md-6 mb-3">
                         <label for="">Name</label>
-                        <input type="text" class="form-control" placeholder="Vehicle Name" name="name">
+                        <input type="text" class="form-control" placeholder="Vehicle Name" name="name" required>
                     </div>          
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle Type</label>
-                        <input type="text" class="form-control" name="type" placeholder="Vehicle Type">
+                        <input type="text" class="form-control" name="type" placeholder="Vehicle Type" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle Model</label>
-                        <input type="text" class="form-control"  name="model" placeholder="Vehicle Model">
+                        <input type="text" class="form-control"  name="model" placeholder="Vehicle Model" required>
                     </div>
                    
                 </div>
                 <div class="text-right mb-2">
-                    <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                    <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class= "btn btn-sm btn-success"  >Submit</button>
                 </div>
             </form>
         </div>
@@ -119,19 +120,20 @@
                     <div class="row flex">
                         <div class="col-md-6 mb-3">
                             <label for="">Name</label>
-                            <input type="text" class="form-control" placeholder="Vehicle Name" name="name" value="{{$vehicle->name}}">
+                            <input type="text" class="form-control" placeholder="Vehicle Name" name="name" value="{{$vehicle->name}}" required>
                         </div>          
                         <div class="col-md-6 mb-3">
                             <label for="">Vehicle Type</label>
-                            <input type="text" class="form-control" name="type" value="{{$vehicle->type}}">
+                            <input type="text" class="form-control" name="type" value="{{$vehicle->type}}" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Vehicle Model</label>
-                            <input type="text" class="form-control"  name="model" value="{{$vehicle->model}}">
+                            <input type="text" class="form-control"  name="model" value="{{$vehicle->model}}" required>
                         </div>
                     </div>
                     <div class="text-right mb-2">
-                        <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+                        <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class= "btn btn-sm btn-success"  >Submit</button>
                         
                     </div>
                 </form>

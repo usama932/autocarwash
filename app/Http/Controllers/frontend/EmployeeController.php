@@ -29,6 +29,7 @@ class EmployeeController extends Controller
         $employee->name = $request->name;
         $employee->position = $request->position;
         $employee->email = $request->email;
+        $employee->phone = $request->phone;
         $employee->pin_code = bcrypt($request->_token);
         $employee->save();
 
@@ -43,6 +44,7 @@ class EmployeeController extends Controller
         $employee->name = $request->name;
         $employee->position = $request->position;
         $employee->email = $request->email;
+        $employee->phone = $request->phone;
         $employee->pin_code = bcrypt($request->_token);
         $employee->save();
 
