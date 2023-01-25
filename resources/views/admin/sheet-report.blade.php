@@ -57,28 +57,13 @@
                     </thead>
 
                     <tbody>
-
-
-
-
-
                         @foreach ($employees as $employee)
-
                             <input type="hidden" name="emp_id" value="{{ $employee->id }}">
-
                             <tr>
                                 <td class="first-col w-100">{{ $employee->name }}</td>
                                 <td>{{ $employee->position }}</td>
                                 <td>{{ $employee->id }}</td>
-
-
-
-
-
-
                                 @for ($i = 1; $i < $today->daysInMonth + 1; ++$i)
-
-
                                     @php
                                         
                                         $date_picker = \Carbon\Carbon::createFromDate($today->year, $today->month, $i)->format('Y-m-d');
@@ -126,14 +111,7 @@
                                 @endfor
                             </tr>
                         @endforeach
-
-
-
-
-
                     </tbody>
-
-
                 </table>
             </div>
         </div>

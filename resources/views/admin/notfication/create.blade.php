@@ -16,10 +16,8 @@
                             <strong>{{ $message }}</strong>
                     </div>
                     @endif
-                    <!-- DataTales Example -->
-                    <div class="text-right mb-2">
-                        <button class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Add Push Notification</button>
-                    </div>
+                
+                   
                     <div class="div shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Push Notification List</h6> 
