@@ -13,17 +13,12 @@ use App\Http\Controllers\api\ProfileController;
 use App\Http\Controllers\api\ReviewController;
 use App\Http\Controllers\api\EmployeeController;
 use App\Http\Controllers\api\NotificationSendController;
+use App\Http\Controllers\api\CheckController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+
+
+
+
 Route::post('login', [HomeController::class, 'login']);
 Route::post('/signup', [HomeController::class, 'sign_up']);
 
@@ -67,9 +62,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('update_reviews/{id}',[ReviewController::class, 'index']);
     Route::post('delete_reviews/{id}',[ReviewController::class, 'destroy']);
     //push Notifiation
-
-    
     Route::post('/send-web-notification', [NotificationSendController::class, 'sendNotification']);
+    //atttendenece
+    Route::get('sheetreport', [CheckController::class, 'sheetReport']);
+    Route::post('check-store',[CheckController::class, 'CheckStore']);
 });
     // Profile
     Route::get('/profile', [ProfileController::class, 'index']);
