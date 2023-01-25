@@ -12,7 +12,7 @@ use App\Http\Controllers\api\BookingController;
 use App\Http\Controllers\api\ProfileController;
 use App\Http\Controllers\api\ReviewController;
 use App\Http\Controllers\api\EmployeeController;
-use App\Http\Controllers\NotificationSendController;
+use App\Http\Controllers\api\NotificationSendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,7 +69,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //push Notifiation
 
     
-    Route::post('/send-web-notification', [NotificationSendController::class, 'sendNotification'])->name('send.web-notification');
+    Route::post('/send-web-notification', [NotificationSendController::class, 'sendNotification']);
 });
     // Profile
     Route::get('/profile', [ProfileController::class, 'index']);
@@ -80,6 +80,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('user_vehicles',[VehicleController::class, 'index']);
         Route::get('user_services',[ServiceController::class, 'index']);
         Route::post('store_reviews',[ReviewController::class, 'store']);
-        Route::post('/store-token', [NotificationSendController::class, 'updateDeviceToken'])->name('store.token');
+        Route::post('/store-token', [NotificationSendController::class, 'updateDeviceToken']);
     }); 
 });

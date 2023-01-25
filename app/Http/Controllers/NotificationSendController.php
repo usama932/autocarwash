@@ -15,8 +15,10 @@ class NotificationSendController extends Controller
         'device_token' => $request->token,
       ]);
      
-
-        return response()->json(['Token successfully stored.']);
+      $res = [
+       
+        'message' => 'Token successfully stored.', ];
+       
     }
 
     public function sendNotification(Request $request)
@@ -62,7 +64,13 @@ class NotificationSendController extends Controller
         // Close connection
         curl_close($ch);
         // FCM response
-        dd($result);
+        $res = [
+            'notification' => $result,
+            'message' => $result,
+           
+            ];
+            return response()->json($res, 200);
+        
     }
     public function create(Request $request)
     {
