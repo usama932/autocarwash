@@ -14,6 +14,7 @@ use App\Http\Controllers\frontend\ReviewController;
 use App\Http\Controllers\frontend\CheckController;
 use App\Http\Controllers\frontend\EmployeeController;
 use App\Http\Controllers\frontend\AttendanceController;
+use App\Http\Controllers\NotificationSendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,6 +54,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/check',[CheckController::class, 'index'])->name('check');
     Route::get('/sheet-report', [CheckController::class, 'sheetReport'])->name('sheet-report');
     Route::post('check-store',[CheckController::class, 'CheckStore'])->name('check_store');
+    //push Notfication
+    Route::get('/create_notfication',[NotificationSendController::class, 'create'])->name('create_notfication');
     
 });
 // User

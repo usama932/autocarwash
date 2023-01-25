@@ -128,7 +128,7 @@
                         <label for="">Services</label>
                         <select class="form-control" name="service">
                             @foreach ($services as $key => $service)
-                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
+                                <option class-"form-control" value="{{$service}}">{{$key}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -202,14 +202,14 @@
                         </select>
 
                     </div>
-                    <div class="col-md-6 mb-3">
+                    {{-- <div class="col-md-6 mb-3">
                         <label for="">Services</label>
                         <select class="form-control" name="service" >
                             @foreach ($services as $key => $service)
                                 <option class-"form-control" value="{{$key}}"  {{ $key == $booking->vehicle_type ? 'selected' : '' }}>{{$key}}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="col-md-6 mb-3">
                         <label for="">Time Frame</label>
                         <select class="form-control" name="time_frame"  >
@@ -239,10 +239,10 @@
                         <label for="">Appox Time</label>
                         <input type="text" class="form-control"  name="approx_hour" placeholder="eg : 1hour" value="{{$booking->approx_hour}}" >
                     </div>
-                    <div class="col-md-6 mb-3">
+                    {{-- <div class="col-md-6 mb-3">
                         <label for="">Discount %</label>
                         <input type="number" class="form-control"  name="discount"  value="{{$booking->discount}}">
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="text-right mb-2">
                     <button type="submit" class= "btn btn-sm btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,7 @@ class NotificationSendController extends Controller
 
         $FcmToken = User::whereNotNull('device_token')->pluck('device_token')->all();
             
-        $serverKey = 'AIzaSyCBPClM-3rJt3oazle9fcfON15WZnzqZRc'; // ADD SERVER KEY HERE PROVIDED BY FCM
+        $serverKey = 'BJiuk1nXPYoiGZRUsCjVoJCzLksRdKQfCRnwRQ1tuoODoPuk-TFzTQ8V5Y9TxsGeyOij0r9WpyOIEkBaV6ytTac'; // ADD SERVER KEY HERE PROVIDED BY FCM
     
         $data = [
             "registration_ids" => $FcmToken,
@@ -54,18 +55,11 @@ class NotificationSendController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, $encodedData);
         // Execute post
         $result = curl_exec($ch);
-        
         if ($result === FALSE) {
             die('Curl failed: ' . curl_error($ch));
-        }     
-
+        }        
         // Close connection
         curl_close($ch);
         // FCM response
         dd($result);
-    }
-    public function create(Request $request)
-    {
-        return view('admin.notfication.create');
-    }
 }

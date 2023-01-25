@@ -24,7 +24,7 @@ class CheckController extends Controller
                 foreach ($values as $key => $value) {
                   
                     if ($employee = Employee::whereId(request('emp_id'))->first()) {
-                        dd($keys);  
+                       
                         if (
                            
                             !Attendance::whereAttendance_date($keys)
@@ -32,38 +32,22 @@ class CheckController extends Controller
                                 ->whereType(0)
                                 ->first()
                         ) {
-                            if($value != null){
+                           
                                 $data = new Attendance();
                             
                                 $data->emp_id = $key;
                                 $emp_req = Employee::whereId($data->emp_id)->first();
                                 $data->attendance_time = Carbon::now();
                                 $data->attendance_date = $keys;
-                                $data->status = $value['status'] ?? '0';
-                                $data->remarks = $value['remarks'] ?? '';
+                                // $data->status = $value['status'] ?? '0';
+                                // $data->remarks = $value['remarks'] ?? '';
                                 // $emps = date('H:i:s', strtotime($employee->schedules->first()->time_in));
                                 // if (!($emps >= $data->attendance_time)) {
                                 //     $data->status = 0;
                                
                                 // }
                                 $data->save();
-                            }
-                        else{
-                            $attd = Attendance::whereAttendance_date($keys)
-                            ->whereEmp_id($key)
-                            ->whereType(0)
-                            ->first();
-                            $data = Attendance::where($attd->id)->update([
-                                'emp_id' => $key,
-                                'attendance_time' => Carbon::now(),
-                                'attendance_date' => $key,
-                                'status' =>  $value['status'] ?? '0',
-                                'remarks' => $value['remarks'] ?? ''
-
-                            ]);
-                        
-                        }
-                           
+                               
                         }
                     }
                 }

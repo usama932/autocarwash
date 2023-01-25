@@ -128,7 +128,7 @@
                         <select class="form-control" name="service">
                              <option class-"form-control" value="Not Selected">Select Services</option>
                             @foreach ($services as $key => $service)
-                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
+                                <option class-"form-control" value="{{$service}}">{{$key}}</option>
                             @endforeach
                         </select>
                     </div>

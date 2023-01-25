@@ -56,9 +56,9 @@ class BookingsReportController extends Controller
         'appointment_date'  => $request->appointment_date,
         'time_frame'        => $request->time_frame,
         'approx_hour'       => $request->approx_hour,
-        'booked_by'         => auth()->user()->name,
+        // 'booked_by'         => auth()->user()->name,
         'status'            => $request->status,
-        'service'           =>  $request->service,
+        // 'service'           =>  $request->service,
        ]);
        $res = [
         'booking' => $booking,

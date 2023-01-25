@@ -1,9 +1,4 @@
 
-        <div class="col-md-8">
-            <button onclick="startFCM()"
-                class="btn btn-danger btn-flat">Allow notification
-            </button>
-        </div>
         <div class="top-bar">
             <div class="container">
                 <div class="row align-items-center">
@@ -89,6 +84,11 @@
 
                             @if(Auth::check())
                                  <a href="{{route('dashboard')}}" class="text-right mx-5 p-2  rounded-pill btn btn-warning ">Dashboard</a>
+                                 @if(empty(Auth::user()->device_token))
+                                  <button onclick="startFCM()"
+                                    class="btn btn-danger btn-flat btn-sm">Allow notification
+                                </button>
+                                @endif
                             @else
                                  <a href="{{route('login')}}" class="text-white ml-5 font-weight-bold">Login</a>
                             @endif

@@ -49,6 +49,9 @@ class BookingController extends Controller
             'appointment_date'  => 'required',  
 
          ]);
+         $services = Service::where('id',$request->service)->first();
+            $discounted_price = $services->price - ($services->price * 5 / 100);
+         
        $booking = Bookings::create([
         'user_id'           => auth()->user()->id,
         'user'              => auth()->user()->name,
@@ -60,9 +63,11 @@ class BookingController extends Controller
         'booked_by'         => auth()->user()->name,
         'discount'          => '5',
         'status'            => 'pending',
-        'service'           =>  $request->service,
+        'service'           =>  $services->name,
+        'total_price'       => $services->price,
+        'dis_prce'          =>  $discounted_price
        ]);
-       return redirect()->route('user_booking.index')->with('success',"Service Created Successfully");
+       return redirect()->route('user_booking.index')->with('success',"Booking Created Successfully");
     }
 
     /**

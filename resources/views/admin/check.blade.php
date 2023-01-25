@@ -115,11 +115,11 @@
 
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" id="check_box"
-                                                name="attd[{{ $date_picker }}][{{ $employee->id }}][status]" type="checkbox"
+                                                name="attd[{{ $date_picker }}][{{ $employee->id }}]" type="checkbox"
                                                 @if (isset($check_attd))  checked @endif id="inlineCheckbox1" value="1">
 
                                         </div>
-                                        <textarea name="attd[{{ $date_picker }}][{{ $employee->id }}][remarks]" rows="1" cols="20">{{ $check_attd->remarks ?? '' }}</textarea>
+                                        {{-- <textarea name="attd[{{ $date_picker }}][{{ $employee->id }}][remarks]" rows="1" cols="20">{{ $check_attd->remarks ?? '' }}</textarea> --}}
                                         </div>
                                     </td>
 

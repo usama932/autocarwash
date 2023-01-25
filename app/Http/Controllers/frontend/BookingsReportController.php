@@ -55,6 +55,12 @@ class BookingsReportController extends Controller
             'appointment_date'  => 'required',  
 
          ]);
+         $services = Service::where('id',$request->service)->first();
+         $discounted_price = 1;
+         if(discount > 0){
+            $discounted_price = $services->price - ($services->price * discount / 100);
+         }
+         
        $booking = Bookings::create([
         'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
@@ -65,7 +71,9 @@ class BookingsReportController extends Controller
         'booked_by'         => auth()->user()->name,
         'discount'          => $request->discount,
         'status'            => 'pending',
-        'service'           =>  $request->service,
+        'service'           =>  $services->name,
+        'total_price'       => $services->price,
+        'dis_prce'          =>  $discounted_price
        ]);
        return redirect()->route('bookings.index')->with('success',"Service Created Successfully");
     }
@@ -109,6 +117,7 @@ class BookingsReportController extends Controller
             'appointment_date'  => 'required',  
 
          ]);
+       
        $booking = Bookings::where('id',$id)->update([
         'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
@@ -118,7 +127,6 @@ class BookingsReportController extends Controller
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
         'status'            => $request->status,
-        'discount'          => $request->discount,
         'service'           =>  $request->service,
        ]);
        return redirect()->route('bookings.index')->with('success',"Service Updated   Successfully");

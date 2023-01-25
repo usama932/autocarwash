@@ -59,14 +59,7 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Attendance Sheet Report</span>
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('teams.index')}}"">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Team</span>
-                </a>
-            </li>
-            
+            </li>  
             <li class="nav-item">
                 <a class="nav-link" href="{{route('bookings.index')}}">
                     <i class="fas fa-fw fa-table"></i>
@@ -77,6 +70,12 @@
                 <a class="nav-link" href="{{route('review.index')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Reviews</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('create_notfication')}}"">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Push Notification</span>
                 </a>
             </li>
             @endif
