@@ -85,6 +85,8 @@ class ServiceController extends Controller
             'description' =>$request->description ,
             'vehicle' =>$request->vehicle ,
             'price' =>$request->price ,
+            'is_popular'=> $request->is_popular,  
+            
         ]);
         return redirect()->route('services.index')->with('success',"Service Updated Successfully");    
     }

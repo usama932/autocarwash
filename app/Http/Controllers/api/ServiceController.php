@@ -26,10 +26,8 @@ class ServiceController extends Controller
             'description' =>$request->description ,
             'vehicle' =>$request->vehicle ,
             'price' =>$request->price ,
-            'washing_plan_1'=> $request->washing_plan_1,  
-            'washing_plan_2'=> $request->washing_plan_2,
-            'washing_plan_3' =>$request->washing_plan_3,
-            'washing_plan_4' => $request->washing_plan_4,
+            'is_popular'=> $request->is_popular,  
+            'is_push'=> $request->is_push,
         ]);
         $res = [
             'services' => $service,
@@ -46,10 +44,7 @@ class ServiceController extends Controller
             'description' =>$request->description ,
             'vehicle' =>$request->vehicle ,
             'price' =>$request->price ,
-            'washing_plan_1'=> $request->washing_plan_1,  
-            'washing_plan_2'=> $request->washing_plan_2,
-            'washing_plan_3' =>$request->washing_plan_3,
-            'washing_plan_4' => $request->washing_plan_4,
+            'is_popular'=> $request->is_popular,  
         ]);
         $res = [
             'services' => $service,

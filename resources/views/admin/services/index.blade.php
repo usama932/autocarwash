@@ -87,10 +87,10 @@
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle</label>
                         <select class="form-control" name="vehicle">
-                          @foreach ($vehicles as $key => $vehicle)
+                            <option class-"form-control" value="No Select ">--Select--</option>
+                            @foreach ($vehicles as $key => $vehicle)
                                 <option class-"form-control" value="{{$key}}">{{$key}}</option>
                             @endforeach
-                                
                         </select>
                     </div>
                 
@@ -98,10 +98,25 @@
                         <label for="">Price</label>
                         <input type="text" class="form-control"  name="price" placeholder="Price">
                     </div>
-                     <div class="col-md-12 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label for="">Popular Service</label>
+                        <select class="form-control" name="is_popular">   
+                            <option class-"form-control" value="No Select ">--Select--</option>            
+                            <option class-"form-control" value="Yes">YES</option>
+                            <option class-"form-control" value="Yes">YES</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="">Notify</label>
+                        <select class="form-control" name="is_push"> 
+                            <option class-"form-control" value="No Select ">--Select--</option>              
+                            <option class-"form-control" value="Yes">YES</option>
+                            <option class-"form-control" value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 mb-3">
                         <label for="">Description</label>
                         <textarea class="form-control" id="editor" name="description" >Something about Your service</textarea>
-                       
                     </div>
                    
                 </div>
@@ -136,8 +151,9 @@
                         <div class="col-md-6 mb-3">
                             <label for="">Vehicle</label>
                             <select class="form-control" name="vehicle">
+                             <option class-"form-control" value="No Select ">--Select--</option>
                             @foreach ($vehicles as $key => $vehicle)
-                                <option class-"form-control" value="{{$key}}">{{$key}}</option>
+                                <option class-"form-control" value="{{$key}}" {{ $key == $service->vehicle ? 'selected' : '' }}>{{$key}}</option>
                             @endforeach
                                 
                                
@@ -148,6 +164,14 @@
                         <div class="col-md-6 mb-3">
                             <label for="">Price</label>
                             <input type="text" class="form-control"  name="price" value="{{$service->price}}" placeholder="Price">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="">Popular Service</label>
+                            <select class="form-control" name="is_popular">               
+                                <option class-"form-control" value="No Select ">--Select--</option>
+                                <option class-"form-control" value="Yes" {{ "Yes" == $service->is_popular ? 'selected' : '' }}>YES</option>
+                                <option class-"form-control" value="No" {{ "No" == $service->is_popular ? 'selected' : '' }}YES</option>
+                            </select>
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="">Description</label>
