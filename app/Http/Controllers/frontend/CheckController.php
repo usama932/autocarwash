@@ -18,7 +18,7 @@ class CheckController extends Controller
 
     public function CheckStore(Request $request)
     {
-     dd($request->toArray()); 
+   
         if (isset($request->attd)) {
             foreach ($request->attd as $keys => $values) {
                 
