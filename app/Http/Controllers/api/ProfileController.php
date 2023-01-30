@@ -21,7 +21,12 @@ class ProfileController extends Controller
     }
     public function update_profile(Request $request){
         $user = User::where('id',$request->id)->first();
-        $image = $user->image;
+        $image = null;
+        if(!empty($request->image)){
+            $image = $user->image;
+        }
+
+       
         
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
@@ -29,7 +34,7 @@ class ProfileController extends Controller
            $image =  $image->move($destinationPath, $profileImage);
 
         }
-       
+        
         $user = User::where('id',$request->id)->update([
             'name'      =>$request->name,
             'email'     =>$request->email,
