@@ -75,6 +75,23 @@ class CheckController extends Controller
         
         return back()->with('success', 'You have successfully submited the attendance !');
     }
+     public function newAttandance(Request $request){
+        $check = new Attendance;
+        
+        $emp_req = Employee::whereId($request->emp_id)->first();
+       
+        $check->emp_id = $emp_req;
+        $check->attendance_time = date("Y-m-d H:i:s");
+        $check->attendance_date = $request->attendance_date;
+        $check->status = $request->status;
+        $check->save();
+        $res = [
+            'data' => $data,
+            'message' => 'Attended mark succesfully',
+           
+        ];
+        return response()->json($res, 200);
+    }
     public function sheetReport()
     {
     $attendence = Attendance::all();

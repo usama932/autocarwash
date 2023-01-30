@@ -65,7 +65,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/send-web-notification', [NotificationSendController::class, 'sendNotification']);
     //atttendenece
     Route::get('sheetreport', [CheckController::class, 'sheetReport']);
-    Route::post('check-store',[CheckController::class, 'CheckStore']);
+    Route::post('check-store',[CheckController::class, 'newAttandance']);
 });
     // Profile
     Route::get('/profile', [ProfileController::class, 'index']);
