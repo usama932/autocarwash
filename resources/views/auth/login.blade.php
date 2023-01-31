@@ -58,8 +58,8 @@
                                 </button>
 
                                 
-                                    <a class="btn btn-link" href="{{ route('register') }}">
-                                       Make New Account
+                                    <a class="btn btn-link" href="{{route('password.request')}}">
+                                      Forgot Password
                                     </a>
                                 
                             </div>

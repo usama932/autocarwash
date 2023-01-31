@@ -14,13 +14,16 @@ use App\Http\Controllers\api\ReviewController;
 use App\Http\Controllers\api\EmployeeController;
 use App\Http\Controllers\api\NotificationSendController;
 use App\Http\Controllers\api\CheckController;
-
+use App\Http\Controllers\api\PasswordController;
 
 
 
 
 Route::post('login', [HomeController::class, 'login']);
 Route::post('/signup', [HomeController::class, 'sign_up']);
+
+Route::post('forgot-password', [PasswordController::class, 'forgotPassword']);
+Route::post('reset-password', [PasswordController::class, 'reset']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::group(['middleware' => ['admin']], function () {

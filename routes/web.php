@@ -36,6 +36,7 @@ Route::post('/web-login' ,[HomeController::class, 'web_login'] )->name('web.logi
 Route::post('/front-login' ,[HomeController::class, 'front_login'] )->name('front.login');
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 // Admin
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::group(['middleware' => ['admin']], function () {
@@ -59,7 +60,7 @@ Route::group(['middleware' => ['admin']], function () {
     
 });
 // User
-Route::group(['middleware' => ['user']], function () {
+Route::group(['middleware' => ['user','verified']], function () {
    
     Route::resource('user_booking', BookingController::class);
     Route::resource('reviews', ReviewController::class);
