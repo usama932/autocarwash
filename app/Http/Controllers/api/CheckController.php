@@ -94,7 +94,7 @@ class CheckController extends Controller
         $remark->save();
           
             
-        }
+        
         $res = [
             'data' => $check,
             'remark' => $remark,
