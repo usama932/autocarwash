@@ -52,21 +52,26 @@
                     <h2>Choose Your Plan</h2>
                 </div>
                 <div class="row">
+                @foreach($services as $service)
                     <div class="col-md-4">
                        <div class="card m-2">
                             <div class="price-item">
                                 <div class="price-header">
-                                    <h3>Basic Cleaning</h3>
-                                    <h2><span>$</span><strong>25</strong><span>.99</span></h2>
+                                    <h3>{{$service->name}}</h3>
+                                    <h2><span>$</span><strong>{{$service->price}}</strong><span>.00</span></h2> 
+                                    <h5>Booked here <span class="badge badge-secondary">10% Off</span></h5>
                                 </div>
                                 <div class="price-body">
-                                    <ul>
-                                        <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                                        <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                                        <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                                        <li><i class="far fa-times-circle"></i>Interior Wet Cleaning</li>
-                                        <li><i class="far fa-times-circle"></i>Window Wiping</li>
-                                    </ul>
+                                    @if(strlen($service->description) > 100)
+                                        {!! substr($service->description,0,100) !!}
+                                        {!!  substr($service->description, 0,  20) !!}
+                                        <span class="read-more-show hide_content">Show More<i class="fa fa-angle-down"></i></span>
+                                        <span class="read-more-content"> {{substr($service->description,100,strlen($service->description))}}
+                                        <span class="read-more-hide hide_content">Show Less <i class="fa fa-angle-up"></i></span> </span>
+                                    @else
+                                        {{$service->description}}
+
+                                    @endif
                                 </div>
                                 <div class="price-footer">
                                     <a class="btn btn-custom" href="">Book Now</a>
@@ -74,7 +79,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                @endforeach
+                    {{-- <div class="col-md-4">
                        <div class="card m-2">
                             <div class="price-item ">
                                 <div class="price-header">
@@ -118,7 +124,7 @@
                             </div>
                         </div>
                     </div>
-                     <div class="col-md-4">
+                    <div class="col-md-4">
                         <div class="card m-2">
                             <div class="price-item">
                                 <div class="price-header">
@@ -139,7 +145,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
