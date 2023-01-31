@@ -28,10 +28,10 @@ class NotificationSendController extends Controller
         $url = 'https://fcm.googleapis.com/fcm/send';
         $FcmToken = User::whereNotNull('device_token')->pluck('device_token')->all();
 
-        $serverKey = 'AAAA3IK0XVg:APA91bEasaitje_xr8ftDGV8ThVwqMugnqkO_ZB1859N-ox3zhEPPIYIyrxMAYW-dwncfqqv10J31avbD33YEh0MR-d6Nw2L-MpHyJnwuZ7XY-K6L29sEezOaE5xm_EokwIiP3aivmP8';
+        $serverKey = 'AAAAvgFHeks:APA91bF2eIn-z3yE6NJ5M-fziz8Lu15BMqRZSbVXxlxxhP78ph8cQREVJESv_sl5e416Q_AERAi0dSKIHJVOYs14P2poTPqoG7kCbzg4MrG51b5SaPLbkDuiGhHniFe0dMEw2cqgLreD';
     
         $data = [
-            // "registration_ids" => $FcmToken,
+             "registration_ids" => $FcmToken,
             "notification" => [
                 "title" => $request->title,
                 "body" => $request->body,  
