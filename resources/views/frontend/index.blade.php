@@ -74,7 +74,18 @@
                                     @endif
                                 </div>
                                 <div class="price-footer">
-                                    <a class="btn btn-custom" href="">Book Now</a>
+                                    @if(Auth::check()) 
+                                        @if(auth()->user()->roled == 'user')
+                                        
+                                            <a class="btn btn-custom" href=""data-toggle="modal" data-target=".bd-example-modal-lg">Book Now</a>
+                                            <a class="btn btn-custom"  data-toggle="modal" data-target=".bd-example-modal-lg" >Get Appointment</a>
+                                            
+                                        @endif
+                                        @else
+                                        
+                                                <a class="btn btn-custom" href="" data-toggle="modal" data-target=".bd-login-modal-lg">Book Now</a>
+                                            
+                                    @endif 
                                 </div>
                             </div>
                         </div>
