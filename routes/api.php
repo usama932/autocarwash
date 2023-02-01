@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('delete_employees/{id}',[EmployeeController::class, 'destroy']);
     //Review
     Route::get('reviews',[ReviewController::class, 'index']);
-    Route::post('update_reviews/{id}',[ReviewController::class, 'index']);
+    Route::post('update_reviews/{id}',[ReviewController::class, 'update']);
     Route::post('delete_reviews/{id}',[ReviewController::class, 'destroy']);
     //push Notifiation
     Route::post('/send-web-notification', [NotificationSendController::class, 'sendNotification']);

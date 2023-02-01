@@ -36,19 +36,23 @@ class ReviewController extends Controller
             'message' => 'review created succesfully',
            
         ];
+        return response()->json($res, 200);
        
     }
     public function update(Request $request, $id)
     {
-        $review= Review::where('id',$id)->update([
+      
+        $review = Review::where('id',$id)->update([
             'is_feature'   =>$request->is_feature,
             'remarks'   =>$request->remarks ,
         ]);
+    
         $res = [
             'review' => $review,
             'message' => 'review created succesfully',
            
         ];   
+        return response()->json($res, 200);
     }
     public function destroy($id)
     {
