@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Profile
     Route::get('/profile', [ProfileController::class, 'index']);
     Route::post('/update_profile', [ProfileController::class, 'update_profile']);
+    Route::post('/user_update_profile', [ProfileController::class, 'update_profile']);
     Route::group(['middleware' => ['user']], function () {
         Route::get('user_bookings',[BookingController::class, 'index']);
         Route::post('user_store_bookings',[BookingController::class, 'store']);
