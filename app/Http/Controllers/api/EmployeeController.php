@@ -28,6 +28,7 @@ class EmployeeController extends Controller
         $employee->name = $request->name;
         $employee->position = $request->position;
         $employee->email = $request->email;
+        $employee->phone = $request->phone;
         $employee->pin_code = bcrypt('123456');
         $employee->save();
         $res = [
@@ -46,7 +47,7 @@ class EmployeeController extends Controller
         $employee->name = $request->name;
         $employee->position = $request->position;
         $employee->email = $request->email;
-        $employee->mobile = $request->mobile;
+        $employee->phone = $request->phone;
         $employee->pin_code = bcrypt('123456');
         $employee->save();
 
