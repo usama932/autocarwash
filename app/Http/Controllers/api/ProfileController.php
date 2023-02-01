@@ -22,7 +22,7 @@ class ProfileController extends Controller
     public function update_profile(Request $request){
         $user = User::where('id',$request->id)->first();
         $image = null;
-        if(!empty($request->image)){
+        if(empty($request->image)){
             $image = $user->image;
         }
 
