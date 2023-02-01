@@ -85,13 +85,15 @@ class CheckController extends Controller
         $check->attendance_date = $request->attendance_date;
         $check->status = $request->status;
         $check->save();
-       
-        $remark = new Remarks();
-        $remark->attendance_id = $check->id;
-        $remark->remarks = $request->remarks;
-        $remark->emp_id = $check->emp_id;
-        $remark->attendance_date = $check->attendance_date;
-        $remark->save();
+        if($request->remarks){
+            $remark = new Remarks();
+            $remark->attendance_id = $check->id;
+            $remark->remarks = $request->remarks;
+            $remark->emp_id = $check->emp_id;
+            $remark->attendance_date = $check->attendance_date;
+            $remark->save();
+        }
+      
           
             
         
