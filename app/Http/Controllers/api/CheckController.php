@@ -77,10 +77,10 @@ class CheckController extends Controller
     }
      public function newAttandance(Request $request){
         $check = new Attendance;
-        
-        $emp_req = Employee::whereId($request->emp_id)->first();
        
-        $check->emp_id = $emp_req;
+        $emp_req = Employee::where('id',$request->emp_id)->first();
+      
+        $check->emp_id = $emp_req->id;
         $check->attendance_time = date("Y-m-d H:i:s");
         $check->attendance_date = $request->attendance_date;
         $check->status = $request->status;

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('remarks')->nullable();
             $table->integer('attendance_id')->unsigned();
             $table->foreign('attendance_id')->references('id')->on('attendances')->onDelete('cascade');
-            $table->date('attendance_date')->default(date("Y-m-d"));
+            $table->string('attendance_date')->nullable();
             $table->integer('emp_id')->nullable();
             $table->timestamps();
         });
@@ -31,6 +31,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('remarks');
+       
+        Schema::table('remarks', function (Blueprint $table) {
+            $table->dropColumn('attendance_date');
+        });
     }
 };
