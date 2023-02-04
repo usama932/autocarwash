@@ -81,5 +81,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('user_services',[ServiceController::class, 'index']);
         Route::post('store_reviews',[ReviewController::class, 'store']);
         Route::post('/store-token', [NotificationSendController::class, 'updateDeviceToken']);
+        Route::get('reward',[HomeController::class, 'reward']);
     }); 
 });

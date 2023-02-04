@@ -11,7 +11,7 @@ class Service extends Model
     use HasFactory;
     // use SoftDeletes;
     protected $fillable = [
-        'name', 'description','vehicle_id','price','vehicle','is_popular','is_push','discount'
+        'name', 'description','vehicle_id','price','vehicle','is_popular','is_push','discount','category'
     ];
     // public function booking()
     // {

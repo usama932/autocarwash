@@ -48,8 +48,29 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $services = Service::where('id',$request->service)->first();
-        $discounted_price = $services->price - ($services->price * 5 / 100);
+        $reward = Reward::where('user_id',auth()->user()->id)->first();
+         $services = Service::where('id',$request->service)->first();
+         $discount = '10';
+         
+         if(!empty($reward) ){
+            if($reward->uuid >= 10){
+                $reward2 = $reward->uuid % 10;
+                if($reward2 == 0){
+                    $discounted_price = $services->price;
+                    $discount = 'full free';
+                }
+                else{
+                    $discounted_price = ($services->price * 10)/100;
+                }
+            }
+            else{
+                $discounted_price = ($services->price * 10)/100;
+            }
+           
+         }
+         else{
+            $discounted_price = ($services->price * 10)/100;
+         }
        $booking = Bookings::create([
         'user_id'           => auth()->user()->id,
         'user'              => auth()->user()->name,
@@ -59,7 +80,7 @@ class BookingController extends Controller
         'time_frame'        => $request->time_frame,
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
-        'discount'          => '10',
+        'discount'          => $discount,
         'status'            => 'pending',
         'service'           =>  $services->name,
         'total_price'       => $services->price,

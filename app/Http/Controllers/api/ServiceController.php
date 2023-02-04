@@ -26,6 +26,7 @@ class ServiceController extends Controller
             'description' =>$request->description ,
             'vehicle' =>$request->vehicle ,
             'price' =>$request->price ,
+            'category' => $request->category,
             'is_popular'=> $request->is_popular,  
             'is_push'=> $request->is_push,
         ]);
@@ -44,6 +45,7 @@ class ServiceController extends Controller
             'description' =>$request->description ,
             'vehicle' =>$request->vehicle ,
             'price' =>$request->price ,
+            'category' => $request->category,
             'is_popular'=> $request->is_popular,  
         ]);
         $res = [

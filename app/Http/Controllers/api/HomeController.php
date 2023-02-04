@@ -64,4 +64,20 @@ class HomeController extends Controller
             'message' => 'user logged out'
         ];
     }
+    public function reward()
+    {
+        $rewards = App\Models\Reward::where('user_id',auth()->user()->id)->first();
+        $reward = $rewards->uuid % 10 ;
+        if($reward > 10 || $reward == 0){
+            $reward = 'Congratulation ..! Your Next  Booking is  free. (Only Valid For Premium Service)';
+        }
+        else{
+            $reward = 'Book More Get Free';
+        }
+        $res = [
+            'reward' => $reward,
+          
+        ];
+        return response()->json($res, 200);
+    }
 }

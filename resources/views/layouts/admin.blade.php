@@ -1,3 +1,8 @@
+ @php
+    
+    $rewards = App\Models\Reward::where('user_id',auth()->user()->id)->first();
+    $reward = $rewards->uuid % 10 ;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,6 +130,15 @@
                 </nav>
 
                 <div class="container-fluid">
+                    @if(auth()->user()->roled == 'user')
+                       
+                        @if($reward > 10 || $reward == 0)
+                        <div class="alert alert-primary" role="alert">
+                       
+                        Congratulation ..! Your Next  Booking is  free. (Only Valid For Premium Service)
+                        </div>
+                        @endif
+                    @endif
                    @yield('content')
                 </div>
 

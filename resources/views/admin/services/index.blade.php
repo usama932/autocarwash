@@ -24,7 +24,55 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Services List</h6> 
                         </div>
-                        <div class="card-body">
+                        
+                            <h6 class="mx-4 mt-2"><strong>Premium Services</strong></h6>
+                            <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Vehicle</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <th>Name</th>  
+                                            <th>Price</th>
+                                            <th>Vehicle</th>
+                                           <th>Description</th>
+                                            <th>Action</th>
+                                    </tfoot>
+                                    <tbody>
+                                        @foreach($services as $service)
+                                            @if($service->category == 'Premium')
+                                                <tr>
+                                                    <td>{{$service->name}}</td>
+                                                    <td>{{$service->price}}</td>
+                                                    <td>{{$service->vehicle}}</td>
+                                                    <td>{!! $service->description !!}</td>
+                                                    <td><div class="flex">
+                                                        <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$service->id}}"><i class="fas fa-edit"></i></button>
+                                                        <form action="{{ route('services.destroy', $service->id) }}" method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-sm" data-toggle="modal" data-target=".deletemodal{{$service->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                        </form>
+                                                    </div>
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                           
+                            <h6 class="mx-4 mt-2"><strong>Polish Services</strong></h6>
+                             <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -45,6 +93,7 @@
                                     </tfoot>
                                     <tbody>
                                        @foreach($services as $service)
+                                            @if($service->category == 'Polish')
                                             <tr>
                                                 <td>{{$service->name}}</td>
                                                 <td>{{$service->price}}</td>
@@ -60,12 +109,14 @@
                                                    </div>
                                                 </td>
                                             </tr>
+                                            @endif
                                         @endforeach
                                       
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                            </div>
+                        
                     </div>
 
 {{-- Create Modal --}}
@@ -93,7 +144,14 @@
                             @endforeach
                         </select>
                     </div>
-                
+                    <div class="col-md-6 mb-3">
+                        <label for="">Service Category</label>
+                        <select class="form-control" name="category" required> 
+                            <option class-"form-control" value="No Select ">--Select--</option>              
+                            <option class-"form-control" value="Premium">Premium</option>
+                            <option class-"form-control" value="<strong>">Polish</option>
+                        </select>
+                    </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Price</label>
                         <input type="number" class="form-control"  name="price" placeholder="Price" required>
@@ -114,6 +172,7 @@
                             <option class-"form-control" value="No">No</option>
                         </select>
                     </div>
+                   
                     <div class="col-md-12 mb-3">
                         <label for="">Description</label>
                         <textarea class="form-control" id="editor" name="description" >Something about Your service</textarea>
@@ -161,7 +220,14 @@
                             </select>
                         </div>
                     
-                
+                        <div class="col-md-6 mb-3">
+                            <label for="">Service Category</label>
+                            <select class="form-control" name="category" required> 
+                                <option class-"form-control" value="No Select ">--Select--</option>              
+                                <option class-"form-control" value="Premium" {{ 'Premium' == $service->category ? 'selected' : '' }}>Premium</option>
+                                <option class-"form-control" value="Polish" {{ 'Polish' == $service->category ? 'selected' : '' }}>Polish</option>
+                            </select>
+                        </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Price</label>
                             <input type="number" class="form-control"  name="price" value="{{$service->price}}" placeholder="Price">

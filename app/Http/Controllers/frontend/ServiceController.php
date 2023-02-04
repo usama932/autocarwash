@@ -85,6 +85,7 @@ class ServiceController extends Controller
             'description' =>$request->description ,
             'vehicle' =>$request->vehicle ,
             'price' =>$request->price ,
+            'category' => $request->category,
             'is_popular'=> $request->is_popular,  
             
         ]);

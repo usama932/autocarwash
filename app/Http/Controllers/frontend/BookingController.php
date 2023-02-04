@@ -10,6 +10,7 @@ use App\Models\Team;
 use App\Models\Service;
 use App\Models\Vehicle;
 use App\Models\Bookings;
+use App\Models\Reward;
 use Auth;
 
 
@@ -49,8 +50,30 @@ class BookingController extends Controller
             'appointment_date'  => 'required',  
 
          ]);
+         $reward = Reward::where('user_id',auth()->user()->id)->first();
          $services = Service::where('id',$request->service)->first();
-            $discounted_price = $services->price - ($services->price * 5 / 100);
+         $discount = '10';
+         
+         if(!empty($reward) ){
+            if($reward->uuid >= 10){
+                $reward2 = $reward->uuid % 10;
+                if($reward2 == 0){
+                    $discounted_price = $services->price;
+                    $discount = 'full free';
+                }
+                else{
+                    $discounted_price = ($services->price * 5)/100;
+                }
+            }
+            else{
+                $discounted_price = ($services->price * 5)/100;
+            }
+           
+         }
+         else{
+            $discounted_price = ($services->price * 5)/100;
+         }
+        
          
        $booking = Bookings::create([
         'user_id'           => auth()->user()->id,
@@ -61,12 +84,29 @@ class BookingController extends Controller
         'time_frame'        => $request->time_frame,
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
-        'discount'          => '5',
+        'discount'          => $discount,
         'status'            => 'pending',
         'service'           =>  $services->name,
         'total_price'       => $services->price,
         'dis_price'          =>  $discounted_price
        ]);
+       
+      
+       if(empty($reward)){
+       
+        $reward = Reward::create([
+
+            'user_id' => $booking->user_id,
+            'uuid' => 1
+        ]);
+       }
+       else{
+        
+        $reward = Reward::where('id',$reward->id)->update([
+            'user_id' => $booking->user_id,
+            'uuid' => $reward->uuid + 1  
+        ]);
+       }
        return redirect()->route('user_booking.index')->with('success',"Booking Created Successfully");
     }
 
