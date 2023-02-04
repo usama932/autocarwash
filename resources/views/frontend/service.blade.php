@@ -90,15 +90,15 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="service-item">
                             <i class="flaticon-car-wash"></i>
-                            <h3>Oil Changing</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <h3>Buffing Polish (Exterior)</h3>
+                            <p>This is extreme level or exterior detail with buff and polish with attention to detail, this service will remove minor scratches and swirl marks on the exterior body to make it look like super shine again.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="service-item">
                             <i class="flaticon-brush-1"></i>
-                            <h3>Brake Reparing</h3>
-                            <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                            <h3> Steaming (Interior)</h3>
+                            <p>Fabric seats and floor steam clean with quality tools and chemicals, make your car mold, germs and marks free.</p>
                         </div>
                     </div>
                 </div>

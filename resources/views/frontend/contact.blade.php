@@ -34,7 +34,13 @@
                                 </div>
                                 <div class="contact-info-text">
                                     <h3>Opening Hour</h3>
-                                    <p>Mon - Fri, 8:00 - 9:00</p>
+                                    <p href="">Monday (08:30am -- 05:30pm)</p>
+                                    <p href="">Tuesday (08:30am -- 05:30pm)</p>
+                                    <p href="">Wedesday (08:30am -- 05:30pm)</p>
+                                    <p href="">Thursday (8:30am -- 7:00pm)</p>
+                                    <p href="">Friday (08:30am -- 07:00pm)</p>
+                                    <p href="">Saturday (08:30am -- 05:30pm)</p>
+                                    <p href="">Sunday (09:00am -- 05:00pm)</p>
                                 </div>
                             </div>
                             <div class="contact-info-item">
@@ -43,7 +49,7 @@
                                 </div>
                                 <div class="contact-info-text">
                                     <h3>Call Us</h3>
-                                    <p>+012 345 6789</p>
+                                    <p>0410096313</p>
                                 </div>
                             </div>
                             <div class="contact-info-item">
@@ -52,7 +58,7 @@
                                 </div>
                                 <div class="contact-info-text">
                                     <h3>Email Us</h3>
-                                    <p>info@example.com</p>
+                                    <p>info@auto1carwash.com</p>
                                 </div>
                             </div>
                         </div>
