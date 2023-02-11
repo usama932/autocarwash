@@ -115,6 +115,50 @@
                                     </tbody>
                                 </table>
                             </div>
+                              <h6 class="mx-4 mt-2"><strong>Retailing Services</strong></h6>
+                             <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Vehicle</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <th>Name</th>  
+                                            <th>Price</th>
+                                            <th>Vehicle</th>
+                                           <th>Description</th>
+                                            <th>Action</th>
+                                    </tfoot>
+                                    <tbody>
+                                       @foreach($services as $service)
+                                            @if($service->category == 'Retailing')
+                                            <tr>
+                                                <td>{{$service->name}}</td>
+                                                <td>{{$service->price}}</td>
+                                                <td>{{$service->vehicle}}</td>
+                                                <td>{!! $service->description !!}</td>
+                                                <td><div class="flex">
+                                                    <button class="btn btn-sm"  data-toggle="modal" data-target=".editmodal{{$service->id}}"><i class="fas fa-edit"></i></button>
+                                                    <form action="{{ route('services.destroy', $service->id) }}" method="POST">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                         <button type="submit" class="btn btn-sm" data-toggle="modal" data-target=".deletemodal{{$service->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                    </form>
+                                                   </div>
+                                                </td>
+                                            </tr>
+                                            @endif
+                                        @endforeach
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
                             </div>
                         
                     </div>
@@ -149,7 +193,8 @@
                         <select class="form-control" name="category" required> 
                             <option class-"form-control" value="No Select ">--Select--</option>              
                             <option class-"form-control" value="Premium">Premium</option>
-                            <option class-"form-control" value="<strong>">Polish</option>
+                            <option class-"form-control" value="Polish">Polish</option>
+                            <option class-"form-control" value="Retailing">Retailing</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -226,6 +271,7 @@
                                 <option class-"form-control" value="No Select ">--Select--</option>              
                                 <option class-"form-control" value="Premium" {{ 'Premium' == $service->category ? 'selected' : '' }}>Premium</option>
                                 <option class-"form-control" value="Polish" {{ 'Polish' == $service->category ? 'selected' : '' }}>Polish</option>
+                                 <option class-"form-control" value="Retailing" {{ 'Retailing' == $service->category ? 'selected' : '' }}>Retailing</option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">

@@ -127,13 +127,12 @@
 
                 <div class="container-fluid">
                     @php
-    
+
                         $rewards = App\Models\Reward::where('user_id',auth()->user()->id)->first();
                         if(!empty($rewards)){
                              $reward = $rewards->uuid % 10 ;
                         }
                            
-                        
                     @endphp
                     @if(auth()->user()->roled == 'user')
                        
