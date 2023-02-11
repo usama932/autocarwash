@@ -69,6 +69,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //atttendenece
     Route::get('sheetreport', [CheckController::class, 'sheetReport']);
     Route::post('check_store',[CheckController::class, 'newAttandance']);
+    Route::post('check_update',[CheckController::class, 'updateAttandance']);
 });
     // Profile
     Route::get('/profile', [ProfileController::class, 'index']);
