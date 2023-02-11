@@ -46,7 +46,7 @@ class BookingsReportController extends Controller
      */
     public function store(Request $request)
     {   
-       
+     
         $this->validate($request,[
             'service'=>'required',
             'user'=>'required',
@@ -60,7 +60,10 @@ class BookingsReportController extends Controller
         //  if($$requestdiscount > 0){
         //     $discounted_price = $services->price - ($services->price * discount / 100);
         //  }
-         
+        $totol_price = $services->price;
+         if($request->polish == "yes"){
+            $totol_price = $services->price + 35;
+         }
        $booking = Bookings::create([
         'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
@@ -70,9 +73,10 @@ class BookingsReportController extends Controller
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
         // 'discount'          => $request->discount,
+        'polish'            => $request->polish,
         'status'            => 'pending',
         'service'           =>  $services->name,
-        'total_price'       => $services->price,
+        'total_price'       =>  $totol_price,
         // 'dis_prce'          =>  $discounted_price
        ]);
        return redirect()->route('bookings.index')->with('success',"Booking Created Successfully");

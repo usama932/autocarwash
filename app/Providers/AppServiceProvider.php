@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\Service;
 use App\Models\Vehicle;
 use App\Models\Reward;
+use App\Models\Review;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -30,9 +31,11 @@ class AppServiceProvider extends ServiceProvider
     {
         $services = Service::all();
         $vehicles = Vehicle::all();
+        $review = Review::where('is_feature','yes')->get();
         
 
         View::share('services', $services);
         View::share('vehicles', $vehicles);
+        View::share('review' , $review );
     }
 }

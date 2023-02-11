@@ -170,46 +170,18 @@
                     <h2>What our clients say</h2>
                 </div>
                 <div class="owl-carousel testimonials-carousel">
+                @foreach( $review as $rev)
                     <div class="testimonial-item">
-                        <img src="{{asset('assets/img/testimonial-1.jpg')}} alt="Image">
+                       
                         <div class="testimonial-text">
-                            <h3>Client Name</h3>
-                            <h4>Profession</h4>
+                            <h3>{{$rev->user}}</h3>
+                            <h4>{{$rev->rating}} Star</h4>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor auctor gravid
+                               {{$rev->remarks}}
                             </p>
                         </div>
                     </div>
-                    <div class="testimonial-item">
-                        <img src="{{asset('assets/img/testimonial-2.jpg')}}" alt="Image">
-                        <div class="testimonial-text">
-                            <h3>Client Name</h3>
-                            <h4>Profession</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor auctor gravid
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <img src="{{asset('assets/img/testimonial-3.jpg')}}" alt="Image">
-                        <div class="testimonial-text">
-                            <h3>Client Name</h3>
-                            <h4>Profession</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor auctor gravid
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <img src="{{asset('assets/img/testimonial-4.jpg')}}" alt="Image">
-                        <div class="testimonial-text">
-                            <h3>Client Name</h3>
-                            <h4>Profession</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor auctor gravid
-                            </p>
-                        </div>
-                    </div>
+                @endforeach
                 </div>
             </div>
         </div>

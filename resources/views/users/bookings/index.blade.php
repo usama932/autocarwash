@@ -148,7 +148,14 @@
                             <option class-"form-control" value="Evening">Evening</option>
                         </select>
                     </div>
-               
+                    <div class="col-md-6 mb-3">
+                        <label for="">Inside Polish</label>
+                        <select class="form-control" name="polish" >
+                            <option class-"form-control" value="yes">Yes</option>
+                            <option class-"form-control" value="no">No</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Extra 35$ ADD In Total Price.</small>
+                    </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle No</label>
                         <input type="text" class="form-control" name="vehicle_no" placeholder="Vehicle No" required>
@@ -157,7 +164,7 @@
                         <label for="">Appointment Date</label>
                         <input type="date" class="form-control"  name="appointment_date" placeholder="Appointment Date" required>
                     </div>
-                        <div class="col-md-6 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="">Appox Time</label>
                         <input type="text" class="form-control"  name="approx_hour" placeholder="eg : 1hour" required>
                     </div>

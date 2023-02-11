@@ -146,6 +146,14 @@
                             <option class-"form-control" value="Evening">Evening</option>
                         </select>
                     </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="">Inside Polish</label>
+                        <select class="form-control" name="polish" >
+                            <option class-"form-control" value="yes">Yes</option>
+                            <option class-"form-control" value="no">No</option>
+                        </select>
+                        <small id="emailHelp" class="form-text text-muted">Extra 35$ ADD In Total Price.</small>
+                    </div>
                
                     <div class="col-md-6 mb-3">
                         <label for="">Vehicle No</label>
@@ -210,16 +218,16 @@
                                 <option class-"form-control" value="{{$key}}"  {{ $key ==$booking->vehicle_type ? 'selected' : '' }}>{{$key}}</option>
                             @endforeach
                         </select>
-
                     </div>
-                    {{-- <div class="col-md-6 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="">Services</label>
                         <select class="form-control" name="service" >
                             @foreach ($services as $key => $service)
-                                <option class-"form-control" value="{{$key}}"  {{ $key == $booking->vehicle_type ? 'selected' : '' }}>{{$key}}</option>
+                                <option class-"form-control" value="{{$service}}"  {{ $service == $booking->service ? 'selected' : '' }}>{{$key}}</option>
                             @endforeach
                         </select>
-                    </div> --}}
+                    </div>
+                      
                     <div class="col-md-6 mb-3">
                         <label for="">Time Frame</label>
                         <select class="form-control" name="time_frame"  >

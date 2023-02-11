@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('dis_price')->nullable();  
             $table->string('status')->nullable();
             $table->string('remarks')->nullable();
+            $table->string('polish')->nullable();
             $table->string('service')->nullable();
             $table->string('is_review')->nullable();
             $table->timestamps();

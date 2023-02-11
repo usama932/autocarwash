@@ -26,7 +26,15 @@ class BookingsReportController extends Controller
     }
     public function store(Request $request)
     {   
-       
+        $services = Service::where('id',$request->service)->first();
+        //  $discounted_price = 0;
+        //  if($$requestdiscount > 0){
+        //     $discounted_price = $services->price - ($services->price * discount / 100);
+        //  }
+        $totol_price = $services->price;
+         if($request->polish == "yes"){
+            $totol_price = $services->price + 35;
+         }
        $booking = Bookings::create([
         'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
@@ -35,9 +43,12 @@ class BookingsReportController extends Controller
         'time_frame'        => $request->time_frame,
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
-        'discount'          => $request->discount,
+        // 'discount'          => $request->discount,
         'status'            => 'pending',
-        'service'           =>  $request->service,
+        'service'           =>  $services->name,
+        'polish'            => $request->polish,
+        'total_price'       =>  $totol_price,
+        // 'dis_prce'          =>  $discounted_price
        ]);
         $res = [
         'booking' => $booking,

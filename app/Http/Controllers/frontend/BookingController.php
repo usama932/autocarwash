@@ -53,25 +53,28 @@ class BookingController extends Controller
          $reward = Reward::where('user_id',auth()->user()->id)->first();
          $services = Service::where('id',$request->service)->first();
          $discount = '10';
-         
+         $totol_price = $services->price;
+         if($request->polish == "yes"){
+            $totol_price = $totol_price + 35;
+         }
          if(!empty($reward) ){
             if($reward->uuid >= 10){
                 $reward2 = $reward->uuid % 10;
                 if($reward2 == 0){
-                    $discounted_price = $services->price;
+                    $discounted_price = $totol_price;
                     $discount = 'full free';
                 }
                 else{
-                    $discounted_price = ($services->price * 5)/100;
+                    $discounted_price = ($totol_price * 5)/100;
                 }
             }
             else{
-                $discounted_price = ($services->price * 5)/100;
+                $discounted_price = ($totol_price * 5)/100;
             }
            
          }
          else{
-            $discounted_price = ($services->price * 5)/100;
+            $discounted_price = ($totol_price * 5)/100;
          }
         
          
@@ -87,7 +90,8 @@ class BookingController extends Controller
         'discount'          => $discount,
         'status'            => 'pending',
         'service'           =>  $services->name,
-        'total_price'       => $services->price,
+        'polish'            => $request->polish,
+        'total_price'       =>  $totol_price,
         'dis_price'          =>  $discounted_price
        ]);
        
