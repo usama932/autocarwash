@@ -59,7 +59,7 @@ class BookingsReportController extends Controller
     }
     public function update(Request $request, $id)
     {
-         
+        $services = Service::where('id',$request->service)->first();
        $booking = Bookings::where('id',$id)->update([
         'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
@@ -69,7 +69,7 @@ class BookingsReportController extends Controller
         'approx_hour'       => $request->approx_hour,
         // 'booked_by'         => auth()->user()->name,
         'status'            => $request->status,
-        // 'service'           =>  $request->service,
+         'service'           =>  $services->name,
        ]);
        $res = [
         'booking' => $booking,
