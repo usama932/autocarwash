@@ -79,7 +79,7 @@ class HomeController extends Controller
         }
        
         $res = [
-            'reward' => $reward,
+            'reward' => $rewards,
           
         ];
         return response()->json($res, 200);
