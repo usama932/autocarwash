@@ -86,6 +86,7 @@ class BookingController extends Controller
         'discount'          => $discount,
         'status'            => 'pending',
         'service'           =>  $services->name,
+        'service_id'         => $services->id,
         'polish'            => $request->polish,
         'total_price'       =>  $totol_price,
         'dis_prce'          =>  $discounted_price

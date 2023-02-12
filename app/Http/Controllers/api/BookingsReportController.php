@@ -48,6 +48,8 @@ class BookingsReportController extends Controller
         'service'           =>  $services->name,
         'polish'            => $request->polish,
         'total_price'       =>  $totol_price,
+        'service_id'         => $services->id,
+        
         // 'dis_prce'          =>  $discounted_price
        ]);
         $res = [
@@ -70,6 +72,7 @@ class BookingsReportController extends Controller
         // 'booked_by'         => auth()->user()->name,
         'status'            => $request->status,
          'service'           =>  $services->name,
+         'service_id'         => $services->id,
        ]);
        $res = [
         'booking' => $booking,

@@ -76,6 +76,7 @@ class BookingsReportController extends Controller
         'polish'            => $request->polish,
         'status'            => 'pending',
         'service'           =>  $services->name,
+        'service_id'         => $services->id,
         'total_price'       =>  $totol_price,
         // 'dis_prce'          =>  $discounted_price
        ]);
@@ -131,6 +132,7 @@ class BookingsReportController extends Controller
         'booked_by'         => auth()->user()->name,
         'status'            => $request->status,
         'service'           =>  $services->name,
+        'service_id'         => $services->id,
        ]);
        return redirect()->route('bookings.index')->with('success',"Booking Updated   Successfully");
     }

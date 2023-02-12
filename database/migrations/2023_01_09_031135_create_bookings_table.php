@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('remarks')->nullable();
             $table->string('polish')->nullable();
             $table->string('service')->nullable();
+            $table->string('service_id')->nullable();
             $table->string('is_review')->nullable();
             $table->timestamps();
         });
