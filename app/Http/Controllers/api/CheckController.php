@@ -121,8 +121,7 @@ class CheckController extends Controller
         }
        
         $res = [
-            'data' => $check,
-            'remark' => $remark,
+           
             'message' => 'Attended updated succesfully',
            
         ];
