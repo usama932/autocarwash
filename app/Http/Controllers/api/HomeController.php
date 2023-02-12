@@ -68,13 +68,16 @@ class HomeController extends Controller
     public function reward()
     {
         $rewards = Reward::where('user_id',auth()->user()->id)->first();
-        $reward = $rewards->uuid % 10 ;
-        if($reward > 10 || $reward == 0){
-            $reward = 'Congratulation ..! Your Next  Booking is  free. (Only Valid For Premium Service)';
+        if(!empty($rewards)){
+            $reward = $rewards->uuid % 10 ;
+            if($reward > 10 || $reward == 0){
+                $reward = 'Congratulation ..! Your Next  Booking is  free. (Only Valid For Premium Service)';
+            }
+            else{
+                $reward = 'Book More Get Free';
+            }
         }
-        else{
-            $reward = 'Book More Get Free';
-        }
+       
         $res = [
             'reward' => $reward,
           
