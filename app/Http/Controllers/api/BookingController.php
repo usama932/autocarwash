@@ -10,6 +10,7 @@ use App\Models\Team;
 use App\Models\Service;
 use App\Models\Vehicle;
 use App\Models\Bookings;
+use App\Models\Reward;
 use Auth;
 
 
