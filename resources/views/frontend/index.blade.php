@@ -59,7 +59,7 @@
                                 <div class="price-header">
                                     <h3>{{$service->name}}</h3>
                                     <h2><span>$</span><strong>{{$service->price}}</strong><span>.00</span></h2> 
-                                    <h5>Booked here <span class="badge badge-secondary">10% Off</span></h5>
+                                    <h5>Booked here <span class="badge badge-secondary">5% Off</span></h5>
                                 </div>
                                 <div class="price-body">
                                     @if(strlen($service->description) > 100)
