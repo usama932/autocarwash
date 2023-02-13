@@ -64,7 +64,6 @@
                                 <div class="price-body">
                                     @if(strlen($service->description) > 100)
                                         {!! substr($service->description,0,100) !!}
-                                        {!!  substr($service->description, 0,  20) !!}
                                         <span class="read-more-show hide_content">Show More<i class="fa fa-angle-down"></i></span>
                                         <span class="read-more-content"> {{substr($service->description,100,strlen($service->description))}}
                                         <span class="read-more-hide hide_content">Show Less <i class="fa fa-angle-up"></i></span> </span>
@@ -91,72 +90,7 @@
                         </div>
                     </div>
                 @endforeach
-                    {{-- <div class="col-md-4">
-                       <div class="card m-2">
-                            <div class="price-item ">
-                                <div class="price-header">
-                                    <h3>Premium Cleaning</h3>
-                                    <h2><span>$</span><strong>35</strong><span>.99</span></h2>
-                                </div>
-                                <div class="price-body">
-                                    <ul>
-                                        <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                                        <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                                        <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                                        <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
-                                        <li><i class="far fa-times-circle"></i>Window Wiping</li>
-                                    </ul>
-                                </div>
-                                <div class="price-footer">
-                                    <a class="btn btn-custom" href="">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card m-2">
-                            <div class="price-item">
-                                <div class="price-header">
-                                    <h3>Complex Cleaning</h3>
-                                    <h2><span>$</span><strong>49</strong><span>.99</span></h2>
-                                </div>
-                                <div class="price-body">
-                                    <ul>
-                                        <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                                        <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                                        <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                                        <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
-                                        <li><i class="far fa-check-circle"></i>Window Wiping</li>
-                                    </ul>
-                                </div>
-                                <div class="price-footer">
-                                    <a class="btn btn-custom" href="">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card m-2">
-                            <div class="price-item">
-                                <div class="price-header">
-                                    <h3>Complex Cleaning</h3>
-                                    <h2><span>$</span><strong>49</strong><span>.99</span></h2>
-                                </div>
-                                <div class="price-body">
-                                    <ul>
-                                        <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                                        <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                                        <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                                        <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
-                                        <li><i class="far fa-check-circle"></i>Window Wiping</li>
-                                    </ul>
-                                </div>
-                                <div class="price-footer">
-                                    <a class="btn btn-custom" href="">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+                 
                 </div>
             </div>
         </div>
