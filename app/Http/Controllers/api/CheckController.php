@@ -106,7 +106,7 @@ class CheckController extends Controller
         return response()->json($res, 200);
     }
     public function updateAttandance(Request $request){
-        dd($request->all());
+       
         if($request->id){
             $check =Attendance::where('id','$request->id')->where('attendance_date',$request->attendance_date)
                                 ->where('emp_id',$request->emp_id)->update([
