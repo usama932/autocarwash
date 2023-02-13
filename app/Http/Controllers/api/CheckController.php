@@ -108,14 +108,12 @@ class CheckController extends Controller
     public function updateAttandance(Request $request){
        
         if($request->id){
-            $check =Attendance::where('id',$request->id)->where('attendance_date',$request->attendance_date)
-                                ->where('emp_id',$request->emp_id)->update([
+            $check =Attendance::where('id',$request->id)->update([
                                    'status' => $request->status,
                                 ]);
         }
         if($request->remark_id){
-            $remarks =Remarks::where('id',$request->remark_id)->where('attendance_date',$request->attendance_date)
-                                ->where('emp_id',$request->emp_id)->update([
+            $remarks =Remarks::where('id',$request->remark_id)->update([
                                    'remarks' =>  $request->remarks,
                                 ]);
         }
