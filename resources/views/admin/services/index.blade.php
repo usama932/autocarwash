@@ -115,7 +115,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                              <h6 class="mx-4 mt-2"><strong>Retailing Services</strong></h6>
+                              <h6 class="mx-4 mt-2"><strong>Detailing Services</strong></h6>
                              <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -137,7 +137,7 @@
                                     </tfoot>
                                     <tbody>
                                        @foreach($services as $service)
-                                            @if($service->category == 'Retailing')
+                                            @if($service->category == 'Detailing')
                                             <tr>
                                                 <td>{{$service->name}}</td>
                                                 <td>{{$service->price}}</td>
@@ -194,7 +194,7 @@
                             <option class-"form-control" value="No Select ">--Select--</option>              
                             <option class-"form-control" value="Premium">Premium</option>
                             <option class-"form-control" value="Polish">Polish</option>
-                            <option class-"form-control" value="Retailing">Retailing</option>
+                            <option class-"form-control" value="Detailing">Detailing</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -257,11 +257,9 @@
                             <label for="">Vehicle</label>
                             <select class="form-control" name="vehicle">
                              <option class-"form-control" value="No Select ">--Select--</option>
-                            @foreach ($vehicles as $key => $vehicle)
-                                <option class-"form-control" value="{{$key}}" {{ $key == $service->vehicle ? 'selected' : '' }}>{{$key}}</option>
-                            @endforeach
-                                
-                               
+                                @foreach ($vehicles as $key => $vehicle)
+                                    <option class-"form-control" value="{{$key}}" {{ $key == $service->vehicle ? 'selected' : '' }}>{{$key}}</option>
+                                @endforeach
                             </select>
                         </div>
                     
@@ -271,7 +269,7 @@
                                 <option class-"form-control" value="No Select ">--Select--</option>              
                                 <option class-"form-control" value="Premium" {{ 'Premium' == $service->category ? 'selected' : '' }}>Premium</option>
                                 <option class-"form-control" value="Polish" {{ 'Polish' == $service->category ? 'selected' : '' }}>Polish</option>
-                                 <option class-"form-control" value="Retailing" {{ 'Retailing' == $service->category ? 'selected' : '' }}>Retailing</option>
+                                 <option class-"form-control" value="Detailing" {{ 'Detailing' == $service->category ? 'selected' : '' }}>Detailing</option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
