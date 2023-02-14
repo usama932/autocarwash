@@ -9,8 +9,10 @@
 
                 <div class="card-body">
                  
-                    @if($errors->any())
-                        {{ implode('', $errors->all('<div>:message</div>')) }}
+                    @if(session()->has('success'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success') }}
+                        </div>
                     @endif
 
                     <form method="POST" action="{{ route('web.login') }}">

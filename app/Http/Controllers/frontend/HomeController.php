@@ -30,11 +30,11 @@ class HomeController extends Controller
             $user = User::where('email',$request->email)->first();
             if ($user->roled == 'admin') {
                 
-                return view('admin.dashboard');
+                return view('admin.dashboard')->with('success','Login Successfully');
             }
             elseif($user->roled == 'user')
             {
-                return view('admin.dashboard');
+                return view('admin.dashboard')->with('success','Login Successfully');
             }
             
             else{
