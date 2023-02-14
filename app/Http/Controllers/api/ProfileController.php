@@ -38,7 +38,6 @@ class ProfileController extends Controller
         $user = User::where('id',$request->id)->update([
             'name'      =>$request->name ?? '$user->name',
             'email'     =>$request->email ?? '$user->email',
-            'password'  =>$request->password ?? '$user->password',
             'image'     => $image,
             'sex'       =>$request->sex ?? '$user->sex',
             'mobile'    =>$request->mobile ?? '$user->mobile',
