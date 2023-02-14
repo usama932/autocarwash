@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="top-bar-text">
                                         <h3>Email Us</h3>
-                                        <p>info@auto1carwash.com</p>
+                                        <p>info@auto1carwash.com.au</p>
                                     </div>
                                 </div>
                             </div>

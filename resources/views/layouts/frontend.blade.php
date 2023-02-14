@@ -81,7 +81,7 @@
                             <h2>Get In Touch</h2>
                             <p><i class="fa fa-map-marker-alt"></i>Red Car Parking, near to main food court, Campbell Street, Westfield Liverpool, Sydney 2170</p>
                             <p><i class="fa fa-phone-alt"></i>0410096313</p>
-                            <p><i class="fa fa-envelope"></i>info@auto1Carwash.com</p>
+                            <p><i class="fa fa-envelope"></i>info@auto1Carwash.com.au</p>
                             <div class="footer-social">
                                 <a class="btn" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
