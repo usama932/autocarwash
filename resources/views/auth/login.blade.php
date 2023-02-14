@@ -8,6 +8,13 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    if($validator->fails()) {
+                        return Redirect::back()->withErrors($validator);
+                    }
+                    @if($errors->any())
+                        {{ implode('', $errors->all('<div>:message</div>')) }}
+                    @endif
+
                     <form method="POST" action="{{ route('web.login') }}">
                         @csrf
 
