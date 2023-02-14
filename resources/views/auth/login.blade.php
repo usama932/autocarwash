@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    if($validator->fails()) {
+                    @if($validator->fails()) {
                         return Redirect::back()->withErrors($validator);
                     }
                     @if($errors->any())
