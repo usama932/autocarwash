@@ -11,6 +11,7 @@
                     @if($validator->fails()) {
                         return Redirect::back()->withErrors($validator);
                     }
+                    @endif
                     @if($errors->any())
                         {{ implode('', $errors->all('<div>:message</div>')) }}
                     @endif
