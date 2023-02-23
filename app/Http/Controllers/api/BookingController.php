@@ -90,7 +90,7 @@ class BookingController extends Controller
         'service_id'         => $services->id,
         'polish'            => $request->polish,
         'total_price'       =>  $totol_price,
-        'dis_prce'          =>  $discounted_price
+        'dis_price'          =>  $discounted_price
        ]);
        $res = [
         'booking' => $booking,
