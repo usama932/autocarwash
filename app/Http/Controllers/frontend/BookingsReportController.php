@@ -132,6 +132,7 @@ class BookingsReportController extends Controller
         'approx_hour'       => $request->approx_hour,
         'booked_by'         => auth()->user()->name,
         'status'            => $request->status,
+        'total_price'       => $request->totol_price,
         'service'           =>  $services->name,
         'service_id'         => $services->id,
        ]);

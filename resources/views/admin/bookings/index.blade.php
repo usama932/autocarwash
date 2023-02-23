@@ -76,8 +76,8 @@
                                                 <td>{{$booking->service}}</td>
                                                 <td>{{$booking->appointment_date}}</td>
                                                 <td>{{$booking->approx_hour}}</td>
-                                                 <td>{{$booking->dis_price}}</td>
-                                                <td>{{$booking->total_price}}</td>
+                                                 <td>${{$booking->dis_price}}</td>
+                                                <td>${{$booking->total_price}}</td>
                                                 <td>{{$booking->discount}}%</td>
                                                  <td>{{$booking->time_frame}}</td>
                                                 <td>{{$booking->status}}</td>
@@ -227,7 +227,10 @@
                             @endforeach
                         </select>
                     </div>
-                      
+                    <div class="col-md-6 mb-3">
+                        <label for="">Total Price ($)</label>
+                        <input type="number" class="form-control" name="vehicle_no" placeholder="Vehicle No" value="{{$booking->total_price}}" >
+                    </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Time Frame</label>
                         <select class="form-control" name="time_frame"  >
