@@ -229,7 +229,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Total Price ($)</label>
-                        <input type="number" class="form-control" name="vehicle_no" placeholder="Vehicle No" value="{{$booking->total_price}}" >
+                        <input type="number" class="form-control" name="totol_price" placeholder="Vehicle No" value="{{$booking->total_price}}" >
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Time Frame</label>
