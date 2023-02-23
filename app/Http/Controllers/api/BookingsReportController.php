@@ -28,31 +28,24 @@ class BookingsReportController extends Controller
     public function store(Request $request)
     {   
         $services = Service::where('id',$request->service)->first();
-        //  $discounted_price = 0;
-        //  if($$requestdiscount > 0){
-        //     $discounted_price = $services->price - ($services->price * discount / 100);
-        //  }
         $totol_price = $services->price;
          if($request->polish == "yes"){
             $totol_price = $services->price + 35;
          }
-       $booking = Bookings::create([
-        'user'              => $request->user,
-        'vehicle_type'      => $request->vehicle_type,
-        'vehicle_no'        => $request->vehicle_no,
-        'appointment_date'  => $request->appointment_date,
-        'time_frame'        => $request->time_frame,
-        'approx_hour'       => $request->approx_hour,
-        'booked_by'         => auth()->user()->name,
-        // 'discount'          => $request->discount,
-        'status'            => 'pending',
-        'service'           =>  $services->name,
-        'polish'            => $request->polish,
-        'total_price'       =>  $totol_price,
-        'service_id'         => $services->id,
-        
-        // 'dis_prce'          =>  $discounted_price
-       ]);
+        $booking = Bookings::create([
+            'user'              => $request->user,
+            'vehicle_type'      => $request->vehicle_type,
+            'vehicle_no'        => $request->vehicle_no,
+            'appointment_date'  => $request->appointment_date,
+            'time_frame'        => $request->time_frame,
+            'approx_hour'       => $request->approx_hour,
+            'booked_by'         => auth()->user()->name,
+            'status'            => 'pending',
+            'service'           => $services->name,
+            'polish'            => $request->polish,
+            'total_price'       => $totol_price,
+            'service_id'        => $services->id,
+         ]);
         $res = [
         'booking' => $booking,
         'message' => 'booking created succesfully',
@@ -63,7 +56,7 @@ class BookingsReportController extends Controller
     public function update(Request $request, $id)
     {
         $services = Service::where('id',$request->service)->first();
-       $booking = Bookings::where('id',$id)->update([
+        $booking = Bookings::where('id',$id)->update([
         'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
         'vehicle_no'        => $request->vehicle_no,
@@ -71,14 +64,15 @@ class BookingsReportController extends Controller
         'time_frame'        => $request->time_frame,
         'approx_hour'       => $request->approx_hour,
         // 'booked_by'         => auth()->user()->name,
-        'status'            => $request->status,
+        'status'             => $request->status,
          'service'           =>  $services->name,
-         'service_id'         => $services->id,
+         'total_price'       => $request->totol_price,
+         'service_id'        => $services->id,
        ]);
        $res = [
         'booking' => $booking,
         'message' => 'booking updated succesfully',
-       
+        
         ];
         
         return response()->json($res, 200);
