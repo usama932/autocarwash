@@ -15,11 +15,11 @@ class HomeController extends Controller
     public function login(Request $request)
         {
             $data = $request->validate([
-                'email' => 'required|string',
+                'email' => 'required',
                 'password' => 'required|string'
             ]);
 
-            $user = User::where('email', $data['email'])->first();
+            $user = User::where('email', $data['email'])->orwhere('mobile',$request->email)->first();
 
             if (!$user || !Hash::check($data['password'], $user->password)) {
                 return response([
