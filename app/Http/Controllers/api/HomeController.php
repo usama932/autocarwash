@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Reward;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Response;
 
 class HomeController extends Controller
@@ -39,6 +40,7 @@ class HomeController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email',
+            'mobile' => 'required|number|unique:users,mobile',
             'password' => 'required|string'
         ]);
 
