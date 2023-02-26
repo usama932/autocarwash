@@ -56,7 +56,7 @@ class BookingsReportController extends Controller
     }
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        dd($id);
         $services = Service::where('id',$request->service)->first();
         $booking = Bookings::where('id',$id)->update([
         'user'              => $request->user,
