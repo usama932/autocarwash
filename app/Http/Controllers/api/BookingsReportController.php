@@ -59,7 +59,7 @@ class BookingsReportController extends Controller
   
         $services = Service::where('id',$request->service)->first();
         $as = Bookings::where('id',$id)->first();
-      
+      dd($request->totol_price);
         $booking = Bookings::where('id',$id)->update([
         'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
