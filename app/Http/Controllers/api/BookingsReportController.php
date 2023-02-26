@@ -70,7 +70,7 @@ class BookingsReportController extends Controller
          'total_price'       => $request->totol_price,
          'service_id'        => $services->id,
        ]);
-       dd($booking);
+      
        $res = [
         'booking' => $booking,
         'message' => 'booking updated succesfully',
