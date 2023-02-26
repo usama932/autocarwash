@@ -40,7 +40,7 @@ class HomeController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email',
-            'mobile' => 'required|unique:users,mobile',
+            'mobile' => 'required|numeric|unique:users,mobile',
             'password' => 'required|string'
         ]);
 
