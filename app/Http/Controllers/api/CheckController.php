@@ -113,9 +113,9 @@ class CheckController extends Controller
                                 ]);
         }
         if($request->remark_id){
-            dd($request->remark_id);
+            dd($request->all());
             $remarks =Remarks::where('id',$request->remark_id)->update([
-                                   'remarks' =>  $request->remarks,
+                                   'remarks' => $request->remarks,
                                 ]);
         }
        
