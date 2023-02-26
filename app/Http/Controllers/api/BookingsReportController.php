@@ -27,6 +27,7 @@ class BookingsReportController extends Controller
     }
     public function store(Request $request)
     {   
+        dd($request->all());
         $services = Service::where('id',$request->service)->first();
         $totol_price = $services->price;
          if($request->polish == "yes"){
