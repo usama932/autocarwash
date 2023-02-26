@@ -27,7 +27,7 @@ class BookingsReportController extends Controller
     }
     public function store(Request $request)
     {   
-        dd($request->all());
+       
         $services = Service::where('id',$request->service)->first();
         $totol_price = $services->price;
          if($request->polish == "yes"){
@@ -56,6 +56,7 @@ class BookingsReportController extends Controller
     }
     public function update(Request $request, $id)
     {
+        dd($request->all());
         $services = Service::where('id',$request->service)->first();
         $booking = Bookings::where('id',$id)->update([
         'user'              => $request->user,
