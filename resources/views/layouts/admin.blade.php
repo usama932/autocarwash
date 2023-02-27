@@ -139,7 +139,7 @@
                     @endphp
                     @if(auth()->user()->roled == 'user')
                        
-                        @if($reward > 10 || $reward == 0)
+                        @if($reward > 10 )
                         <div class="alert alert-primary" role="alert">
                        
                         Congratulation ..! Your Next  Booking is  free. (Only Valid For Premium Service)
