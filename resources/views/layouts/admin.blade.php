@@ -132,6 +132,9 @@
                         if(!empty($rewards)){
                              $reward = $rewards->uuid % 10 ;
                         }
+                        else{
+                            $reward = 0;
+                        }
                            
                     @endphp
                     @if(auth()->user()->roled == 'user')
