@@ -80,7 +80,7 @@ class BookingsReportController extends Controller
         'service'           =>  $services->name,
         'service_id'         => $services->id,
         'total_price'       =>  $totol_price,
-        'dis_price'          =>  $request->total_price,
+        'dis_price'          =>  $totol_price,
        ]);
        return redirect()->route('bookings.index')->with('success',"Booking Created Successfully");
     }
