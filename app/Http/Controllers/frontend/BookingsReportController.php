@@ -57,10 +57,7 @@ class BookingsReportController extends Controller
 
          ]);
          $services = Service::where('id',$request->service)->first();
-        //  $discounted_price = 0;
-        //  if($$requestdiscount > 0){
-        //     $discounted_price = $services->price - ($services->price * discount / 100);
-        //  }
+        
         $totol_price = $services->price;
          if($request->polish == "yes"){
             $totol_price = $services->price + 35;
