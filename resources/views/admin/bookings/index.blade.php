@@ -44,9 +44,9 @@
                                             <th>Service</th>
                                             <th>Appointment Date</th>
                                             <th>Appox Hour</th>
-                                            <th>Discount</th>
+                                            <th>Discount Price</th>
                                             <th>Total Price</th>
-                                            <th>Discount</th>
+                                            <th>Discount </th>
                                             <th>Time Frame</th>
                                             <th>Status</th> 
                                             <th>Action</th>
@@ -59,7 +59,7 @@
                                         <th>Service</th>
                                         <th>Appointment Date</th>
                                         <th>Appox Hour</th>
-                                        <th>Discount</th>
+                                        <th>Discount Price</th>
                                         <th>Total Price</th>
                                         <th>Discount</th>
                                         <th>Time Frame</th>
