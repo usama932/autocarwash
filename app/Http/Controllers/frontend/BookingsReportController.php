@@ -65,6 +65,7 @@ class BookingsReportController extends Controller
          if($request->polish == "yes"){
             $totol_price = $services->price + 35;
          }
+         $discounted_price = $totol_price - $discounted_price;
        $booking = Bookings::create([
         'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
@@ -79,7 +80,7 @@ class BookingsReportController extends Controller
         'service'           =>  $services->name,
         'service_id'         => $services->id,
         'total_price'       =>  $totol_price,
-        // 'dis_prce'          =>  $discounted_price
+        'dis_price'          =>  $request->total_price,
        ]);
        return redirect()->route('bookings.index')->with('success',"Booking Created Successfully");
     }

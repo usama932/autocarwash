@@ -71,6 +71,7 @@ class BookingsReportController extends Controller
          'service'           =>  $services->name,
          'total_price'       => $request->total_price,
          'service_id'        => $services->id,
+         'dis_price'          =>  $request->total_price,
        ]);
       
        $res = [
