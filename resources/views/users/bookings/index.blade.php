@@ -81,8 +81,9 @@
                                                 <td>{{$booking->approx_hour}}</td>
                                                
                                                 <td>${{$booking->discount}}</td>
-                                                 <td>${{$booking->dis_price}}</td>
                                                 <td>${{$booking->total_price}}</td>
+                                                 <td>${{$booking->dis_price}}</td>
+                                                
                                                  <td>{{$booking->time_frame}}</td>
                                                 <td> @if($booking->status == 'Complete' && $booking->is_review == 0) <button class="badge badge-success" data-toggle="modal" data-target=".bd-review-modal-lg{{$booking->id}}">Rating</button> @endif <br> {{$booking->status}}</td>
                                                 {{-- <td>
