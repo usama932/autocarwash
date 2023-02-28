@@ -76,7 +76,7 @@ class BookingController extends Controller
             $discounted_price = ($totol_price * 10)/100;
          }
          $totol_price = $totol_price - $discounted_price;
-       $booking = Bookings::create([
+        $booking = Bookings::create([
         'user_id'           => auth()->user()->id,
         'user'              => auth()->user()->name,
         'vehicle_type'      => $request->vehicle_type,
