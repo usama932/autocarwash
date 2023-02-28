@@ -52,7 +52,7 @@ class BookingController extends Controller
          ]);
          $reward = Reward::where('user_id',auth()->user()->id)->first();
          $services = Service::where('id',$request->service)->first();
-         $discount = '10';
+         $discount = '5';
          $totol_price = $services->price;
          if($request->polish == "yes"){
             $totol_price = $totol_price + 35;
@@ -77,7 +77,7 @@ class BookingController extends Controller
             $discounted_price = ($totol_price * 5)/100;
          }
       
-         $total_price = $totol_price - $discounted_price ;
+         $total_price = $totol_price - $discounted_price;
        $booking = Bookings::create([
         'user_id'           => auth()->user()->id,
         'user'              => auth()->user()->name,
