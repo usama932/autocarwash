@@ -75,7 +75,7 @@ class BookingController extends Controller
          else{
             $discounted_price = ($totol_price * 10)/100;
          }
-       $total_price = $totol_price - $discounted_price ;
+         $totol_price = $totol_price - $discounted_price;
        $booking = Bookings::create([
         'user_id'           => auth()->user()->id,
         'user'              => auth()->user()->name,
