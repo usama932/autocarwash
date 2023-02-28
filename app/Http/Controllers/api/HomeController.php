@@ -9,6 +9,11 @@ use App\Models\Reward;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Response;
+use App\Models\Employee;
+use App\Models\Service;
+use App\Models\Vehicle;
+use App\Models\Bookings; 
+
 
 class HomeController extends Controller
 {
@@ -84,6 +89,20 @@ class HomeController extends Controller
             'reward' => $rewards,
           
         ];
+        return response()->json($res, 200);
+    }
+    public function dashboard(){
+        $employees = Employee::count();
+        $services  = Service::count();
+        $vehicle  = Vehicle::count();
+        $total_price = Bookings::where('status','complete')->sum('total_price');
+        $res = [
+            'employees' => $employees,
+            'services' => $services,
+            'vehicle' => $vehicle,
+            'total_earnings' => $total_price,
+        ];
+
         return response()->json($res, 200);
     }
 }

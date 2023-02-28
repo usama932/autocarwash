@@ -26,8 +26,10 @@ Route::post('forgot-password', [PasswordController::class, 'forgotPassword']);
 Route::post('reset-password', [PasswordController::class, 'reset']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
+   
     Route::group(['middleware' => ['admin']], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('dashboard_data',[HomeController::class, 'dashboard']);
     // Services
     Route::get('services',[ServiceController::class, 'index']);
     Route::post('store_services',[ServiceController::class, 'store']);
