@@ -113,7 +113,10 @@
                 <div class="row flex">
                     <div class="col-md-6 mb-3">
                         <label for="">Customers</label>
-                            <input class-"form-control" value="{{$user->name}}" name="user" readonly>
+                        <select class="form-control" name="user">
+                            @foreach ($users as $user)
+                                <option class-"form-control" value="{{$user->name}}">{{$user->name}}</option>
+                            @endforeach
                         </select>
 
                     </div>
@@ -200,11 +203,7 @@
                 <div class="row flex">
                       <div class="col-md-6 mb-3">
                         <label for="">Customers</label>
-                        <select class="form-control" name="user">
-                            @foreach ($users as $user)
-                                <option class-"form-control" value="{{$user->name}} " {{ $user->name == $booking->user ? 'selected' : '' }}>{{$user->name}}</option>
-                            @endforeach
-                        </select>
+                        <input  class-"form-control" value="{{$booking->user}}" readonly>
 
                     </div>
                     <div class="col-md-6 mb-3">
