@@ -113,10 +113,7 @@
                 <div class="row flex">
                     <div class="col-md-6 mb-3">
                         <label for="">Customers</label>
-                        <select class="form-control" name="user">
-                            @foreach ($users as $user)
-                                <option class-"form-control" value="{{$user->name}}">{{$user->name}}</option>
-                            @endforeach
+                            <input class-"form-control" value="{{$user->name}}" name="user" readonly>
                         </select>
 
                     </div>

@@ -113,6 +113,7 @@ class BookingsReportController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request->all());
            $this->validate($request,[
             'user'=>'required',
             'vehicle_type'      => 'required',
@@ -122,13 +123,11 @@ class BookingsReportController extends Controller
          ]);
          $services = Service::where('id',$request->service)->first();
        $booking = Bookings::where('id',$id)->update([
-        'user'              => $request->user,
         'vehicle_type'      => $request->vehicle_type,
         'vehicle_no'        => $request->vehicle_no,
         'appointment_date'  => $request->appointment_date,
         'time_frame'        => $request->time_frame,
         'approx_hour'       => $request->approx_hour,
-        'booked_by'         => auth()->user()->name,
         'status'            => $request->status,
         'total_price'       => $request->totol_price,
         'service'           =>  $services->name,
