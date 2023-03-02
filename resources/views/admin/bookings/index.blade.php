@@ -203,7 +203,7 @@
                 <div class="row flex">
                       <div class="col-md-6 mb-3">
                         <label for="">Customers</label>
-                        <input  class-"form-control" value="{{$booking->user}}" readonly>
+                        <input  class="form-control" value="{{$booking->user}}" readonly>
 
                     </div>
                     <div class="col-md-6 mb-3">
