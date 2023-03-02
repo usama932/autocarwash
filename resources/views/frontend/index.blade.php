@@ -65,10 +65,10 @@
                                     @if(strlen($service->description) > 100)
                                         {!! substr($service->description,0,100) !!}
                                         <span class="read-more-show hide_content">Show More<i class="fa fa-angle-down"></i></span>
-                                        <span class="read-more-content"> {{substr($service->description,100,strlen($service->description))}}
+                                        <span class="read-more-content"> {!! substr($service->description,100,strlen($service->description)) !!}
                                         <span class="read-more-hide hide_content">Show Less <i class="fa fa-angle-up"></i></span> </span>
                                     @else
-                                        {{$service->description}}
+                                        {!! $service->description !!}
 
                                     @endif
                                 </div>

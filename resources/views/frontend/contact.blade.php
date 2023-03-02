@@ -38,7 +38,7 @@
                                     <p href="">Tuesday (08:30am -- 05:30pm)</p>
                                     <p href="">Wedesday (08:30am -- 05:30pm)</p>
                                     <p href="">Thursday (8:30am -- 7:00pm)</p>
-                                    <p href="">Friday (08:30am -- 07:00pm)</p>
+                                    <p href="">Friday (08:30am -- 05:30pm)</p>
                                     <p href="">Saturday (08:30am -- 05:30pm)</p>
                                     <p href="">Sunday (09:00am -- 05:00pm)</p>
                                 </div>
