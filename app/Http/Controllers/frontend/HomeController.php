@@ -34,11 +34,11 @@ class HomeController extends Controller
             $user = User::where('email',$request->email)->first();
             if ($user->roled == 'admin') {
                 $employees = Employee::count();
-                $services  = Service::count();
+                $service_s  = Service::count();
                 $vehicle  = Vehicle::count();
                 $total_price = Bookings::where('status','complete')->sum('total_price');
                 
-                return view('admin.dashboard',compact('employees','services','vehicle','total_price'))->with('success','Login Successfully');
+                return view('admin.dashboard',compact('employees','service_s','vehicle','total_price'))->with('success','Login Successfully');
             }
             elseif($user->roled == 'user')
             {
