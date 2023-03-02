@@ -60,7 +60,7 @@ Route::group(['middleware' => ['admin']], function () {
     
 });
 // User
-Route::group(['middleware' => ['user']], function () {
+Route::group(['middleware' => ['user','verified']], function () {
    
     Route::resource('user_booking', BookingController::class);
     Route::resource('reviews', ReviewController::class);
