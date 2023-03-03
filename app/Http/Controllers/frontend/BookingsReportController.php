@@ -114,7 +114,6 @@ class BookingsReportController extends Controller
     public function update(Request $request, $id)
     {
            $this->validate($request,[
-            'user'=>'required',
             'vehicle_type'      => 'required',
             'vehicle_no'        => 'required', 
             'appointment_date'  => 'required',  
