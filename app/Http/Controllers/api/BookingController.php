@@ -107,6 +107,7 @@ class BookingController extends Controller
             'user_id' => $booking->user_id,
             'uuid' => $reward->uuid + 1  
         ]);
+        }
        $res = [
         'booking' => $booking,
         'message' => 'booking created succesfully',
