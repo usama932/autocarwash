@@ -80,7 +80,7 @@ class HomeController extends Controller
             if( $reward == '0'){
                 $res = [
                     'reward' => $rewards,
-                    'message' = 'Congratulation ..! Your Next  Booking is  free. (Only Valid For Premium Service)';
+                    'message' => "Congratulation ..! Your Next  Booking is  free. (Only Valid For Premium Service)",
                 ];
                 return response()->json($res, 200);
                 
@@ -88,7 +88,7 @@ class HomeController extends Controller
             else{
                 $res = [
                     'reward' => $rewards,
-                    'message' = 'Book More Get Free';
+                    'message' => 'Book More Get Free',
                 ];
                 return response()->json($res, 200);
                
