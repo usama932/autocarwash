@@ -130,7 +130,7 @@
 
                         $rewards = App\Models\Reward::where('user_id',auth()->user()->id)->first();
                         if(!empty($rewards)){
-                            $rewards = $rewards + 1;
+                            $rewards = rewards->uuid + 1;
                              $reward = $rewards->uuid % 10 ;
                         }
                         else{
