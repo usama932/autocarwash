@@ -133,13 +133,13 @@
                              $reward = $rewards->uuid % 10 ;
                         }
                         else{
-                            $reward = 0;
+                            $reward = -1;
                         }
                            
                     @endphp
                     @if(auth()->user()->roled == 'user')
                        
-                        @if($reward > 10 )
+                        @if($reward == '0' )
                         <div class="alert alert-primary" role="alert">
                        
                         Congratulation ..! Your Next  Booking is  free. (Only Valid For Premium Service)
