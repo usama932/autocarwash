@@ -78,18 +78,24 @@ class HomeController extends Controller
         if(!empty($rewards)){
             $reward = $rewards->uuid % 10 ;
             if( $reward == '0'){
-                $reward = 'Congratulation ..! Your Next  Booking is  free. (Only Valid For Premium Service)';
+                $res = [
+                    'reward' => $rewards,
+                    'message' = 'Congratulation ..! Your Next  Booking is  free. (Only Valid For Premium Service)';
+                ];
+                return response()->json($res, 200);
+                
             }
             else{
-                $reward = 'Book More Get Free';
+                $res = [
+                    'reward' => $rewards,
+                    'message' = 'Book More Get Free';
+                ];
+                return response()->json($res, 200);
+               
             }
         }
        
-        $res = [
-            'reward' => $rewards,
-          
-        ];
-        return response()->json($res, 200);
+       
     }
     public function dashboard(){
         $employees = Employee::count();
