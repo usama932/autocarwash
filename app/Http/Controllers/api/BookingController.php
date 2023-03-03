@@ -116,12 +116,7 @@ class BookingController extends Controller
     return response()->json($res, 200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function show($id)
     {
         //
