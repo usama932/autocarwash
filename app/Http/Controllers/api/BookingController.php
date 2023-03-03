@@ -93,6 +93,20 @@ class BookingController extends Controller
         'total_price'       =>  $totol_price,
         'dis_price'          =>  $discounted_price
        ]);
+       if(empty($reward)){
+       
+        $reward = Reward::create([
+
+            'user_id' => $booking->user_id,
+            'uuid' => 1
+        ]);
+       }
+       else{
+        
+        $reward = Reward::where('id',$reward->id)->update([
+            'user_id' => $booking->user_id,
+            'uuid' => $reward->uuid + 1  
+        ]);
        $res = [
         'booking' => $booking,
         'message' => 'booking created succesfully',
