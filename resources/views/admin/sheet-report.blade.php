@@ -11,13 +11,13 @@
         .first-col {
             position: absolute;
             width: 5em;
-            margin-left: -1em;
+            margin-left: -10em;
         }
 
         .table-wrapper {
             overflow-x: scroll;
             width:100%;
-          
+            margin: 0 13%;
         }
     </style>
 @endsection
@@ -29,7 +29,7 @@
         </div>
         <div class="card-body">
             <div class="table-wrapper">
-                <table id="example" class="table table-bordered table-striped table-hover w-100">
+                <table  class="table table-bordered table-striped table-hover w-100">
                     <thead>
                         <tr >
 
