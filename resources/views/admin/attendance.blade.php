@@ -30,7 +30,7 @@
 
                     <div class="table-rep-plugin">
                         <div class="table-responsive mb-0" data-pattern="priority-columns">
-                            <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <table  id="example"  class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                         
                                 <thead>
                                     <tr>
@@ -69,6 +69,16 @@
 
 
                                 </tbody>
+                                 <tfoot>
+                                    <tr>
+                                        <th data-priority="1">Date</th>
+                                        <th data-priority="2">Employee ID</th>
+                                        <th data-priority="3">Name</th>
+                                        <th data-priority="4">Attendance</th>
+                                        <th data-priority="6">Time In</th>
+                                        <th data-priority="7">Time Out</th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
