@@ -29,7 +29,7 @@
         </div>
         <div class="card-body">
             <div class="table-wrapper">
-                <table  class="table table-bordered table-striped table-hover w-100">
+                <table id="example" class="table table-bordered table-striped table-hover w-100">
                     <thead>
                         <tr >
 
