@@ -39,7 +39,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <table id="table" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Booked By</th>
@@ -295,7 +295,7 @@
   <script>
       
 	$(document).ready(function() {
-	    var table = $('#example').DataTable( {
+	    var table = $('#table').DataTable( {
 	        lengthChange: false,
 	        buttons: [ 'excel', 'pdf', 'colvis' ],
           "scrollX": true
