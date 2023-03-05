@@ -11,7 +11,7 @@
         .first-col {
             position: absolute;
             width: 5em;
-            margin-left: -10em;
+            margin-left: -1em;
         }
 
         .table-wrapper {
