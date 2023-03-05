@@ -17,7 +17,7 @@
         .table-wrapper {
             overflow-x: scroll;
             width:100%;
-            margin: 0 13%;
+          
         }
     </style>
 @endsection
