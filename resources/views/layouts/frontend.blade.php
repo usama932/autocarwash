@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="container copyright">
-                <p>@All rights reserved by <a href="#"><i>Auto-1 Carwash</i></a>, Developed by : <a href="#">E-Galaxy Technologies Solutions</a></p>
+                <p>@All rights reserved by <a href="#"><i>Auto-1 Carwash</i></a>, Developed by : <a href="https://www.egalaxytech.com">E Galaxy Technologies Solutions</a></p>
             </div>
         </div>
         <!-- Footer End -->
