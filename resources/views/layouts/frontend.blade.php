@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <title>Auto1Carwash</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free Website Template" name="keywords">
-        <meta content="Free Website Template" name="description">
+        <meta content="Auto1-Carwash" name="keywords">
+        <meta content="Auto1-Carwash" name="description">
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <!-- Favicon -->
         <link href="{{asset('assets/img/favicon.ico')}}" rel="icon">
